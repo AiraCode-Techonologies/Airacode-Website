@@ -1,0 +1,200 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { 
+  Bot, 
+  ArrowRight, 
+  CheckCircle2, 
+  ShieldCheck, 
+  Globe, 
+  Lock, 
+  Zap,
+  Clapperboard
+} from "lucide-react";
+import { servicesData } from "@/data/servicesData";
+
+export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribed(true);
+    setTimeout(() => {
+      setEmail("");
+    }, 3000);
+  };
+
+  return (
+    <footer className="relative mt-24 border-t border-[#ede9e0] bg-[#f0ece2] text-[#4b5563] overflow-hidden w-full">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#d6cebe]">
+          {/* Column 1: Brand & Mission */}
+          <div className="lg:col-span-2 space-y-5">
+            <Link href="/" className="flex items-center gap-3.5">
+              <div 
+                className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                style={{
+                  background: "linear-gradient(135deg, #ff7e67, #eb4a2d)",
+                  boxShadow: "6px 8px 18px rgba(235, 74, 45, 0.35), inset 2px 2px 5px rgba(255, 255, 255, 0.6), inset -3px -3px 6px rgba(168, 38, 16, 0.4)",
+                }}
+              >
+                <Bot className="w-6 h-6 text-white stroke-[2.5]" />
+              </div>
+              <span className="text-2xl font-black tracking-tight text-[#1e2530]">
+                AIRA<span className="text-[#eb4a2d]">CODE</span>
+              </span>
+            </Link>
+
+            <p className="text-sm sm:text-base leading-relaxed text-[#4b5563] max-w-lg font-medium">
+              We transform your vision into reality by digitalizing your business, modernizing legacy systems, and scaling your digital products with state-of-the-art technology solutions.
+            </p>
+
+            {/* Newsletter Dispatch */}
+            <div className="pt-2">
+              <span className="block text-xs uppercase font-mono tracking-wider text-[#eb4a2d] mb-2 font-bold">
+                Subscribe to AI Architecture Dispatches
+              </span>
+              <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="enterprise@domain.com"
+                  required
+                  className="flex-1 px-4 py-2.5 text-xs bg-white rounded-2xl text-[#1e2530] placeholder-[#9ca3af] shadow-[inset_2px_2px_4px_rgba(30,37,48,0.06)] focus:outline-none focus:ring-2 focus:ring-[#eb4a2d]"
+                />
+                <button
+                  type="submit"
+                  className="clay-btn clay-btn-coral px-4 py-2 text-xs font-bold"
+                >
+                  {subscribed ? <CheckCircle2 className="w-4 h-4 text-white" /> : <ArrowRight className="w-4 h-4" />}
+                </button>
+              </form>
+              {subscribed && (
+                <span className="block text-xs text-[#059669] mt-1 font-mono font-bold">
+                  ✓ Enterprise dispatch subscription confirmed.
+                </span>
+              )}
+            </div>
+
+            {/* Compliance Pills */}
+            <div className="flex flex-wrap gap-2 pt-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-white text-[#1e2530] shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#eb4a2d]" /> SOC 2 Type II
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-white text-[#1e2530] shadow-sm">
+                <Lock className="w-3.5 h-3.5 text-[#7c3aed]" /> HIPAA Compliant
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-white text-[#1e2530] shadow-sm">
+                <Zap className="w-3.5 h-3.5 text-[#059669]" /> ISO/IEC 27001
+              </span>
+            </div>
+          </div>
+
+          {/* Column 2: Core Services */}
+          <div>
+            <h3 className="text-xs font-mono uppercase tracking-widest text-[#eb4a2d] font-black mb-4">
+              Core Capabilities
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm font-medium">
+              {servicesData.slice(0, 4).map((service) => (
+                <li key={service.id}>
+                  <Link
+                    href={`/services#${service.id}`}
+                    className="hover:text-[#eb4a2d] transition-colors block py-0.5"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Advanced Engineering */}
+          <div>
+            <h3 className="text-xs font-mono uppercase tracking-widest text-[#eb4a2d] font-black mb-4">
+              Advanced Engineering
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm font-medium">
+              {servicesData.slice(4, 8).map((service) => (
+                <li key={service.id}>
+                  <Link
+                    href={`/services#${service.id}`}
+                    className="hover:text-[#eb4a2d] transition-colors block py-0.5"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Global Hubs & Presence */}
+          <div>
+            <h3 className="text-xs font-mono uppercase tracking-widest text-[#eb4a2d] font-black mb-4">
+              Global Delivery Hubs
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm font-mono font-medium">
+              <li className="flex items-center justify-between text-[#1e2530]">
+                <span>San Francisco, US</span>
+                <span className="text-[10px] text-[#eb4a2d] font-bold">PST / UTC-8</span>
+              </li>
+              <li className="flex items-center justify-between text-[#1e2530]">
+                <span>London, UK</span>
+                <span className="text-[10px] text-[#eb4a2d] font-bold">GMT / UTC+0</span>
+              </li>
+              <li className="flex items-center justify-between text-[#1e2530]">
+                <span>Singapore</span>
+                <span className="text-[10px] text-[#eb4a2d] font-bold">SGT / UTC+8</span>
+              </li>
+              <li className="flex items-center justify-between text-[#1e2530]">
+                <span>Bengaluru, IN</span>
+                <span className="text-[10px] text-[#eb4a2d] font-bold">IST / UTC+5.5</span>
+              </li>
+            </ul>
+
+            <div className="mt-5 p-4 rounded-2xl bg-white shadow-sm space-y-1">
+              <span className="text-xs font-mono font-bold text-[#059669] flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#059669] animate-ping" />
+                24/7 Follow-The-Sun NOC Active
+              </span>
+              <span className="text-[11px] text-[#6b7280] block font-medium">
+                Continuous SRE &amp; Autonomous Agent telemetry monitoring.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono font-medium text-[#6b7280]">
+          <div className="flex items-center gap-3">
+            <span>© {new Date().getFullYear()} AIRACODE Technologies. All rights reserved.</span>
+            <span className="hidden sm:inline">|</span>
+            <span className="text-[#1e2530] font-bold">Crafted with 3D Clay Art &amp; Cinematic Flow</span>
+          </div>
+
+          <div className="flex items-center gap-5">
+            <Link href="/services" className="hover:text-[#eb4a2d] transition-colors">
+              Services
+            </Link>
+            <Link href="/solutions" className="hover:text-[#eb4a2d] transition-colors">
+              Solutions
+            </Link>
+            <Link href="/work" className="hover:text-[#eb4a2d] transition-colors">
+              Case Studies
+            </Link>
+            <Link href="/contact" className="hover:text-[#eb4a2d] transition-colors">
+              Contact
+            </Link>
+            <span className="px-2.5 py-0.5 rounded-full bg-[#10b981]/15 text-[#059669] font-bold text-[10px]">
+              Studio 100% OK
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
