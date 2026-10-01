@@ -96,6 +96,11 @@ export default function AboutPage() {
         {/* ================= SECTION 01: HERO ================= */}
         <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // ABOUT</span>
+            </div>
+
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
               About{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
@@ -123,6 +128,7 @@ export default function AboutPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="02 // PRINCIPLES"
               title="Core"
               highlightedWord="Principles"
               subtitle="The foundational philosophies guiding our engineering architecture."
@@ -155,6 +161,7 @@ export default function AboutPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="03 // NETWORK"
               title="Global"
               highlightedWord="Network"
               subtitle="Follow-the-sun operations centers across four continents."
@@ -185,6 +192,7 @@ export default function AboutPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="04 // PODS"
               title="Specialist"
               highlightedWord="Pods"
               subtitle="Senior engineering squads with distributed systems mastery."
@@ -228,6 +236,7 @@ export default function AboutPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="05 // ROADMAP"
               title="Our"
               highlightedWord="Roadmap"
               subtitle="Milestones of continuous technical innovation."

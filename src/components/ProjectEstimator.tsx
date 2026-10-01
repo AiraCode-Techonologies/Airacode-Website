@@ -40,6 +40,11 @@ export default function ProjectEstimator() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left column: Selection Options */}
         <div className="lg:col-span-7 space-y-5">
+          <div className="status-badge text-[#eb4a2d]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
+            <span>POD SIZING</span>
+          </div>
+
           <div>
             <h3 className="text-2xl sm:text-3xl font-black text-[#1e2530]">
               Scope Sizing

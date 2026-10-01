@@ -4,13 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
-  Bot, 
   Menu, 
   X, 
   ArrowRight, 
   Sparkles, 
   Layers 
 } from "lucide-react";
+import { AiraGlyph } from "@/components/AiraLogo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,18 +34,19 @@ export default function Navbar() {
             <div 
               className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:rotate-6 group-hover:scale-105"
               style={{
-                background: "linear-gradient(135deg, #ff7e67, #eb4a2d)",
-                boxShadow: "6px 8px 18px rgba(235, 74, 45, 0.35), inset 2px 2px 5px rgba(255, 255, 255, 0.6), inset -3px -3px 6px rgba(168, 38, 16, 0.4)",
+                background: "linear-gradient(135deg, #ffffff, #f4efe6)",
+                boxShadow: "6px 8px 18px rgba(30, 37, 48, 0.08), inset 2px 2px 4px rgba(255, 255, 255, 0.9), inset -2px -2px 4px rgba(200, 190, 175, 0.3)",
+                border: "1px solid rgba(237, 231, 220, 0.9)",
               }}
             >
-              <Bot className="w-6 h-6 text-white stroke-[2.5]" />
+              <AiraGlyph size={28} />
             </div>
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-black tracking-tight text-[#1e2530] flex items-center gap-0.5">
                 AIRA<span className="text-[#eb4a2d]">CODE</span>
               </span>
               <span className="text-[10px] uppercase font-bold tracking-widest text-[#6b7280] -mt-1 font-mono">
-                Enterprise Clay Studio
+                Autonomous Systems
               </span>
             </div>
           </Link>

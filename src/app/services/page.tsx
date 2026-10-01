@@ -58,8 +58,13 @@ export default function ServicesPage() {
 
       <main className="relative z-10 flex-1 w-full">
         {/* ================= SECTION 01: HERO ================= */}
-        <section className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
+        <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // SERVICES</span>
+            </div>
+
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
               Core{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
@@ -89,6 +94,7 @@ export default function ServicesPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10 sm:space-y-12">
             <SectionHeader
+              badge="02 // CAPABILITIES"
               title="Service"
               highlightedWord="Specs"
               subtitle="Technical deliverables and production guarantees."
@@ -119,7 +125,7 @@ export default function ServicesPage() {
                           </div>
                           <div>
                             <span className="text-[10px] font-mono uppercase tracking-widest text-[#6b7280] block font-bold">
-                              {service.badge}
+                              0{idx + 1} // {service.badge}
                             </span>
                             <h2 className="text-xl sm:text-2xl font-black text-[#1e2530] leading-snug">
                               {service.title}
@@ -192,6 +198,7 @@ export default function ServicesPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="03 // ECOSYSTEM"
               title="Tech"
               highlightedWord="Stack"
               subtitle="Modern AI models, resilient distributed databases, and event streams."
@@ -253,6 +260,7 @@ export default function ServicesPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="04 // PODS"
               title="Delivery"
               highlightedWord="Pods"
               subtitle="Elite AI systems engineers integrated into your organization."
@@ -297,6 +305,7 @@ export default function ServicesPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-8">
             <SectionHeader
+              badge="05 // ESTIMATOR"
               title="Scope"
               highlightedWord="Estimator"
               subtitle="Calculate pod composition and delivery requirements."

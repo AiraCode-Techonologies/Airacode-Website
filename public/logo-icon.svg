@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Terracotta Gradient -->
+    <linearGradient id="icon-coral" x1="112" y1="92" x2="400" y2="396" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff7354"/>
+      <stop offset="60%" stop-color="#eb4a2d"/>
+      <stop offset="100%" stop-color="#c93418"/>
+    </linearGradient>
+
+    <!-- Clay Base Plate Gradient -->
+    <linearGradient id="clay-plate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f4efe6"/>
+    </linearGradient>
+
+    <!-- Tactile Clay Shadow -->
+    <filter id="plate-shadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#1e2530" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#eb4a2d" flood-opacity="0.05"/>
+    </filter>
+
+    <!-- Inner Glyph Shadow for Clay Emboss Effect -->
+    <filter id="glyph-depth" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#eb4a2d" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Tactile Clay Squircle Base -->
+  <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#clay-plate)" filter="url(#plate-shadow)"/>
+  
+  <!-- Subtle Inset Rim -->
+  <rect x="26" y="26" width="460" height="460" rx="114" stroke="#ffffff" stroke-width="3" stroke-opacity="0.8"/>
+  <rect x="28" y="28" width="456" height="456" rx="112" stroke="#ede7dc" stroke-width="1.5"/>
+
+  <!-- Centered Scaled Glyph -->
+  <g transform="matrix(0.82 0 0 0.82 46 46)" filter="url(#glyph-depth)">
+    <!-- Left Bracket < meets Apex -->
+    <path d="M 172 396 L 112 260 L 256 92" 
+          stroke="url(#icon-coral)" 
+          stroke-width="48" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Right Bracket > meets Apex -->
+    <path d="M 256 92 L 400 260 L 340 396" 
+          stroke="url(#icon-coral)" 
+          stroke-width="48" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Central Code Forward Slash / -->
+    <path d="M 224 316 L 288 204" 
+          stroke="url(#icon-coral)" 
+          stroke-width="44" 
+          stroke-linecap="round"/>
+  </g>
+</svg>

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { 
-  Bot, 
   ArrowRight, 
   CheckCircle2, 
   ShieldCheck, 
@@ -12,6 +11,7 @@ import {
   Zap
 } from "lucide-react";
 import { servicesData } from "@/data/servicesData";
+import { AiraGlyph } from "@/components/AiraLogo";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -32,15 +32,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#d6cebe]">
           {/* Column 1: Brand & Mission */}
           <div className="lg:col-span-2 space-y-5">
-            <Link href="/" className="flex items-center gap-3.5">
+            <Link href="/" className="flex items-center gap-3.5 group">
               <div 
-                className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:rotate-6 group-hover:scale-105"
                 style={{
-                  background: "linear-gradient(135deg, #ff7e67, #eb4a2d)",
-                  boxShadow: "6px 8px 18px rgba(235, 74, 45, 0.35), inset 2px 2px 5px rgba(255, 255, 255, 0.6), inset -3px -3px 6px rgba(168, 38, 16, 0.4)",
+                  background: "linear-gradient(135deg, #ffffff, #f4efe6)",
+                  boxShadow: "6px 8px 18px rgba(30, 37, 48, 0.08), inset 2px 2px 4px rgba(255, 255, 255, 0.9), inset -2px -2px 4px rgba(200, 190, 175, 0.3)",
+                  border: "1px solid rgba(237, 231, 220, 0.9)",
                 }}
               >
-                <Bot className="w-6 h-6 text-white stroke-[2.5]" />
+                <AiraGlyph size={28} />
               </div>
               <span className="text-2xl font-black tracking-tight text-[#1e2530]">
                 AIRA<span className="text-[#eb4a2d]">CODE</span>

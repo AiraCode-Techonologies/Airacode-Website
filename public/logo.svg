@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- AIRACODE Terracotta Signature Gradient -->
+    <linearGradient id="aira-primary" x1="112" y1="92" x2="400" y2="396" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff7354"/>
+      <stop offset="60%" stop-color="#eb4a2d"/>
+      <stop offset="100%" stop-color="#c93418"/>
+    </linearGradient>
+
+    <!-- Neural Glow Filter for Clay & Modern Screens -->
+    <filter id="aira-depth" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#eb4a2d" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#aira-depth)">
+    <!-- Left Bracket < meets Apex (Input / Ingestion / A-stem) -->
+    <path d="M 172 396 L 112 260 L 256 92" 
+          stroke="url(#aira-primary)" 
+          stroke-width="48" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Right Bracket > meets Apex (Output / Autonomous Scale / A-stem) -->
+    <path d="M 256 92 L 400 260 L 340 396" 
+          stroke="url(#aira-primary)" 
+          stroke-width="48" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Central Code Forward Slash / (Execution Engine & A-Crossbar) -->
+    <path d="M 224 316 L 288 204" 
+          stroke="url(#aira-primary)" 
+          stroke-width="44" 
+          stroke-linecap="round"/>
+  </g>
+</svg>

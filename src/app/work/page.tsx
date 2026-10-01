@@ -43,6 +43,11 @@ export default function WorkPage() {
         {/* ================= SECTION 01: HERO ================= */}
         <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // IMPACT</span>
+            </div>
+
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
               Proven{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
@@ -80,6 +85,7 @@ export default function WorkPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="02 // CASES"
               title="Case"
               highlightedWord="Studies"
               subtitle="Deep architectural breakdowns and quantifiable client ROI."
@@ -125,6 +131,7 @@ export default function WorkPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="03 // BENCHMARKS"
               title="System"
               highlightedWord="Benchmarks"
               subtitle="Performance comparisons from active production deployments."
@@ -159,6 +166,7 @@ export default function WorkPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
+              badge="04 // REVIEWS"
               title="Client"
               highlightedWord="Reviews"
               subtitle="Verified feedback from engineering executives."
@@ -199,6 +207,11 @@ export default function WorkPage() {
         {/* ================= SECTION 05: VELOCITY ================= */}
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto clay-card p-8 sm:p-12 text-center space-y-4 max-w-3xl mx-auto">
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>05 // VELOCITY</span>
+            </div>
+
             <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530]">
               Fast{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">

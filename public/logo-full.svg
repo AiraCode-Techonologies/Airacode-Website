@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" fill="none">
+  <defs>
+    <!-- Terracotta Gradient -->
+    <linearGradient id="full-coral" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7354"/>
+      <stop offset="60%" stop-color="#eb4a2d"/>
+      <stop offset="100%" stop-color="#c93418"/>
+    </linearGradient>
+
+    <!-- Clay Base Plate Gradient for Icon -->
+    <linearGradient id="full-plate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5f0e6"/>
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow -->
+    <filter id="full-shadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#eb4a2d" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Left Icon Container -->
+  <g transform="translate(24, 24)">
+    <rect width="132" height="132" rx="34" fill="url(#full-plate)" stroke="#ede7dc" stroke-width="1.5"/>
+    <g transform="matrix(0.24 0 0 0.24 4.5 4.5)" filter="url(#full-shadow)">
+      <!-- Left Bracket < meets Apex -->
+      <path d="M 172 396 L 112 260 L 256 92" 
+            stroke="url(#full-coral)" 
+            stroke-width="48" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+
+      <!-- Right Bracket > meets Apex -->
+      <path d="M 256 92 L 400 260 L 340 396" 
+            stroke="url(#full-coral)" 
+            stroke-width="48" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+
+      <!-- Central Code Forward Slash / -->
+      <path d="M 224 316 L 288 204" 
+            stroke="url(#full-coral)" 
+            stroke-width="44" 
+            stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Typographic Wordmark -->
+  <g transform="translate(180, 102)">
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-weight="900" 
+          font-size="64" 
+          letter-spacing="-1.5">
+      <tspan fill="#1e2530">AIRA</tspan><tspan fill="#eb4a2d">CODE</tspan>
+    </text>
+  </g>
+
+  <!-- Subtitle Tagline -->
+  <g transform="translate(182, 134)">
+    <text font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" 
+          font-weight="700" 
+          font-size="14" 
+          letter-spacing="5" 
+          fill="#6b7280" 
+          text-transform="uppercase">
+      AUTONOMOUS ENTERPRISE INTELLIGENCE
+    </text>
+  </g>
+</svg>
