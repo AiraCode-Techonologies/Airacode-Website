@@ -21,11 +21,6 @@ export default function ModernizationCalculator() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Sliders Input Area */}
         <div className="lg:col-span-7 space-y-4">
-          <div className="status-badge text-[#eb4a2d]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-            <span>ROI ESTIMATE</span>
-          </div>
-
           <h3 className="text-2xl sm:text-3xl font-black text-[#1e2530]">
             Value Yield
           </h3>

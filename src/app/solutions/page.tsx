@@ -68,11 +68,6 @@ export default function SolutionsPage() {
         {/* ================= SECTION 01: HERO ================= */}
         <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>01 // SOLUTIONS</span>
-            </div>
-
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
               Modernize{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
@@ -106,7 +101,6 @@ export default function SolutionsPage() {
         <section id="blueprint" className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] scroll-mt-20 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="02 // PROTOCOL"
               title="Migration"
               highlightedWord="Protocol"
               subtitle="4-phase methodology for zero-downtime cutover."
@@ -159,7 +153,6 @@ export default function SolutionsPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="03 // INDUSTRIES"
               title="Industry"
               highlightedWord="Matrix"
               subtitle="Tailored for mission-critical sectors where uptime is non-negotiable."
@@ -207,7 +200,6 @@ export default function SolutionsPage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="04 // GOVERNANCE"
               title="Data"
               highlightedWord="Security"
               subtitle="Private VPC enclaves with zero external leakage."
@@ -253,11 +245,6 @@ export default function SolutionsPage() {
         {/* ================= SECTION 05: SLA ================= */}
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto clay-card p-8 sm:p-12 text-center space-y-5 max-w-4xl mx-auto">
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>05 // GUARANTEE</span>
-            </div>
-
             <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530]">
               Uptime{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">

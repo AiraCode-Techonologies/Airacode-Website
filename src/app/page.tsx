@@ -29,15 +29,9 @@ export default function HomePage() {
 
       <main className="relative z-10 flex-1 w-full">
         {/* ================= SECTION 01: HERO ================= */}
-        <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
+        <section className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-6">
             
-            {/* Status Badge */}
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>01 // AIRACODE</span>
-            </div>
-
             {/* 2-Word Headline */}
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-[#1e2530] leading-[1.05]">
               Autonomous{" "}
@@ -100,7 +94,6 @@ export default function HomePage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="02 // CAPABILITIES"
               title="Core"
               highlightedWord="Capabilities"
               subtitle="8 specialized disciplines engineered for scale and speed."
@@ -113,7 +106,6 @@ export default function HomePage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="03 // AUTONOMOUS RUNTIME"
               title="Agent"
               highlightedWord="Swarms"
               subtitle="Multi-agent orchestration with deterministic tool execution."
@@ -126,7 +118,6 @@ export default function HomePage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="04 // ECONOMIC IMPACT"
               title="Value"
               highlightedWord="Impact"
               subtitle="Estimate operational cost savings and velocity gains."
@@ -139,7 +130,6 @@ export default function HomePage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="05 // PROVEN SCALE"
               title="Case"
               highlightedWord="Studies"
               subtitle="Production deployments delivered with zero downtime."
@@ -201,11 +191,6 @@ export default function HomePage() {
         <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <div className="clay-card p-8 sm:p-14 text-center space-y-4 max-w-4xl mx-auto">
-              <div className="status-badge text-[#eb4a2d] mx-auto">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-                <span>06 // READY</span>
-              </div>
-
               <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530]">
                 Scale{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
