@@ -9,7 +9,6 @@ import {
   Zap, 
   ArrowRight, 
   CheckCircle2, 
-  Clapperboard, 
   Users 
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -94,12 +93,12 @@ export default function AboutPage() {
       <Navbar />
 
       <main className="relative z-10 flex-1 w-full">
-        {/* ================= ACT I: ABOUT HERO ================= */}
+        {/* ================= SECTION 01: ABOUT HERO ================= */}
         <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-32 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-6 sm:space-y-8">
-            <div className="cinema-badge text-[#eb4a2d] mx-auto">
-              <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-              <span>ACT I // PURPOSE &amp; PHILOSOPHY</span>
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // PURPOSE &amp; PHILOSOPHY</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1e2530] tracking-tight leading-tight max-w-6xl mx-auto">
@@ -125,11 +124,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================= ACT II: CORE PRINCIPLES ================= */}
+        {/* ================= SECTION 02: CORE PRINCIPLES ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT II // ENGINEERING MANIFEST"
+              badge="02 // ENGINEERING MANIFEST"
               title="Our Core Architectural"
               highlightedWord="Principles"
               subtitle="The foundational philosophies that guide our engineering decisions, codebase structures, and enterprise deliverables."
@@ -161,11 +160,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================= ACT III: GLOBAL HUBS ================= */}
+        {/* ================= SECTION 03: GLOBAL HUBS ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT III // FOLLOW-THE-SUN OPERATIONS"
+              badge="03 // FOLLOW-THE-SUN OPERATIONS"
               title="Global Delivery"
               highlightedWord="Network"
               subtitle="Strategic engineering nodes operating seamlessly across major global timezones to deliver non-stop innovation and 24/7 SRE coverage."
@@ -201,11 +200,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================= ACT IV: SPECIALIST PODS ================= */}
+        {/* ================= SECTION 04: SPECIALIST PODS ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT IV // SPECIALIST TALENT BENCH"
+              badge="04 // SPECIALIST TALENT BENCH"
               title="Elite Technical"
               highlightedWord="Engineering Squads"
               subtitle="We deploy battle-tested senior engineers with specialized mastery over distributed systems and autonomous intelligence."
@@ -245,11 +244,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================= ACT V: EVOLUTION ROADMAP ================= */}
+        {/* ================= SECTION 05: EVOLUTION ROADMAP ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT V // CHRONOLOGY"
+              badge="05 // CHRONOLOGY"
               title="The AIRACODE"
               highlightedWord="Evolution"
               subtitle="From pioneering legacy deconstructions to engineering the world's most resilient autonomous enterprise systems."

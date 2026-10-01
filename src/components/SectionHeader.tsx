@@ -1,5 +1,5 @@
 import React from "react";
-import { Clapperboard } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 interface SectionHeaderProps {
   badge: string;
@@ -18,13 +18,14 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className={`w-full max-w-6xl mb-12 sm:mb-16 ${centered ? "mx-auto text-center" : "text-left"}`}>
-      {/* Cinematic Scene Clay Badge */}
-      <div className={`cinema-badge text-[#eb4a2d] mb-4 sm:mb-5 ${centered ? "mx-auto" : ""}`}>
-        <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
+      {/* Sleek Category Status Badge with Animated Pulse */}
+      <div className={`status-badge text-[#eb4a2d] mb-4 sm:mb-5 ${centered ? "mx-auto" : ""}`}>
+        <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+        <Sparkles className="w-3.5 h-3.5 text-[#eb4a2d]" />
         <span>{badge}</span>
       </div>
 
-      {/* Main Tactile Headline */}
+      {/* Main Tactile Clay Headline */}
       <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#1e2530] leading-[1.12]">
         {title}{" "}
         {highlightedWord && (

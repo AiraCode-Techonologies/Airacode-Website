@@ -9,8 +9,7 @@ import {
   ShieldCheck, 
   Globe, 
   Lock, 
-  Zap,
-  Clapperboard
+  Zap
 } from "lucide-react";
 import { servicesData } from "@/data/servicesData";
 
@@ -173,7 +172,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <span>© {new Date().getFullYear()} AIRACODE Technologies. All rights reserved.</span>
             <span className="hidden sm:inline">|</span>
-            <span className="text-[#1e2530] font-bold">Crafted with 3D Clay Art &amp; Cinematic Flow</span>
+            <span className="text-[#1e2530] font-bold">Crafted with 3D Clay Art &amp; Kinetic Engineering</span>
           </div>
 
           <div className="flex items-center gap-5">

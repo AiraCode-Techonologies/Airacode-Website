@@ -13,8 +13,7 @@ import {
   ShieldAlert, 
   Database,
   Workflow,
-  Sparkles,
-  Clapperboard
+  Sparkles
 } from "lucide-react";
 
 export default function InteractiveAgentTerminal() {
@@ -59,8 +58,8 @@ export default function InteractiveAgentTerminal() {
             <span className="w-3.5 h-3.5 rounded-full bg-[#10b981] shadow-[inset_1px_1px_2px_rgba(255,255,255,0.7),2px_2px_4px_rgba(0,0,0,0.15)]" />
           </div>
           <span className="text-xs sm:text-sm font-mono font-bold text-[#4b5563] pl-2 border-l border-[#ede9e0] flex items-center gap-2">
-            <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-            airacode-autonomous-studio v4.8 [live_clay_engine]
+            <Terminal className="w-4 h-4 text-[#eb4a2d]" />
+            airacode-autonomous-runtime v4.8 [active_kernel]
           </span>
         </div>
 

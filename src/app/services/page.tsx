@@ -11,7 +11,6 @@ import {
   Bot, 
   ArrowRight, 
   CheckCircle2, 
-  Clapperboard, 
   Layers 
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -58,12 +57,12 @@ export default function ServicesPage() {
       <Navbar />
 
       <main className="relative z-10 flex-1 w-full">
-        {/* ================= ACT I: SERVICES HERO ================= */}
+        {/* ================= SECTION 01: SERVICES HERO ================= */}
         <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-32 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-6 sm:space-y-8">
-            <div className="cinema-badge text-[#eb4a2d] mx-auto">
-              <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-              <span>ACT I // FULL-SPECTRUM DISCIPLINES</span>
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // FULL-SPECTRUM DISCIPLINES</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1e2530] tracking-tight leading-tight max-w-6xl mx-auto">
@@ -92,11 +91,11 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ================= ACT II: ALL 8 SERVICES DEEP-DIVE ================= */}
+        {/* ================= SECTION 02: ALL 8 SERVICES DEEP-DIVE ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-16 sm:space-y-20">
             <SectionHeader
-              badge="ACT II // ARCHITECTURAL BREAKDOWN"
+              badge="02 // ARCHITECTURAL BREAKDOWN"
               title="Comprehensive"
               highlightedWord="Services Offered"
               subtitle="Deep technical specifications, deliverables, and production guarantees across every engineering vector."
@@ -236,11 +235,11 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ================= ACT III: TECH ECOSYSTEM RADAR ================= */}
+        {/* ================= SECTION 03: TECH ECOSYSTEM RADAR ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT III // INTEGRATION RADAR"
+              badge="03 // INTEGRATION RADAR"
               title="Modern Engineering"
               highlightedWord="Ecosystem"
               subtitle="Interoperable with cutting-edge frontier AI models, resilient distributed databases, and automated event buses."
@@ -298,11 +297,11 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ================= ACT IV: DELIVERY POD FRAMEWORK ================= */}
+        {/* ================= SECTION 04: DELIVERY POD FRAMEWORK ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT IV // POD EXECUTION"
+              badge="04 // POD EXECUTION"
               title="Dedicated Engineering"
               highlightedWord="Pods"
               subtitle="How AIRACODE embeds elite AI systems engineers and cloud architects into your organization."
@@ -346,11 +345,11 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ================= ACT V: SOLUTION CONFIGURATOR ================= */}
+        {/* ================= SECTION 05: SOLUTION CONFIGURATOR ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-8">
             <SectionHeader
-              badge="ACT V // CUSTOM BLUEPRINT"
+              badge="05 // CUSTOM BLUEPRINT"
               title="Tailor Your"
               highlightedWord="Solution"
               subtitle="Select the capabilities you need and receive an immediate pod composition and architecture recommendation."

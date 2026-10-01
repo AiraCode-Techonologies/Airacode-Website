@@ -12,8 +12,7 @@ import {
   Clock, 
   Lock, 
   ChevronDown, 
-  Send,
-  Clapperboard
+  Send
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -71,12 +70,12 @@ export default function ContactPage() {
       <Navbar />
 
       <main className="relative z-10 flex-1 w-full">
-        {/* ================= ACT I: CONTACT HERO ================= */}
+        {/* ================= SECTION 01: CONTACT HERO ================= */}
         <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-32 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-6 sm:space-y-8">
-            <div className="cinema-badge text-[#eb4a2d] mx-auto">
-              <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-              <span>ACT I // DIRECT ENGAGEMENT DESK</span>
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // DIRECT ENGAGEMENT DESK</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1e2530] tracking-tight leading-tight max-w-6xl mx-auto">
@@ -101,11 +100,11 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ================= ACT II: INTERACTIVE SCOPE ESTIMATOR ================= */}
+        {/* ================= SECTION 02: INTERACTIVE SCOPE ESTIMATOR ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-8">
             <SectionHeader
-              badge="ACT II // DYNAMIC SCOPING"
+              badge="02 // DYNAMIC SCOPING"
               title="Estimate Your"
               highlightedWord="Project Scope"
               subtitle="Calculate engineering pod requirements before scheduling your technical discovery session."
@@ -114,11 +113,11 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ================= ACT III: ENTERPRISE RFP FORM ================= */}
+        {/* ================= SECTION 03: ENTERPRISE RFP FORM ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-6xl mx-auto space-y-8">
             <SectionHeader
-              badge="ACT III // CONFIDENTIAL RFP"
+              badge="03 // CONFIDENTIAL RFP"
               title="Submit Technical"
               highlightedWord="Inquiry"
               subtitle="Directly connected to our Principal AI Systems Architect. We respond within 4 business hours under mutual NDA."
@@ -248,11 +247,11 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ================= ACT IV: GLOBAL HUBS ================= */}
+        {/* ================= SECTION 04: GLOBAL HUBS ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT IV // GLOBAL PRESENCE"
+              badge="04 // GLOBAL PRESENCE"
               title="Global Engineering"
               highlightedWord="Hubs"
               subtitle="Direct contacts and follow-the-sun operations centers across four continents."
@@ -290,11 +289,11 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ================= ACT V: ENTERPRISE FAQ ACCORDION ================= */}
+        {/* ================= SECTION 05: ENTERPRISE FAQ ACCORDION ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-6xl mx-auto space-y-12">
             <SectionHeader
-              badge="ACT V // CLARITY &amp; PROTOCOL"
+              badge="05 // CLARITY &amp; PROTOCOL"
               title="Frequently Asked"
               highlightedWord="Questions"
               subtitle="Key operational details regarding contracts, privacy, architecture, and deployment schedules."

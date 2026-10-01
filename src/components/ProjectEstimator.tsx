@@ -9,7 +9,6 @@ import {
   Clock, 
   Users, 
   ShieldCheck,
-  Clapperboard,
   Layers,
   Zap,
   Server
@@ -44,8 +43,9 @@ export default function ProjectEstimator() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
         {/* Left column: Selection Options */}
         <div className="lg:col-span-7 space-y-7">
-          <div className="cinema-badge text-[#eb4a2d]">
-            <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
+          <div className="status-badge text-[#eb4a2d]">
+            <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+            <Sparkles className="w-3.5 h-3.5 text-[#eb4a2d]" />
             <span>Scope Configurator &amp; Pod Sizing</span>
           </div>
 

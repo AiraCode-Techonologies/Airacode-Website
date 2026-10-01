@@ -12,8 +12,7 @@ import {
   Zap, 
   Database,
   Terminal,
-  Bot,
-  Clapperboard
+  Bot
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -66,12 +65,12 @@ export default function SolutionsPage() {
       <Navbar />
 
       <main className="relative z-10 flex-1 w-full">
-        {/* ================= ACT I: SOLUTIONS HERO ================= */}
+        {/* ================= SECTION 01: SOLUTIONS HERO ================= */}
         <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-32 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-6 sm:space-y-8">
-            <div className="cinema-badge text-[#eb4a2d] mx-auto">
-              <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-              <span>ACT I // MODERNIZATION BLUEPRINT</span>
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // MODERNIZATION BLUEPRINT</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1e2530] tracking-tight leading-tight max-w-6xl mx-auto">
@@ -102,11 +101,11 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        {/* ================= ACT II: 4-PHASE MIGRATION BLUEPRINT ================= */}
+        {/* ================= SECTION 02: 4-PHASE MIGRATION BLUEPRINT ================= */}
         <section id="blueprint" className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] scroll-mt-20 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-14">
             <SectionHeader
-              badge="ACT II // ZERO-DISRUPTION PROTOCOL"
+              badge="02 // ZERO-DISRUPTION PROTOCOL"
               title="The 4-Phase"
               highlightedWord="Modernization Protocol"
               subtitle="Our proven engineering methodology for decomposing high-risk legacy monoliths without a single second of production downtime."
@@ -194,11 +193,11 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        {/* ================= ACT III: INDUSTRY SOLUTIONS MATRIX ================= */}
+        {/* ================= SECTION 03: INDUSTRY SOLUTIONS MATRIX ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT III // INDUSTRY MATRIX"
+              badge="03 // INDUSTRY MATRIX"
               title="Tailored For"
               highlightedWord="High-Stakes Sectors"
               subtitle="Solving mission-critical computational challenges where uptime, compliance, and latency are non-negotiable."
@@ -245,11 +244,11 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        {/* ================= ACT IV: SOVEREIGN AI & ZERO-TRUST SECURITY ================= */}
+        {/* ================= SECTION 04: SOVEREIGN AI & ZERO-TRUST SECURITY ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT IV // ZERO-TRUST GOVERNANCE"
+              badge="04 // ZERO-TRUST GOVERNANCE"
               title="Sovereign AI &amp;"
               highlightedWord="Enterprise Security"
               subtitle="Your proprietary enterprise data never leaks into third-party foundation models. Strict private VPC isolation."
@@ -292,12 +291,12 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        {/* ================= ACT V: ENTERPRISE SLA GUARANTEE ================= */}
+        {/* ================= SECTION 05: ENTERPRISE SLA GUARANTEE ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto clay-card p-8 sm:p-14 lg:p-20 text-center space-y-6 sm:space-y-8">
-            <div className="cinema-badge text-[#eb4a2d] mx-auto">
-              <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-              <span>ACT V // CONTRACTUAL GUARANTEE</span>
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>05 // CONTRACTUAL GUARANTEE</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1e2530]">

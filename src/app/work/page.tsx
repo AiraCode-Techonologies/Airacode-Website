@@ -8,7 +8,6 @@ import {
   Zap, 
   Cpu, 
   Clock, 
-  Clapperboard, 
   Layers 
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -41,12 +40,12 @@ export default function WorkPage() {
       <Navbar />
 
       <main className="relative z-10 flex-1 w-full">
-        {/* ================= ACT I: WORK HERO ================= */}
+        {/* ================= SECTION 01: WORK HERO ================= */}
         <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-32 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-6 sm:space-y-8">
-            <div className="cinema-badge text-[#eb4a2d] mx-auto">
-              <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-              <span>ACT I // EMPIRICAL EVIDENCE</span>
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // EMPIRICAL EVIDENCE</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1e2530] tracking-tight leading-tight max-w-5xl mx-auto">
@@ -82,11 +81,11 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* ================= ACT II: IN-DEPTH CASE STUDIES ================= */}
+        {/* ================= SECTION 02: IN-DEPTH CASE STUDIES ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-16">
             <SectionHeader
-              badge="ACT II // ARCHITECTURAL BREAKDOWN"
+              badge="02 // ARCHITECTURAL BREAKDOWN"
               title="Architectural"
               highlightedWord="Deconstructions"
               subtitle="Deep dives into how we solved intractable engineering challenges for enterprise systems."
@@ -153,11 +152,11 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* ================= ACT III: EMPIRICAL BENCHMARK MATRIX ================= */}
+        {/* ================= SECTION 03: EMPIRICAL BENCHMARK MATRIX ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT III // COMPARATIVE BENCHMARKS"
+              badge="03 // COMPARATIVE BENCHMARKS"
               title="Legacy Systems vs"
               highlightedWord="AIRACODE Modernized"
               subtitle="Direct performance and cost comparison based on telemetry from active production client deployments."
@@ -188,11 +187,11 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* ================= ACT IV: CLIENT TESTIMONIALS ================= */}
+        {/* ================= SECTION 04: CLIENT TESTIMONIALS ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="ACT IV // VERIFIED TESTIMONIALS"
+              badge="04 // VERIFIED TESTIMONIALS"
               title="What Technology"
               highlightedWord="Leaders Say"
               subtitle="Feedback from engineering executives who partnered with AIRACODE for mission-critical modernizations."
@@ -237,12 +236,12 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* ================= ACT V: DELIVERY VELOCITY TIMELINE ================= */}
+        {/* ================= SECTION 05: DELIVERY VELOCITY TIMELINE ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto clay-card p-8 sm:p-14 lg:p-20 text-center space-y-6 sm:space-y-8">
-            <div className="cinema-badge text-[#eb4a2d] mx-auto">
-              <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-              <span>ACT V // TIMELINE VELOCITY</span>
+            <div className="status-badge text-[#eb4a2d] mx-auto">
+              <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>05 // TIMELINE VELOCITY</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1e2530]">

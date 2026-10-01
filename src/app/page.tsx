@@ -6,9 +6,9 @@ import {
   ShieldCheck, 
   Cpu, 
   Zap, 
-  Clapperboard, 
   TrendingUp, 
-  Layers 
+  Layers,
+  Activity 
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -29,14 +29,15 @@ export default function HomePage() {
       <Navbar />
 
       <main className="relative z-10 flex-1 w-full">
-        {/* ================= ACT I: CINEMATIC HERO ================= */}
+        {/* ================= SECTION 01: HERO & ARCHITECTURE ================= */}
         <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <div className="text-center max-w-7xl mx-auto space-y-6 sm:space-y-8">
-              {/* Tactile Scene Badge */}
-              <div className="cinema-badge text-[#eb4a2d] mx-auto">
-                <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-                <span>SCENE 01 // ENTERPRISE AI AWAKENING</span>
+              {/* Tactile Status Badge */}
+              <div className="status-badge text-[#eb4a2d] mx-auto">
+                <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+                <Sparkles className="w-3.5 h-3.5 text-[#eb4a2d]" />
+                <span>01 // ENTERPRISE AI ARCHITECTURE</span>
               </div>
 
               {/* Bold Expressive Clay Headline */}
@@ -97,11 +98,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= ACT II: CAPABILITIES MATRIX ================= */}
+        {/* ================= SECTION 02: CORE DISCIPLINES ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="SCENE 02 // CAPABILITIES MATRIX"
+              badge="02 // CAPABILITIES MATRIX"
               title="State-of-the-Art Technology"
               highlightedWord="Solutions"
               subtitle="End-to-end engineering excellence across artificial intelligence, multi-cloud platforms, legacy system modernization, and autonomous workflow automation."
@@ -110,11 +111,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= ACT III: AUTONOMOUS SWARM SIMULATION ================= */}
+        {/* ================= SECTION 03: AUTONOMOUS SWARM SIMULATION ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="SCENE 03 // LIVE SIMULATION"
+              badge="03 // LIVE SWARM SIMULATION"
               title="Experience The"
               highlightedWord="Autonomous Swarm"
               subtitle="Inspect our real-time multi-agent execution pipeline, low-latency model quantization telemetry, and zero-downtime modernization architecture."
@@ -123,11 +124,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= ACT IV: ECONOMIC IMPACT CALCULATOR ================= */}
+        {/* ================= SECTION 04: ECONOMIC IMPACT CALCULATOR ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="SCENE 04 // ECONOMIC YIELD"
+              badge="04 // ECONOMIC YIELD MODELER"
               title="Quantifiable Enterprise"
               highlightedWord="ROI"
               subtitle="Calculate how modernizing your legacy codebase and deploying AI workflows recovers operational overhead and accelerates revenue."
@@ -136,11 +137,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= ACT V: CASE STUDIES ================= */}
+        {/* ================= SECTION 05: CASE STUDIES ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-12">
             <SectionHeader
-              badge="SCENE 05 // PROVEN SCALE"
+              badge="05 // PROVEN SCALE DEPLOYMENTS"
               title="Enterprise Systems"
               highlightedWord="Transformed"
               subtitle="Real client deployments operating at scale across regulated financial ecosystems, healthcare networks, and global retail platforms."
@@ -189,20 +190,10 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-
-            <div className="text-center pt-4">
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#eb4a2d] hover:text-[#c0392b] transition-colors"
-              >
-                <span>View Full Architectural Case Studies &amp; Benchmarks</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
           </div>
         </section>
 
-        {/* ================= ACT VI: CLAY CTA ================= */}
+        {/* ================= SECTION 06: MODERNIZATION CTA ================= */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <div 
@@ -211,9 +202,10 @@ export default function HomePage() {
                 background: "linear-gradient(135deg, #ffffff, #fcf9f5)",
               }}
             >
-              <div className="cinema-badge text-[#eb4a2d] mx-auto">
-                <Clapperboard className="w-4 h-4 text-[#eb4a2d]" />
-                <span>SCENE 06 // THE NEXT HORIZON</span>
+              <div className="status-badge text-[#eb4a2d] mx-auto">
+                <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
+                <Zap className="w-3.5 h-3.5 text-[#eb4a2d]" />
+                <span>06 // COMMENCE TRANSFORMATION</span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#1e2530] tracking-tight leading-tight max-w-4xl mx-auto">
