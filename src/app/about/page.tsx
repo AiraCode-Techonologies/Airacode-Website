@@ -18,38 +18,38 @@ import ClayAmbientShapes from "@/components/ClayAmbientShapes";
 import SectionHeader from "@/components/SectionHeader";
 
 export const metadata: Metadata = {
-  title: "About Us & Engineering Philosophy | AIRACODE",
+  title: "About Us | AIRACODE",
   description:
-    "Learn about AIRACODE's mission, engineering principles, and global infrastructure powering enterprise system modernization and autonomous AI.",
+    "Learn about AIRACODE's mission, engineering principles, and global infrastructure powering enterprise modernization.",
 };
 
 export default function AboutPage() {
   const principles = [
     {
-      title: "Zero-Downtime Dogma",
-      desc: "We believe modernization must never disrupt live transactional revenue. Every migration uses non-invasive CDC streaming and active-active cutovers.",
+      title: "Zero-Downtime",
+      desc: "Modernization must never disrupt live revenue. Every migration uses non-invasive CDC streaming and active cutovers.",
       badge: "Reliability",
       icon: ShieldCheck,
       color: "bg-[#eb4a2d]",
     },
     {
-      title: "Sovereign AI Enclaves",
-      desc: "Enterprise intelligence and proprietary data must remain 100% sovereign. We deploy dedicated private VPC models with zero data leakage to external foundation providers.",
+      title: "Sovereign AI",
+      desc: "Enterprise intelligence must remain sovereign. We deploy private VPC models with zero third-party leakage.",
       badge: "Sovereignty",
       icon: Cpu,
       color: "bg-[#7c3aed]",
     },
     {
-      title: "Deterministic Agentic Safety",
-      desc: "Autonomous AI agents must not hallucinate or make untested modifications. We enforce strict schema sandboxes, verification loops, and human-in-the-loop gates.",
+      title: "Deterministic Agents",
+      desc: "Autonomous AI agents must not hallucinate. We enforce schema validation sandboxes and human verification gates.",
       badge: "Governance",
       icon: Bot,
       color: "bg-[#059669]",
     },
     {
-      title: "Obsession with Sub-Second Latency",
-      desc: "In distributed computing, latency is the ultimate tax. From edge-rendered Next.js frontends to 4-bit AWQ quantized SLMs, we engineer for microsecond efficiency.",
-      badge: "Performance",
+      title: "Sub-Second Latency",
+      desc: "Latency is the ultimate tax. From edge Next.js frontends to quantized SLMs, we optimize for microsecond speed.",
+      badge: "Speed",
       icon: Zap,
       color: "bg-[#2563eb]",
     },
@@ -58,31 +58,31 @@ export default function AboutPage() {
   const globalNodes = [
     {
       city: "San Francisco",
-      country: "United States",
-      timezone: "PST (UTC-8)",
-      role: "AI Research, Product Engineering & Architecture",
-      status: "Active Node",
+      country: "USA",
+      timezone: "PST",
+      role: "AI Research & Architecture",
+      status: "Active",
     },
     {
       city: "London",
-      country: "United Kingdom",
-      timezone: "GMT (UTC+0)",
-      role: "European Cloud Sovereignty & FinTech Systems",
-      status: "Active Node",
+      country: "UK",
+      timezone: "GMT",
+      role: "Cloud Sovereignty & FinTech",
+      status: "Active",
     },
     {
       city: "Singapore",
       country: "Singapore",
-      timezone: "SGT (UTC+8)",
-      role: "APAC Distributed Infrastructure & High-Frequency Systems",
-      status: "Active Node",
+      timezone: "SGT",
+      role: "Distributed Infrastructure",
+      status: "Active",
     },
     {
       city: "Bengaluru",
       country: "India",
-      timezone: "IST (UTC+5.5)",
-      role: "High-Scale Modernization Pods & 24/7 SRE NOC",
-      status: "Active Node",
+      timezone: "IST",
+      role: "Modernization Pods & 24/7 SRE",
+      status: "Active",
     },
   ];
 
@@ -93,66 +93,63 @@ export default function AboutPage() {
       <Navbar />
 
       <main className="relative z-10 flex-1 w-full">
-        {/* ================= SECTION 01: ABOUT HERO ================= */}
-        <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-32 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
-          <div className="w-full max-w-[1800px] mx-auto text-center space-y-6 sm:space-y-8">
+        {/* ================= SECTION 01: HERO ================= */}
+        <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
+          <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
             <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-2 h-2 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>01 // PURPOSE &amp; PHILOSOPHY</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
+              <span>01 // ABOUT</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1e2530] tracking-tight leading-tight max-w-6xl mx-auto">
-              Engineering The Systems That{" "}
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
+              About{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
-                Power Tomorrow.
+                Us
               </span>
             </h1>
 
-            <p className="text-base sm:text-xl md:text-2xl text-[#4b5563] max-w-5xl mx-auto leading-relaxed font-medium">
-              We transform your vision into reality by digitalizing your business, modernizing legacy systems, and scaling your digital products with state-of-the-art technology solutions.
+            <p className="text-base sm:text-xl text-[#4b5563] max-w-2xl mx-auto font-medium">
+              We digitalize your business, modernize legacy systems, and engineer autonomous AI products for scale.
             </p>
 
-            <div className="pt-4 flex justify-center">
+            <div className="pt-2 flex justify-center">
               <Link
                 href="/contact"
-                className="clay-btn clay-btn-coral px-9 py-4 text-base font-black tracking-wide"
+                className="clay-btn clay-btn-coral px-8 py-3.5 text-base font-black tracking-wide"
               >
-                <span>Connect With Technical Leadership</span>
+                <span>Connect Leadership</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
         </section>
 
-        {/* ================= SECTION 02: CORE PRINCIPLES ================= */}
-        <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
-          <div className="w-full max-w-[1800px] mx-auto space-y-12">
+        {/* ================= SECTION 02: PRINCIPLES ================= */}
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+          <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="02 // ENGINEERING MANIFEST"
-              title="Our Core Architectural"
+              badge="02 // PRINCIPLES"
+              title="Core"
               highlightedWord="Principles"
-              subtitle="The foundational philosophies that guide our engineering decisions, codebase structures, and enterprise deliverables."
+              subtitle="The foundational philosophies guiding our engineering architecture."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
               {principles.map((p) => {
                 const Icon = p.icon;
                 return (
-                  <div
-                    key={p.title}
-                    className="clay-card p-8 lg:p-12 space-y-4"
-                  >
+                  <div key={p.title} className="clay-card p-6 sm:p-8 space-y-3">
                     <div className="flex items-center justify-between">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white ${p.color} shadow-sm`}>
-                        <Icon className="w-7 h-7 stroke-[2.5]" />
+                      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-white ${p.color} shadow-sm`}>
+                        <Icon className="w-5 h-5 stroke-[2.5]" />
                       </div>
-                      <span className="text-xs font-mono font-bold uppercase px-3.5 py-1.5 rounded-full bg-[#ede9e0] text-[#1e2530]">
+                      <span className="text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full bg-[#ede9e0] text-[#1e2530]">
                         {p.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-2xl sm:text-3xl font-black text-[#1e2530]">{p.title}</h3>
-                    <p className="text-sm sm:text-base text-[#4b5563] leading-relaxed font-medium">{p.desc}</p>
+                    <h3 className="text-xl font-black text-[#1e2530]">{p.title}</h3>
+                    <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed font-medium">{p.desc}</p>
                   </div>
                 );
               })}
@@ -160,128 +157,119 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================= SECTION 03: GLOBAL HUBS ================= */}
-        <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
-          <div className="w-full max-w-[1800px] mx-auto space-y-12">
+        {/* ================= SECTION 03: HUBS ================= */}
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+          <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="03 // FOLLOW-THE-SUN OPERATIONS"
-              title="Global Delivery"
+              badge="03 // NETWORK"
+              title="Global"
               highlightedWord="Network"
-              subtitle="Strategic engineering nodes operating seamlessly across major global timezones to deliver non-stop innovation and 24/7 SRE coverage."
+              subtitle="Follow-the-sun operations centers across four continents."
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {globalNodes.map((node) => (
-                <div
-                  key={node.city}
-                  className="clay-card p-7 sm:p-8 space-y-4 flex flex-col justify-between"
-                >
-                  <div className="space-y-2.5">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-[#eb4a2d]">{node.timezone}</span>
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-[#059669]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#059669] animate-ping" />
-                        {node.status}
-                      </span>
-                    </div>
-                    <h4 className="text-2xl font-black text-[#1e2530]">{node.city}</h4>
-                    <span className="text-xs sm:text-sm text-[#6b7280] font-bold block">{node.country}</span>
-                    <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed font-medium pt-2">
-                      {node.role}
-                    </p>
+                <div key={node.city} className="clay-card p-6 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold text-[#eb4a2d]">{node.timezone}</span>
+                    <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-[#059669]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#059669] animate-ping" />
+                      {node.status}
+                    </span>
                   </div>
-
-                  <div className="pt-4 border-t border-[#ede9e0] text-xs font-mono font-bold text-[#6b7280]">
-                    SRE Telemetry: 100% Operational
-                  </div>
+                  <h4 className="text-xl font-black text-[#1e2530]">{node.city}</h4>
+                  <span className="text-xs text-[#6b7280] font-bold block">{node.country}</span>
+                  <p className="text-xs text-[#4b5563] font-medium pt-1">
+                    {node.role}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ================= SECTION 04: SPECIALIST PODS ================= */}
-        <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
-          <div className="w-full max-w-[1800px] mx-auto space-y-12">
+        {/* ================= SECTION 04: PODS ================= */}
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+          <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="04 // SPECIALIST TALENT BENCH"
-              title="Elite Technical"
-              highlightedWord="Engineering Squads"
-              subtitle="We deploy battle-tested senior engineers with specialized mastery over distributed systems and autonomous intelligence."
+              badge="04 // PODS"
+              title="Specialist"
+              highlightedWord="Pods"
+              subtitle="Senior engineering squads with distributed systems mastery."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-              <div className="clay-card p-8 lg:p-10 space-y-3.5">
-                <span className="text-xs sm:text-sm font-mono uppercase text-[#eb4a2d] font-black block">
-                  AI Systems &amp; Agents Pod
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+              <div className="clay-card p-6 space-y-2.5">
+                <span className="text-xs font-mono uppercase text-[#eb4a2d] font-black block">
+                  AI Systems Pod
                 </span>
-                <h4 className="text-xl font-black text-[#1e2530]">Model Alignment &amp; Swarms</h4>
-                <p className="text-sm text-[#4b5563] leading-relaxed font-medium">
-                  Specialists in LoRA parameter-efficient fine-tuning, vLLM inference orchestration, LangGraph state machines, and multi-agent consensus protocols.
+                <h4 className="text-lg font-black text-[#1e2530]">Model Alignment &amp; Swarms</h4>
+                <p className="text-xs text-[#4b5563] leading-relaxed font-medium">
+                  LoRA fine-tuning, vLLM inference orchestration, LangGraph state machines, and consensus protocols.
                 </p>
               </div>
 
-              <div className="clay-card p-8 lg:p-10 space-y-3.5">
-                <span className="text-xs sm:text-sm font-mono uppercase text-[#7c3aed] font-black block">
+              <div className="clay-card p-6 space-y-2.5">
+                <span className="text-xs font-mono uppercase text-[#7c3aed] font-black block">
                   Cloud &amp; DevOps Pod
                 </span>
-                <h4 className="text-xl font-black text-[#1e2530]">Kubernetes, Terraform &amp; GitOps</h4>
-                <p className="text-sm text-[#4b5563] leading-relaxed font-medium">
-                  Certified AWS, GCP, and Azure enterprise architects managing containerized microservices, zero-trust networks, and automated CI/CD pipelines.
+                <h4 className="text-lg font-black text-[#1e2530]">Kubernetes &amp; GitOps</h4>
+                <p className="text-xs text-[#4b5563] leading-relaxed font-medium">
+                  Multi-cloud AWS, GCP, and Azure containerized microservices and automated CI/CD pipelines.
                 </p>
               </div>
 
-              <div className="clay-card p-8 lg:p-10 space-y-3.5">
-                <span className="text-xs sm:text-sm font-mono uppercase text-[#059669] font-black block">
-                  Modernization &amp; Data Pod
+              <div className="clay-card p-6 space-y-2.5">
+                <span className="text-xs font-mono uppercase text-[#059669] font-black block">
+                  Modernization Pod
                 </span>
-                <h4 className="text-xl font-black text-[#1e2530]">Kafka, Snowflake &amp; n8n</h4>
-                <p className="text-sm text-[#4b5563] leading-relaxed font-medium">
-                  Engineers skilled in legacy code deconstruction, CDC data replication, high-throughput lakehouse pipelines, and self-hosted workflow automation.
+                <h4 className="text-lg font-black text-[#1e2530]">Kafka &amp; Snowflake</h4>
+                <p className="text-xs text-[#4b5563] leading-relaxed font-medium">
+                  CDC replication, high-throughput lakehouse pipelines, and automated enterprise workflows.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ================= SECTION 05: EVOLUTION ROADMAP ================= */}
-        <section className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
-          <div className="w-full max-w-[1800px] mx-auto space-y-12">
+        {/* ================= SECTION 05: ROADMAP ================= */}
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+          <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="05 // CHRONOLOGY"
-              title="The AIRACODE"
-              highlightedWord="Evolution"
-              subtitle="From pioneering legacy deconstructions to engineering the world's most resilient autonomous enterprise systems."
+              badge="05 // ROADMAP"
+              title="Our"
+              highlightedWord="Roadmap"
+              subtitle="Milestones of continuous technical innovation."
             />
 
-            <div className="w-full max-w-6xl mx-auto relative border-l-2 border-[#d6cebe] ml-4 sm:ml-8 md:mx-auto space-y-10 pl-6 sm:pl-8">
+            <div className="w-full max-w-4xl mx-auto border-l-2 border-[#d6cebe] ml-4 sm:ml-8 md:mx-auto space-y-8 pl-6 sm:pl-8">
               {[
                 {
                   year: "2021",
-                  title: "Legacy Deconstruction Protocol Founded",
-                  desc: "Engineered our proprietary CDC replication framework to modernize financial and medical monoliths with zero seconds of transactional downtime.",
+                  title: "CDC Modernization Founded",
+                  desc: "Zero-downtime replication framework for legacy monoliths.",
                 },
                 {
                   year: "2023",
-                  title: "Private VPC LLM Fine-Tuning Engine",
-                  desc: "Launched our dedicated model quantization & LoRA training pipeline, slashing enterprise AI inference costs by over 50%.",
+                  title: "Private VPC AI Engine",
+                  desc: "Dedicated model quantization cutting inference costs by 50%.",
                 },
                 {
                   year: "2024",
-                  title: "Multi-Cloud Kubernetes GitOps Standard",
-                  desc: "Standardized active-active deployment topologies across AWS, GCP, and Azure, achieving 99.99% enterprise uptime SLAs.",
+                  title: "Multi-Cloud Kubernetes Standard",
+                  desc: "Active-active deployment achieving 99.99% enterprise uptime.",
                 },
                 {
                   year: "2025 - 2026",
-                  title: "Production Autonomous Agentic Swarms",
-                  desc: "Pioneered verified multi-agent systems with deterministic tool sandboxes and self-correcting logic for global enterprises.",
+                  title: "Autonomous Agentic Swarms",
+                  desc: "Production multi-agent systems with deterministic tool sandboxes.",
                 },
               ].map((m) => (
                 <div key={m.year} className="relative group">
-                  <div className="absolute -left-[33px] sm:-left-[41px] top-1.5 w-5 h-5 rounded-full bg-[#f5f2eb] border-4 border-[#eb4a2d] group-hover:scale-125 transition-transform shadow-sm" />
-                  <span className="text-xs sm:text-sm font-mono font-black text-[#eb4a2d] block mb-1">{m.year}</span>
-                  <h4 className="text-xl font-black text-[#1e2530]">{m.title}</h4>
-                  <p className="text-sm sm:text-base text-[#4b5563] mt-1 leading-relaxed font-medium">{m.desc}</p>
+                  <div className="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-[#f5f2eb] border-3 border-[#eb4a2d] group-hover:scale-125 transition-transform shadow-sm" />
+                  <span className="text-xs font-mono font-black text-[#eb4a2d] block mb-0.5">{m.year}</span>
+                  <h4 className="text-lg font-black text-[#1e2530]">{m.title}</h4>
+                  <p className="text-xs sm:text-sm text-[#4b5563] font-medium">{m.desc}</p>
                 </div>
               ))}
             </div>

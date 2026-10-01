@@ -45,7 +45,7 @@ export default function Navbar() {
                 AIRA<span className="text-[#eb4a2d]">CODE</span>
               </span>
               <span className="text-[10px] uppercase font-bold tracking-widest text-[#6b7280] -mt-1 font-mono">
-                Enterprise AI Systems
+                Enterprise Clay Studio
               </span>
             </div>
           </Link>

@@ -59,7 +59,7 @@ export default function InteractiveAgentTerminal() {
           </div>
           <span className="text-xs sm:text-sm font-mono font-bold text-[#4b5563] pl-2 border-l border-[#ede9e0] flex items-center gap-2">
             <Terminal className="w-4 h-4 text-[#eb4a2d]" />
-            airacode-autonomous-runtime v4.8 [active_kernel]
+            airacode-kernel v4.8 [active]
           </span>
         </div>
 
