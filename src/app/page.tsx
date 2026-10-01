@@ -16,6 +16,7 @@ import CinematicScrollTracker from "@/components/CinematicScrollTracker";
 import ClayAmbientShapes from "@/components/ClayAmbientShapes";
 import SectionHeader from "@/components/SectionHeader";
 import ServicesGrid from "@/components/ServicesGrid";
+import HeroClayDiorama from "@/components/HeroClayDiorama";
 import InteractiveAgentTerminal from "@/components/InteractiveAgentTerminal";
 import ModernizationCalculator from "@/components/ModernizationCalculator";
 import { clientCaseStudies } from "@/data/servicesData";
@@ -67,6 +68,9 @@ export default function HomePage() {
                   <span>Explore 8 Disciplines</span>
                 </Link>
               </div>
+
+              {/* 3D Kinetic Sculptural Clay Diorama Centerpiece */}
+              <HeroClayDiorama />
 
               {/* Tactile Clay Telemetry Bar */}
               <div className="pt-8 sm:pt-12 w-full max-w-7xl mx-auto">
