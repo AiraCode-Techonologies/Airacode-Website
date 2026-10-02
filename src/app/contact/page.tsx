@@ -12,7 +12,10 @@ import {
   Clock, 
   Lock, 
   ChevronDown, 
-  Send
+  Send,
+  Copy,
+  Check,
+  Sparkles
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -20,6 +23,17 @@ import CinematicScrollTracker from "@/components/CinematicScrollTracker";
 import ClayAmbientShapes from "@/components/ClayAmbientShapes";
 import SectionHeader from "@/components/SectionHeader";
 import ProjectEstimator from "@/components/ProjectEstimator";
+
+const SERVICE_LABELS: Record<string, string> = {
+  "ai-website-dev": "AI Website Development",
+  "ai-product-dev": "AI Product Development",
+  "web-maintenance-opt": "Website Maintenance & Optimization",
+  "ai-finetuning": "AI Fine-Tuning & Model Optimization",
+  "cloud-deployments": "Cloud Infrastructure & Multi-Cloud",
+  "data-engineering": "Data Analysis & Engineering",
+  "workflow-automation": "Enterprise Workflow Automation",
+  "agentic-ai": "Agentic AI & Autonomous Workflows",
+};
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -32,20 +46,104 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [leadRef, setLeadRef] = useState<string>("");
+  const [submittedData, setSubmittedData] = useState<typeof formData | null>(null);
+  const [copiedRef, setCopiedRef] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
+
+  const handleCopyRef = () => {
+    if (leadRef) {
+      navigator.clipboard.writeText(leadRef);
+      setCopiedRef(true);
+      setTimeout(() => setCopiedRef(false), 2000);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
+
+    const ref = "ARC-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+    setLeadRef(ref);
+
+    const serviceLabel = SERVICE_LABELS[formData.serviceNeeded] || formData.serviceNeeded;
+    const companyLabel = formData.company ? formData.company.trim() : "Individual / Stealth";
+    const ndaLabel = formData.ndaRequired ? "CONFIRMED // Bilateral Mutual NDA Active" : "Standard Scoping Agreement";
+    const timestampStr = new Date().toUTCString();
+
+    const teamSubject = `[AIRACODE INQUIRY] ${ref} — ${serviceLabel} (${formData.name} / ${companyLabel})`;
+
+    const visitorAutoresponse = `============================================================
+              AIRACODE TECHNOLOGIES INC.
+       Autonomous Systems & Enterprise Modernization
+============================================================
+
+TRANSMISSION RECEIPT: [REF: ${ref}]
+SECURITY CLEARANCE: BILATERAL MUTUAL NDA ACTIVE
+STATUS: LOGGED INTO PRINCIPAL ARCHITECT SPRINT QUEUE
+
+Hi ${formData.name},
+
+Thank you for contacting AIRACODE Technologies. We have successfully registered your project specifications and assigned your inquiry to our Lead Systems Architect.
+
+------------------------------------------------------------
+                     ENGAGEMENT SUMMARY
+------------------------------------------------------------
+- Tracking Reference : ${ref}
+- Service Track      : ${serviceLabel}
+- Organization       : ${companyLabel}
+- Allocated Bracket  : ${formData.budget}
+- Mutual NDA Status  : ${ndaLabel}
+- Logged Timestamp   : ${timestampStr}
+- Target SLA         : Response within 4 business hours
+
+------------------------------------------------------------
+                    PROJECT SCOPE BRIEF
+------------------------------------------------------------
+"${formData.message}"
+
+------------------------------------------------------------
+                      DEPLOYMENT ROADMAP
+------------------------------------------------------------
+Phase 01 // ARCHITECTURAL AUDIT
+Our team benchmarks your stack constraints, API boundaries, and vector pipeline topologies.
+
+Phase 02 // TECHNICAL SCOPING & NDA REVIEW
+We prepare a tailored Proof-of-Concept (PoC) roadmap and schedule a 30-minute discovery session with our Lead Architect.
+
+Phase 03 // SPRINT INITIATION
+Deployment pod onboarded with 2-week agile delivery cadences and direct engineering Slack/Teams integration.
+
+------------------------------------------------------------
+DIRECT ESCALATION CHANNELS:
+- Lead Architecture Desk : arch@airacode.online
+- Security & Compliance  : security@airacode.online
+- Emergency Incident SRE : sre@airacode.online
+- Web Portal             : https://airacode.online
+
+Need to update your technical requirements before our call? 
+Simply reply directly to this email.
+
+Best regards,
+
+Principal Systems Architect
+AIRACODE Technologies
+https://airacode.online
+contact@airacode.online
+============================================================`;
+
     try {
       const endpoint = process.env.NEXT_PUBLIC_CONTACT_API_URL || "/api/contact";
       let res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          leadId: ref,
+        }),
       });
 
       // Seamless fallback for static hosting (e.g. GitHub Pages where /api/contact is 404/405)
@@ -60,15 +158,25 @@ export default function ContactPage() {
           body: JSON.stringify({
             name: formData.name,
             email: formData.email,
-            company: formData.company || "Not specified",
-            serviceNeeded: formData.serviceNeeded,
+            company: companyLabel,
+            serviceNeeded: serviceLabel,
             budget: formData.budget,
             ndaRequired: formData.ndaRequired ? "Yes" : "No",
             message: formData.message,
+            tracking_id: ref,
+            _subject: teamSubject,
             _replyto: formData.email,
             _template: "table",
-            _subject: `[AIRACODE Lead] ${formData.name} — ${formData.serviceNeeded}`,
-            _autoresponse: `Hi ${formData.name},\n\nThank you for reaching out to AIRACODE Technologies. We have logged your project inquiry regarding "${formData.serviceNeeded}".\n\nOur Lead Systems Architect will review your specifications and follow up within 4 business hours under mutual NDA.\n\nSummary of your submission:\n- Lead Name: ${formData.name}\n- Email: ${formData.email}\n- Organization: ${formData.company || "Not specified"}\n- Service Track: ${formData.serviceNeeded}\n- Budget Allocation: ${formData.budget}\n- Mutual NDA Required: ${formData.ndaRequired ? "Yes" : "No"}\n\nProject Scope:\n${formData.message}\n\nNext Steps:\n1. Architectural Review: We map technical feasibility and sprint milestones.\n2. Mutual NDA: Standard bilateral protection executed.\n3. Sprint Scoping: We schedule a 30-minute session to present architecture.\n\nNeed immediate priority assistance? Reply directly to this email or write to contact@airacode.online.\n\nBest regards,\nAIRACODE Technologies\nhttps://airacode.online\ncontact@airacode.online`,
+            "Tracking Reference": ref,
+            "Client Name": formData.name,
+            "Corporate Email": formData.email,
+            "Company / Organization": companyLabel,
+            "Service Track": serviceLabel,
+            "Budget Allocation": formData.budget,
+            "Mutual NDA Required": ndaLabel,
+            "Project Scope Overview": formData.message,
+            "Logged Timestamp": timestampStr,
+            _autoresponse: visitorAutoresponse,
           }),
         });
       }
@@ -78,6 +186,7 @@ export default function ContactPage() {
       if (!res.ok) {
         throw new Error(data?.message || data?.error || `Submission failed with status ${res.status}`);
       }
+      setSubmittedData({ ...formData });
       setSubmitted(true);
     } catch (err: any) {
       console.error("Submission error:", err);
@@ -161,20 +270,167 @@ export default function ContactPage() {
 
             <div className="clay-card p-6 sm:p-10">
               {submitted ? (
-                <div className="p-6 text-center space-y-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#10b981]/15 text-[#059669] mx-auto flex items-center justify-center">
-                    <CheckCircle2 className="w-7 h-7 stroke-[2.5]" />
+                <div className="space-y-6 animate-in fade-in zoom-in-95 duration-500">
+                  {/* Status Bar */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#ede9e0] dark:border-white/10">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#059669]/10 text-[#059669] text-xs font-mono font-bold">
+                      <span className="w-2 h-2 rounded-full bg-[#059669] animate-ping" />
+                      <span>TRANSMISSION CONFIRMED // MUTUAL NDA ACTIVE</span>
+                    </div>
+
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-white dark:bg-[#151a24] border border-[#ede9e0] dark:border-white/10 text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]">
+                      <span className="text-[#6b7280] dark:text-[#9ca3af]">REF:</span>
+                      <span className="text-[#eb4a2d]">{leadRef || "ARC-LEAD"}</span>
+                      <button
+                        type="button"
+                        onClick={handleCopyRef}
+                        className="ml-1 p-1 hover:bg-[#ede9e0] dark:hover:bg-white/10 rounded transition-colors text-[#6b7280] hover:text-[#1e2530] dark:hover:text-white"
+                        title="Copy Reference ID"
+                      >
+                        {copiedRef ? <Check className="w-3.5 h-3.5 text-[#059669]" /> : <Copy className="w-3.5 h-3.5" />}
+                      </button>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-black text-[#1e2530] dark:text-[#f3f4f6]">Inquiry Received</h3>
-                  <p className="text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] max-w-md mx-auto leading-relaxed font-medium">
-                    Our Lead Architect will review your parameters and respond within 4 hours under mutual NDA.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="clay-btn clay-btn-white px-5 py-2 text-xs font-bold text-[#eb4a2d]"
-                  >
-                    Send Another Inquiry
-                  </button>
+
+                  {/* Header Title */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-[#059669]/15 text-[#059669] flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-7 h-7 stroke-[2.5]" />
+                    </div>
+                    <div className="space-y-1">
+                      <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] dark:text-[#f3f4f6]">
+                        Inquiry Registered, {submittedData?.name || formData.name}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] font-medium leading-relaxed">
+                        Our Lead Systems Architect will review your specifications and follow up within{" "}
+                        <strong className="text-[#059669]">4 business hours</strong> under mutual NDA.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Receipt Notification Banner */}
+                  <div className="p-4 rounded-2xl bg-[#eb4a2d]/5 dark:bg-[#eb4a2d]/10 border border-[#eb4a2d]/20 text-xs text-[#1e2530] dark:text-[#f3f4f6] flex items-start gap-3">
+                    <Mail className="w-4 h-4 text-[#eb4a2d] shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                      <p className="font-bold">
+                        A confirmation receipt has been dispatched to{" "}
+                        <span className="font-mono text-[#eb4a2d]">{submittedData?.email || formData.email}</span>.
+                      </p>
+                      <p className="text-[11px] text-[#6b7280] dark:text-[#9ca3af] leading-relaxed">
+                        Please check your inbox (and spam/promotions folder). You can reply directly to that email with any supplementary documentation or architecture diagrams.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Summary Parameter Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 space-y-1">
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#6b7280] dark:text-[#9ca3af] block font-bold">
+                        Service Track
+                      </span>
+                      <span className="font-bold text-[#1e2530] dark:text-[#f3f4f6] line-clamp-1">
+                        {SERVICE_LABELS[submittedData?.serviceNeeded || formData.serviceNeeded] || (submittedData?.serviceNeeded || formData.serviceNeeded)}
+                      </span>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 space-y-1">
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#6b7280] dark:text-[#9ca3af] block font-bold">
+                        Organization
+                      </span>
+                      <span className="font-bold text-[#1e2530] dark:text-[#f3f4f6] line-clamp-1">
+                        {submittedData?.company || formData.company || "Individual / Stealth"}
+                      </span>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 space-y-1">
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#6b7280] dark:text-[#9ca3af] block font-bold">
+                        Allocated Budget
+                      </span>
+                      <span className="font-bold text-[#059669]">
+                        {submittedData?.budget || formData.budget}
+                      </span>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 space-y-1">
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#6b7280] dark:text-[#9ca3af] block font-bold">
+                        Confidentiality
+                      </span>
+                      <span className="font-bold text-[#7c3aed] flex items-center gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5" /> Mutual NDA Enforced
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Project Brief Excerpt */}
+                  <div className="p-4 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 space-y-1.5">
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#6b7280] dark:text-[#9ca3af] font-bold block">
+                      Logged Scope Overview
+                    </span>
+                    <p className="text-xs text-[#374151] dark:text-[#d1d5db] font-mono leading-relaxed italic bg-white/70 dark:bg-black/20 p-3 rounded-lg border border-black/5 dark:border-white/5">
+                      &ldquo;{submittedData?.message || formData.message}&rdquo;
+                    </p>
+                  </div>
+
+                  {/* Next Milestones Pipeline */}
+                  <div className="space-y-2 pt-2">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#eb4a2d] font-bold block">
+                      Next Operational Milestones
+                    </span>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                      <div className="p-3.5 rounded-xl bg-white dark:bg-[#151a24] border border-[#ede9e0] dark:border-white/10 space-y-1">
+                        <span className="text-[#eb4a2d] font-mono font-black text-[11px]">01 // AUDIT</span>
+                        <p className="font-bold text-[#1e2530] dark:text-[#f3f4f6]">Constraint Review</p>
+                        <p className="text-[11px] text-[#6b7280] dark:text-[#9ca3af] leading-relaxed">
+                          Architectural benchmarks and vector pipeline feasibility mapped in 24h.
+                        </p>
+                      </div>
+
+                      <div className="p-3.5 rounded-xl bg-white dark:bg-[#151a24] border border-[#ede9e0] dark:border-white/10 space-y-1">
+                        <span className="text-[#7c3aed] font-mono font-black text-[11px]">02 // BRIEF</span>
+                        <p className="font-bold text-[#1e2530] dark:text-[#f3f4f6]">Technical Discovery</p>
+                        <p className="text-[11px] text-[#6b7280] dark:text-[#9ca3af] leading-relaxed">
+                          30-minute scoping session scheduled with our Principal AI Architect.
+                        </p>
+                      </div>
+
+                      <div className="p-3.5 rounded-xl bg-white dark:bg-[#151a24] border border-[#ede9e0] dark:border-white/10 space-y-1">
+                        <span className="text-[#059669] font-mono font-black text-[11px]">03 // SPRINT</span>
+                        <p className="font-bold text-[#1e2530] dark:text-[#f3f4f6]">Pod Onboarding</p>
+                        <p className="text-[11px] text-[#6b7280] dark:text-[#9ca3af] leading-relaxed">
+                          Autonomous pod deployed with direct Slack/Teams integration.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actions Bar */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#ede9e0] dark:border-white/10">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({
+                          name: "",
+                          email: "",
+                          company: "",
+                          serviceNeeded: "agentic-ai",
+                          budget: "$25k - $50k",
+                          ndaRequired: true,
+                          message: "",
+                        });
+                      }}
+                      className="clay-btn clay-btn-white px-5 py-2.5 text-xs font-bold text-[#eb4a2d] cursor-pointer"
+                    >
+                      Transmit Another Inquiry
+                    </button>
+
+                    <a
+                      href="mailto:contact@airacode.online"
+                      className="text-xs font-mono font-bold text-[#6b7280] dark:text-[#9ca3af] hover:text-[#eb4a2d] transition-colors"
+                    >
+                      Need immediate escalation? contact@airacode.online →
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">

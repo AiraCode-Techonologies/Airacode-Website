@@ -18,10 +18,15 @@ import { servicesData } from "@/data/servicesData";
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || isSubscribing) return;
+    setIsSubscribing(true);
+    const subRef = "SUB-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+    const timestampStr = new Date().toUTCString();
+
     try {
       await fetch("https://formsubmit.co/ajax/nagarajendra432@gmail.com", {
         method: "POST",
@@ -30,17 +35,55 @@ export default function Footer() {
           "Accept": "application/json",
         },
         body: JSON.stringify({
+          email: email,
           subscriberEmail: email,
-          _subject: `[AIRACODE Newsletter] New Subscriber: ${email}`,
+          tracking_id: subRef,
+          _subject: `[AIRACODE DISPATCH] New Subscriber: ${email} [${subRef}]`,
           _replyto: email,
-          _autoresponse: `Thank you for subscribing to AIRACODE Architecture Dispatches!\n\nYou have been added to our private distribution list for engineering deep-dives, enterprise modernization playbooks, and agentic AI benchmarks.\n\nBest regards,\nAIRACODE Technologies\nhttps://airacode.online\ncontact@airacode.online`,
+          _template: "table",
+          "Subscription Type": "AI Architecture & Engineering Dispatches",
+          "Subscriber Email": email,
+          "Tracking Reference": subRef,
+          "Subscribed At": timestampStr,
+          _autoresponse: `============================================================
+              AIRACODE TECHNOLOGIES INC.
+          AI Architecture & Systems Dispatches
+============================================================
+
+SUBSCRIPTION CONFIRMED: ${email}
+STATUS: REGISTERED TO PRIVATE DISTRIBUTION MESH [REF: ${subRef}]
+
+Welcome to the AIRACODE Architecture Dispatches. 
+
+You have been successfully added to our private distribution list. You will receive our bi-weekly engineering briefings covering:
+- Autonomous Agentic AI Architectures (LangGraph, AutoGen, Multi-Agent Mesh)
+- Zero-Downtime Legacy Modernization & CDC Data Streaming
+- Enterprise Cloud Infrastructure & Multi-Cloud VPC Hardening
+- Production SRE Best Practices & Benchmark Reports
+
+Frequency: Bi-weekly, strictly zero-spam, purely technical engineering insights.
+
+Need assistance or have an enterprise project inquiry?
+Visit: https://airacode.online
+Direct Desk: contact@airacode.online
+
+Best regards,
+
+The Engineering Pod
+AIRACODE Technologies
+https://airacode.online
+============================================================`,
         }),
       });
-    } catch (_) {}
-    setSubscribed(true);
-    setTimeout(() => {
-      setEmail("");
-    }, 4000);
+    } catch (_) {
+      // Non-blocking fallback
+    } finally {
+      setIsSubscribing(false);
+      setSubscribed(true);
+      setTimeout(() => {
+        setEmail("");
+      }, 4000);
+    }
   };
 
   return (
@@ -85,15 +128,23 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="clay-btn clay-btn-coral px-4 py-2 text-xs font-bold"
+                  disabled={isSubscribing}
+                  className="clay-btn clay-btn-coral px-4 py-2 text-xs font-bold disabled:opacity-60 cursor-pointer"
                 >
-                  {subscribed ? <CheckCircle2 className="w-4 h-4 text-white" /> : <ArrowRight className="w-4 h-4" />}
+                  {subscribed ? (
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  ) : isSubscribing ? (
+                    <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  ) : (
+                    <ArrowRight className="w-4 h-4" />
+                  )}
                 </button>
               </form>
               {subscribed && (
-                <span className="block text-xs text-[#059669] mt-1 font-mono font-bold">
-                  ✓ Enterprise dispatch subscription confirmed.
-                </span>
+                <div className="mt-2.5 p-2.5 rounded-xl bg-[#059669]/10 border border-[#059669]/25 flex items-center gap-2 text-xs font-mono font-bold text-[#059669] animate-in fade-in duration-300">
+                  <span className="w-2 h-2 rounded-full bg-[#059669] animate-ping shrink-0" />
+                  <span>SUBSCRIPTION CONFIRMED // Added to private distribution mesh</span>
+                </div>
               )}
             </div>
 
