@@ -17,11 +17,17 @@ export const metadata: Metadata = {
     "Enterprise Workflow Automation",
     "Agentic AI and Autonomous Workflows",
   ],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://airacode.online"),
   authors: [{ name: "AIRACODE Technologies" }],
+  alternates: {
+    canonical: "https://airacode.online",
+  },
   openGraph: {
     title: "AIRACODE | Transforming Vision Into Autonomous Reality",
     description:
       "Digitalizing businesses, modernizing legacy systems, and scaling digital products with state-of-the-art AI solutions.",
+    url: "https://airacode.online",
+    siteName: "AIRACODE",
     type: "website",
     locale: "en_US",
   },

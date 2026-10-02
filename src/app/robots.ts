@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://airacode.com/sitemap.xml",
+    sitemap: "https://airacode.online/sitemap.xml",
   };
 }

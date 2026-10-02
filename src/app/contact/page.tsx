@@ -257,25 +257,33 @@ export default function ContactPage() {
               <div className="clay-card p-5 space-y-2">
                 <span className="text-[#eb4a2d] font-black text-sm block">Architecture</span>
                 <p className="text-[#1e2530] dark:text-[#f3f4f6] font-sans font-medium">New System Scoping &amp; Audits</p>
-                <p className="text-[#eb4a2d] font-bold">arch@airacode.com</p>
+                <a href="mailto:arch@airacode.online" className="text-[#eb4a2d] font-bold hover:underline block">
+                  arch@airacode.online
+                </a>
               </div>
 
               <div className="clay-card p-5 space-y-2">
                 <span className="text-[#7c3aed] font-black text-sm block">Engineering</span>
                 <p className="text-[#1e2530] dark:text-[#f3f4f6] font-sans font-medium">Sprint &amp; SOW Inquiries</p>
-                <p className="text-[#7c3aed] font-bold">dev@airacode.com</p>
+                <a href="mailto:dev@airacode.online" className="text-[#7c3aed] font-bold hover:underline block">
+                  dev@airacode.online
+                </a>
               </div>
 
               <div className="clay-card p-5 space-y-2">
                 <span className="text-[#059669] font-black text-sm block">Security</span>
                 <p className="text-[#1e2530] dark:text-[#f3f4f6] font-sans font-medium">VPC Isolation &amp; Mutual NDA</p>
-                <p className="text-[#059669] font-bold">security@airacode.com</p>
+                <a href="mailto:security@airacode.online" className="text-[#059669] font-bold hover:underline block">
+                  security@airacode.online
+                </a>
               </div>
 
               <div className="clay-card p-5 space-y-2">
                 <span className="text-[#2563eb] font-black text-sm block">Incident Desk</span>
                 <p className="text-[#1e2530] dark:text-[#f3f4f6] font-sans font-medium">24/7 Production SRE Escalation</p>
-                <p className="text-[#2563eb] font-bold">sre@airacode.com</p>
+                <a href="mailto:sre@airacode.online" className="text-[#2563eb] font-bold hover:underline block">
+                  sre@airacode.online
+                </a>
               </div>
             </div>
           </div>
