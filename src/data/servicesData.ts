@@ -53,7 +53,7 @@ export const servicesData: ServiceItem[] = [
     architectureHighlights: [
       "Edge-rendered dynamic interfaces with instant personalization",
       "Hybrid client-server streaming for real-time AI responses",
-      "Zero-layout-shift tactile clay aesthetic with GPU acceleration",
+      "Zero-layout-shift tactile modern aesthetic with GPU acceleration",
     ],
     enterpriseUseCases: [
       "Enterprise SaaS portals with conversational copilots",

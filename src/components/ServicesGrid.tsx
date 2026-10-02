@@ -74,7 +74,7 @@ export default function ServicesGrid({ limit }: { limit?: number }) {
         })}
       </div>
 
-      {/* Grid of Tactile Clay Cards */}
+      {/* Grid of Tactile Service Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         {displayedServices.map((service: ServiceItem, index: number) => {
           const Icon = iconMap[service.iconName] || Bot;

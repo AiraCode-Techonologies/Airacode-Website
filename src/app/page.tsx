@@ -46,7 +46,7 @@ export default function HomePage() {
               We digitalize your business, modernize legacy systems, and engineer autonomous AI products for scale.
             </p>
 
-            {/* Clay Actions */}
+            {/* Primary Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
                 href="/contact"

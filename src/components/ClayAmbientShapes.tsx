@@ -3,7 +3,7 @@
 export default function ClayAmbientShapes() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden clay-grain">
-      {/* 3D Clay Terracotta Sphere - Top Right */}
+      {/* 3D Terracotta Sphere - Top Right */}
       <div 
         className="absolute -top-12 -right-12 sm:top-16 sm:right-12 w-44 h-44 sm:w-72 sm:h-72 rounded-full animate-clay-1 opacity-70 sm:opacity-85"
         style={{
@@ -12,7 +12,7 @@ export default function ClayAmbientShapes() {
         }}
       />
 
-      {/* 3D Clay Mint Donut / Torus - Top Left */}
+      {/* 3D Mint Donut / Torus - Top Left */}
       <div 
         className="absolute top-1/4 -left-12 sm:left-10 w-36 h-36 sm:w-64 sm:h-64 rounded-full animate-clay-2 opacity-65 sm:opacity-80"
         style={{
@@ -21,7 +21,7 @@ export default function ClayAmbientShapes() {
         }}
       />
 
-      {/* 3D Clay Violet Capsule / Pill - Mid Right */}
+      {/* 3D Violet Capsule / Pill - Mid Right */}
       <div 
         className="absolute top-2/3 -right-8 sm:right-24 w-32 h-48 sm:w-56 sm:h-80 rounded-[4rem] rotate-12 animate-clay-3 opacity-60 sm:opacity-75"
         style={{
@@ -30,7 +30,7 @@ export default function ClayAmbientShapes() {
         }}
       />
 
-      {/* 3D Clay Warm Buttercup Sphere - Bottom Left */}
+      {/* 3D Warm Buttercup Sphere - Bottom Left */}
       <div 
         className="absolute -bottom-16 left-1/4 w-40 h-40 sm:w-64 sm:h-64 rounded-full animate-clay-1 opacity-60 sm:opacity-75"
         style={{

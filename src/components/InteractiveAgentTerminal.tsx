@@ -121,7 +121,7 @@ export default function InteractiveAgentTerminal() {
             </button>
           </div>
 
-          {/* Stepper Grid with Tactile Clay Nodes */}
+          {/* Stepper Grid with Tactile Nodes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
             {agenticSteps.map((step, idx) => {
               const Icon = step.icon;
@@ -170,7 +170,7 @@ export default function InteractiveAgentTerminal() {
             })}
           </div>
 
-          {/* Clay Inset Console Stream */}
+          {/* Inset Console Stream */}
           <div className="p-5 sm:p-6 rounded-3xl bg-[#ede9e0] dark:bg-[#0f131a] shadow-[inset_4px_5px_10px_rgba(30,37,48,0.08),inset_-3px_-3px_8px_rgba(255,255,255,0.9)] dark:shadow-[inset_3px_3px_8px_rgba(0,0,0,0.6)] font-mono text-xs sm:text-sm space-y-2 text-[#1e2530] dark:text-[#f3f4f6]">
             <div className="text-[#6b7280] dark:text-[#9ca3af] font-bold flex items-center justify-between text-[11px] sm:text-xs pb-2 border-b border-[#d6cebe] dark:border-white/10">
               <span>TERMINAL STREAM // LIVE DISPATCH TRACE</span>

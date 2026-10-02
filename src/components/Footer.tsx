@@ -173,8 +173,6 @@ export default function Footer() {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono font-medium text-[#6b7280] dark:text-[#9ca3af]">
           <div className="flex items-center gap-3">
             <span>© {new Date().getFullYear()} AIRACODE Technologies. All rights reserved.</span>
-            <span className="hidden sm:inline">|</span>
-            <span className="text-[#1e2530] dark:text-[#f3f4f6] font-bold">Crafted with 3D Clay Art &amp; Cinematic Flow</span>
           </div>
 
           <div className="flex items-center gap-4 sm:gap-5 flex-wrap">

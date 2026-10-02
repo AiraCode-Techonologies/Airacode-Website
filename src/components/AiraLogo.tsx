@@ -37,8 +37,8 @@ export default function AiraLogo({
           <span className="text-xl sm:text-2xl font-black tracking-tight text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-0.5 leading-none">
             AIRA<span className="text-[#eb4a2d]">CODE</span>
           </span>
-          <span className="text-[10px] uppercase font-bold tracking-widest text-[#6b7280] mt-1 font-mono">
-            Autonomous Scale
+          <span className="text-[10px] uppercase font-bold tracking-widest text-[#6b7280] dark:text-[#9ca3af] mt-1 font-mono">
+            Autonomous Systems
           </span>
         </div>
       </div>
