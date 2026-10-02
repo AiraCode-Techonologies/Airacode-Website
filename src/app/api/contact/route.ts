@@ -70,8 +70,69 @@ export async function POST(request: Request) {
         </div>
       `;
 
+      const userConfirmationHtml = `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #faf8f5; border-radius: 16px; border: 1px solid #ede9e0; color: #1e2530;">
+          <div style="border-bottom: 2px solid #eb4a2d; padding-bottom: 14px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <h2 style="color: #1e2530; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px;">AIRA<span style="color: #eb4a2d;">CODE</span></h2>
+              <p style="color: #6b7280; margin: 3px 0 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-family: monospace;">Autonomous Systems &amp; AI Engineering Studio</p>
+            </div>
+            <div style="text-align: right;">
+              <span style="display: inline-block; padding: 4px 10px; background: #ede9e0; border-radius: 20px; font-size: 11px; font-family: monospace; font-weight: 700; color: #eb4a2d;">${leadId}</span>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <h3 style="font-size: 18px; margin: 0 0 8px 0; color: #1e2530;">Inquiry Confirmed, ${name}</h3>
+            <p style="font-size: 14px; line-height: 1.6; color: #4b5563; margin: 0;">
+              Thank you for reaching out to AIRACODE. We have received your project inquiry and parameters. Our Lead Systems Architect will review your specifications and follow up within <strong>4 business hours</strong> under mutual NDA.
+            </p>
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid #ede9e0; border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+            <h4 style="margin: 0 0 12px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280;">Your Submission Summary:</h4>
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+              <tr>
+                <td style="padding: 6px 0; color: #6b7280; width: 130px; font-weight: 600;">Service Track:</td>
+                <td style="padding: 6px 0; color: #1e2530; font-weight: 600;">${serviceNeeded || "General Scoping"}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #6b7280; width: 130px; font-weight: 600;">Organization:</td>
+                <td style="padding: 6px 0; color: #1e2530;">${company || "Individual / Not specified"}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #6b7280; width: 130px; font-weight: 600;">Budget Allocation:</td>
+                <td style="padding: 6px 0; color: #059669; font-weight: 600;">${budget || "Undisclosed"}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #6b7280; width: 130px; font-weight: 600;">Received At:</td>
+                <td style="padding: 6px 0; color: #1e2530; font-family: monospace; font-size: 12px;">${timestamp}</td>
+              </tr>
+            </table>
+
+            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed #ede9e0;">
+              <span style="display: block; font-size: 11px; text-transform: uppercase; color: #6b7280; font-weight: 600; margin-bottom: 4px;">Project Scope:</span>
+              <p style="margin: 0; font-size: 13px; color: #374151; line-height: 1.5; white-space: pre-wrap;">${message}</p>
+            </div>
+          </div>
+
+          <div style="background: #f6f3ee; border-radius: 12px; padding: 14px 16px; margin-bottom: 24px; font-size: 13px; color: #4b5563; line-height: 1.5;">
+            <strong style="color: #1e2530; display: block; margin-bottom: 4px;">What happens next?</strong>
+            1. <strong>Architectural Review:</strong> We analyze your technology stack and target sprint milestones.<br/>
+            2. <strong>Mutual NDA:</strong> If required, we execute standard bilateral NDA protection.<br/>
+            3. <strong>Sprint Roadmap:</strong> We schedule a 30-minute scoping session to present solution architecture and sprint deliverables.
+          </div>
+
+          <div style="border-top: 1px solid #ede9e0; padding-top: 16px; text-align: center; font-size: 12px; color: #9ca3af;">
+            <p style="margin: 0 0 4px 0;">Need immediate priority assistance? Reply directly to this email or write to <a href="mailto:contact@airacode.online" style="color: #eb4a2d; text-decoration: none; font-weight: 600;">contact@airacode.online</a></p>
+            <p style="margin: 0; font-family: monospace; font-size: 11px;">AIRACODE Technologies // <a href="https://airacode.online" style="color: #6b7280; text-decoration: none;">airacode.online</a></p>
+          </div>
+        </div>
+      `;
+
+      // 1. Dispatch team lead notification
       try {
-        const res = await resend.emails.send({
+        const teamRes = await resend.emails.send({
           from: fromEmail,
           to: recipient,
           replyTo: email,
@@ -79,8 +140,8 @@ export async function POST(request: Request) {
           html: notificationHtml,
         });
 
-        if (res.error) {
-          console.warn("Primary sender error, falling back to onboarding@resend.dev:", res.error);
+        if (teamRes.error) {
+          console.warn("Primary team sender error, attempting fallback:", teamRes.error);
           await resend.emails.send({
             from: fallbackFrom,
             to: recipient,
@@ -90,7 +151,31 @@ export async function POST(request: Request) {
           });
         }
       } catch (sendErr) {
-        console.error("Resend delivery exception:", sendErr);
+        console.error("Team notification delivery exception:", sendErr);
+      }
+
+      // 2. Dispatch automated confirmation receipt to the user's email
+      try {
+        const userRes = await resend.emails.send({
+          from: fromEmail,
+          to: email,
+          replyTo: "contact@airacode.online",
+          subject: `Inquiry Confirmation // AIRACODE Technologies [Ref: ${leadId}]`,
+          html: userConfirmationHtml,
+        });
+
+        if (userRes.error) {
+          console.warn("Primary user confirmation error, attempting fallback:", userRes.error);
+          await resend.emails.send({
+            from: fallbackFrom,
+            to: email,
+            replyTo: "contact@airacode.online",
+            subject: `Inquiry Confirmation // AIRACODE Technologies [Ref: ${leadId}]`,
+            html: userConfirmationHtml,
+          });
+        }
+      } catch (userSendErr) {
+        console.error("User confirmation delivery exception:", userSendErr);
       }
     }
 

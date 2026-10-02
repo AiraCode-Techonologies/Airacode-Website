@@ -41,7 +41,8 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
-      const res = await fetch("/api/contact", {
+      const endpoint = process.env.NEXT_PUBLIC_CONTACT_API_URL || "/api/contact";
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -55,12 +56,12 @@ export default function ContactPage() {
       setSubmitted(true);
     } catch (err: any) {
       console.warn("Contact endpoint unavailable or static host detected, using direct client dispatch fallback:", err);
-      // Fallback for static hosts (e.g. GitHub Pages without serverless functions)
+      // Fallback for static hosts: CC the user so they automatically receive a copy in their inbox/sent
       const subject = encodeURIComponent(`Project Inquiry: ${formData.serviceNeeded} - ${formData.company || formData.name}`);
       const body = encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || "N/A"}\nService Needed: ${formData.serviceNeeded}\nBudget: ${formData.budget}\nNDA Required: ${formData.ndaRequired ? "Yes" : "No"}\n\nProject Brief:\n${formData.message}`
       );
-      window.location.href = `mailto:contact@airacode.online?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:contact@airacode.online?cc=${encodeURIComponent(formData.email)}&subject=${subject}&body=${body}`;
       setSubmitted(true);
     } finally {
       setIsSubmitting(false);
