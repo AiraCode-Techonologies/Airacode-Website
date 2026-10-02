@@ -29,22 +29,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-14">
           {/* Tactile Clay Logo */}
           <Link href="/" className="flex items-center gap-3.5 group">
-            <div 
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center p-1.5 bg-white/95 dark:bg-black border border-black/5 dark:border-white/15 shadow-[4px_6px_16px_rgba(30,37,48,0.06),inset_2px_2px_4px_rgba(255,255,255,0.9)] dark:shadow-[0_8px_20px_rgba(0,0,0,0.8),inset_1px_1px_2px_rgba(255,255,255,0.15)] transition-all duration-300 group-hover:rotate-6 group-hover:scale-105 overflow-hidden"
-            >
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
               <Image 
-                src="/logo-icon-light.png" 
+                src="/logo-icon.png" 
                 alt="AIRACODE Logo" 
                 width={44} 
                 height={44} 
-                className="w-full h-full object-contain filter drop-shadow-sm dark:hidden" 
-              />
-              <Image 
-                src="/logo-icon-dark.png" 
-                alt="AIRACODE Logo" 
-                width={44} 
-                height={44} 
-                className="w-full h-full object-contain filter drop-shadow-sm hidden dark:block" 
+                className="w-full h-full object-contain filter drop-shadow-sm" 
               />
             </div>
             <div className="flex flex-col">

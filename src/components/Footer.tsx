@@ -35,22 +35,13 @@ export default function Footer() {
           {/* Column 1: Brand & Mission */}
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="flex items-center gap-3.5 group">
-              <div 
-                className="w-12 h-12 rounded-2xl flex items-center justify-center p-1.5 bg-white/95 dark:bg-black border border-black/5 dark:border-white/15 shadow-[4px_6px_16px_rgba(30,37,48,0.06),inset_2px_2px_4px_rgba(255,255,255,0.9)] dark:shadow-[0_8px_20px_rgba(0,0,0,0.8),inset_1px_1px_2px_rgba(255,255,255,0.15)] transition-transform duration-300 group-hover:scale-105 overflow-hidden"
-              >
+              <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                 <Image 
-                  src="/logo-icon-light.png" 
+                  src="/logo-icon.png" 
                   alt="AIRACODE Logo" 
-                  width={44} 
-                  height={44} 
-                  className="w-full h-full object-contain filter drop-shadow-sm dark:hidden" 
-                />
-                <Image 
-                  src="/logo-icon-dark.png" 
-                  alt="AIRACODE Logo" 
-                  width={44} 
-                  height={44} 
-                  className="w-full h-full object-contain filter drop-shadow-sm hidden dark:block" 
+                  width={48} 
+                  height={48} 
+                  className="w-full h-full object-contain filter drop-shadow-sm" 
                 />
               </div>
               <span className="text-2xl font-black tracking-tight text-[#1e2530] dark:text-[#f3f4f6]">
