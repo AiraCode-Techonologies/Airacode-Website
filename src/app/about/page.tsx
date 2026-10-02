@@ -91,31 +91,17 @@ export default function AboutPage() {
         <section className="relative pt-8 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1400px] mx-auto text-center space-y-6 sm:space-y-8">
             
-            {/* LARGE TACTILE 3D BRAND LOGO DISPLAY */}
+            {/* LARGE TACTILE 3D BRAND LOGO DISPLAY - Completely seamless without any background, glow, or badge */}
             <div className="relative mx-auto flex items-center justify-center pt-2">
-              <div className="relative group cursor-pointer">
-                {/* Ambient Radial Clay Glow */}
-                <div className="absolute -inset-10 bg-gradient-to-r from-[#eb4a2d]/20 via-[#8b5cf6]/20 to-[#3b82f6]/20 rounded-full blur-3xl opacity-75 group-hover:opacity-100 transition-opacity duration-700 animate-pulse" />
-                
-                {/* Seamless Large 3D Master Emblem - No separate background container */}
-                <div 
-                  className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2"
-                >
-                  <Image
-                    src="/logo.png"
-                    alt="AIRACODE Master 3D Logo"
-                    width={384}
-                    height={384}
-                    className="w-full h-full object-contain filter drop-shadow-[0_20px_40px_rgba(235,74,45,0.22)] dark:drop-shadow-[0_24px_48px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:scale-105"
-                    priority
-                  />
-                </div>
-
-                {/* Floating Brand Badge */}
-                <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-white dark:bg-black border border-black/5 dark:border-white/15 shadow-md text-xs font-mono font-black text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-1.5 whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-[#059669] animate-ping" />
-                  <span>AIRACODE // 3D BRAND IDENTITY</span>
-                </div>
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 flex items-center justify-center transition-transform duration-500 hover:scale-105">
+                <Image
+                  src="/logo.png"
+                  alt="AIRACODE Master 3D Logo"
+                  width={384}
+                  height={384}
+                  className="w-full h-full object-contain"
+                  priority
+                />
               </div>
             </div>
 

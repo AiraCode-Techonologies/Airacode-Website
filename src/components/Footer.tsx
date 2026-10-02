@@ -41,7 +41,7 @@ export default function Footer() {
                   alt="AIRACODE Logo" 
                   width={48} 
                   height={48} 
-                  className="w-full h-full object-contain filter drop-shadow-sm" 
+                  className="w-full h-full object-contain" 
                 />
               </div>
               <span className="text-2xl font-black tracking-tight text-[#1e2530] dark:text-[#f3f4f6]">

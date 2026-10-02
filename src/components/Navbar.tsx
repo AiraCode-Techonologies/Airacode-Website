@@ -36,7 +36,7 @@ export default function Navbar() {
                 alt="AIRACODE Logo" 
                 width={44} 
                 height={44} 
-                className="w-full h-full object-contain filter drop-shadow-sm" 
+                className="w-full h-full object-contain" 
                 priority
               />
             </div>
