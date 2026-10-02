@@ -46,13 +46,22 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
+
+      const data = await res.json().catch(() => null);
+
       if (!res.ok) {
-        throw new Error(data.message || "Failed to submit inquiry.");
+        throw new Error(data?.message || data?.error || `Server responded with ${res.status}`);
       }
       setSubmitted(true);
     } catch (err: any) {
-      setSubmitError(err.message || "An unexpected error occurred. Please try again.");
+      console.warn("Contact endpoint unavailable or static host detected, using direct client dispatch fallback:", err);
+      // Fallback for static hosts (e.g. GitHub Pages without serverless functions)
+      const subject = encodeURIComponent(`Project Inquiry: ${formData.serviceNeeded} - ${formData.company || formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || "N/A"}\nService Needed: ${formData.serviceNeeded}\nBudget: ${formData.budget}\nNDA Required: ${formData.ndaRequired ? "Yes" : "No"}\n\nProject Brief:\n${formData.message}`
+      );
+      window.location.href = `mailto:contact@airacode.online?subject=${subject}&body=${body}`;
+      setSubmitted(true);
     } finally {
       setIsSubmitting(false);
     }
