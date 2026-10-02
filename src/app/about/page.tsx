@@ -97,20 +97,22 @@ export default function AboutPage() {
                 {/* Ambient Radial Clay Glow */}
                 <div className="absolute -inset-10 bg-gradient-to-r from-[#eb4a2d]/20 via-[#8b5cf6]/20 to-[#3b82f6]/20 rounded-full blur-3xl opacity-75 group-hover:opacity-100 transition-opacity duration-700 animate-pulse" />
                 
-                {/* 3D Brand Logo Showcase (no separate background box) */}
-                <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2">
+                {/* Seamless Large 3D Master Emblem - No separate background container */}
+                <div 
+                  className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2"
+                >
                   <Image
                     src="/logo.png"
                     alt="AIRACODE Master 3D Logo"
-                    width={340}
-                    height={340}
-                    className="w-full h-full object-contain filter drop-shadow-[0_16px_36px_rgba(30,37,48,0.14)] dark:drop-shadow-[0_16px_36px_rgba(0,0,0,0.9)] transition-transform duration-500 group-hover:scale-105"
+                    width={384}
+                    height={384}
+                    className="w-full h-full object-contain filter drop-shadow-[0_20px_40px_rgba(235,74,45,0.22)] dark:drop-shadow-[0_24px_48px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:scale-105"
                     priority
                   />
                 </div>
 
                 {/* Floating Brand Badge */}
-                <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-white/90 dark:bg-[#151a24]/90 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-sm text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-1.5 whitespace-nowrap">
+                <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-white dark:bg-black border border-black/5 dark:border-white/15 shadow-md text-xs font-mono font-black text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-2 h-2 rounded-full bg-[#059669] animate-ping" />
                   <span>AIRACODE // 3D BRAND IDENTITY</span>
                 </div>

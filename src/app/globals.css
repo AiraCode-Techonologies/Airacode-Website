@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 :root {
   --clay-bg: #f5f2eb;
   --clay-surface: #ffffff;
@@ -8,6 +10,16 @@
   --clay-text-secondary: #4b5563;
   --clay-text-muted: #6b7280;
   --clay-border: rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  --clay-bg: #0b0e14;
+  --clay-surface: #151a24;
+  --clay-surface-subtle: #1c2230;
+  --clay-text-primary: #f3f4f6;
+  --clay-text-secondary: #9ca3af;
+  --clay-text-muted: #6b7280;
+  --clay-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -83,6 +95,40 @@ body {
   box-shadow: 
     8px 12px 22px rgba(30, 37, 48, 0.1),
     -5px -5px 14px rgba(255, 255, 255, 0.95);
+}
+
+/* Dark Mode Tactile Clay Overrides */
+.dark .clay-card {
+  background: #151a24;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    16px 20px 40px rgba(0, 0, 0, 0.5),
+    -8px -8px 24px rgba(255, 255, 255, 0.02),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.dark .clay-card:hover {
+  box-shadow: 
+    22px 28px 50px rgba(0, 0, 0, 0.65),
+    -10px -10px 28px rgba(255, 255, 255, 0.03),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.15),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.dark .clay-inset {
+  background: #0f131a;
+  box-shadow: 
+    inset 4px 5px 10px rgba(0, 0, 0, 0.6),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.03);
+}
+
+.dark .clay-pill {
+  background: #1c2230;
+  box-shadow: 
+    4px 6px 16px rgba(0, 0, 0, 0.4),
+    -2px -2px 8px rgba(255, 255, 255, 0.02),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.08);
 }
 
 /* =========================================================================

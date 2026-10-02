@@ -40,7 +40,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="h-full antialiased scroll-smooth">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const storedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full w-full flex flex-col bg-[#f5f2eb] dark:bg-[#0b0e14] text-[#1e2530] dark:text-[#f3f4f6] font-sans selection:bg-[#ff7259]/25 selection:text-[#eb4a2d] overflow-x-clip">
         {children}
       </body>

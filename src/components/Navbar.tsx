@@ -9,6 +9,7 @@ import {
   X, 
   ArrowRight
 } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full px-3 sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-2.5 pb-2 transition-all">
       <div className="w-full rounded-3xl bg-white/95 dark:bg-[#151a24]/95 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[12px_16px_36px_rgba(30,37,48,0.08),-8px_-8px_24px_rgba(255,255,255,0.9),inset_3px_3px_6px_rgba(255,255,255,0.9),inset_-3px_-3px_8px_rgba(30,37,48,0.03)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.5),inset_1px_1px_2px_rgba(255,255,255,0.05)] px-4 sm:px-8 lg:px-10 py-3">
         <div className="flex items-center justify-between h-14">
-          {/* Tactile Clay Logo */}
+          {/* Seamless Logo - No separate background container */}
           <Link href="/" className="flex items-center gap-3.5 group">
             <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
               <Image 
@@ -36,6 +37,7 @@ export default function Navbar() {
                 width={44} 
                 height={44} 
                 className="w-full h-full object-contain filter drop-shadow-sm" 
+                priority
               />
             </div>
             <div className="flex flex-col">
@@ -68,8 +70,9 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Right Action CTA Button */}
+          {/* Right Action CTA Button & Theme Switch */}
           <div className="hidden sm:flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href="/contact"
               className="clay-btn clay-btn-coral px-6 py-2.5 text-xs sm:text-sm font-bold tracking-wide"
@@ -79,8 +82,9 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Actions: Theme Switch, Start CTA & Menu Toggle */}
           <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
             <Link
               href="/contact"
               className="clay-btn clay-btn-coral px-3 py-1.5 text-xs font-bold"
@@ -89,7 +93,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2.5 rounded-2xl bg-[#ede9e0] dark:bg-white/10 text-[#1e2530] dark:text-[#f3f4f6] shadow-[inset_2px_2px_4px_rgba(30,37,48,0.08),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] dark:shadow-none"
+              className="p-2.5 rounded-2xl bg-[#ede9e0] dark:bg-white/10 text-[#1e2530] dark:text-[#f3f4f6] shadow-[inset_2px_2px_4px_rgba(30,37,48,0.08),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] dark:shadow-none cursor-pointer"
               aria-label="Toggle navigation"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -118,7 +122,8 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <div className="pt-2 mt-2 border-t border-[#ede9e0] dark:border-white/10">
+              <div className="pt-2 mt-2 border-t border-[#ede9e0] dark:border-white/10 flex flex-col gap-2">
+                <ThemeToggle showLabel />
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
