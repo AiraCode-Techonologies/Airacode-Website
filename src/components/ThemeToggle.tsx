@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Sun, Moon } from "lucide-react";
 
 interface ThemeToggleProps {
@@ -12,28 +12,66 @@ export default function ThemeToggle({ className = "", showLabel = false }: Theme
   const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("theme");
-    if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
+  const applyTheme = useCallback((dark: boolean) => {
+    setIsDark(dark);
+    const root = document.documentElement;
+    if (dark) {
+      root.classList.add("dark");
+      root.setAttribute("data-theme", "dark");
+      root.style.colorScheme = "dark";
+      localStorage.setItem("theme", "dark");
     } else {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
+      root.setAttribute("data-theme", "light");
+      root.style.colorScheme = "light";
+      localStorage.setItem("theme", "light");
     }
   }, []);
 
+  useEffect(() => {
+    setMounted(true);
+
+    const syncFromDOM = () => {
+      const hasDarkClass = document.documentElement.classList.contains("dark");
+      setIsDark(hasDarkClass);
+    };
+
+    // Initial check from localStorage or prefers-color-scheme
+    const stored = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialDark = stored === "dark" || (!stored && prefersDark);
+    applyTheme(initialDark);
+
+    // Watch for class attribute mutations on <html>
+    const observer = new MutationObserver(() => syncFromDOM());
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    const handleCustomChange = () => syncFromDOM();
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "theme") {
+        applyTheme(e.newValue === "dark");
+      }
+    };
+
+    window.addEventListener("theme-change", handleCustomChange);
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("theme-change", handleCustomChange);
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, [applyTheme]);
+
   const toggleTheme = () => {
-    const nextDark = !isDark;
-    setIsDark(nextDark);
-    if (nextDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    const root = document.documentElement;
+    const currentlyDark = root.classList.contains("dark");
+    const nextDark = !currentlyDark;
+    applyTheme(nextDark);
+    window.dispatchEvent(new CustomEvent("theme-change", { detail: { isDark: nextDark } }));
   };
 
   if (!mounted) {

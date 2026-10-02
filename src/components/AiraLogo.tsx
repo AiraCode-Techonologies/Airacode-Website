@@ -34,7 +34,7 @@ export default function AiraLogo({
           <AiraGlyph size={size * 0.65} />
         </div>
         <div className="flex flex-col">
-          <span className="text-xl sm:text-2xl font-black tracking-tight text-[#1e2530] flex items-center gap-0.5 leading-none">
+          <span className="text-xl sm:text-2xl font-black tracking-tight text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-0.5 leading-none">
             AIRA<span className="text-[#eb4a2d]">CODE</span>
           </span>
           <span className="text-[10px] uppercase font-bold tracking-widest text-[#6b7280] mt-1 font-mono">
