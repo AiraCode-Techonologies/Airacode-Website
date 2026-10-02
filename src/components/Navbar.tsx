@@ -36,8 +36,9 @@ export default function Navbar() {
                 alt="AIRACODE Logo" 
                 width={44} 
                 height={44} 
-                className="w-full h-full object-contain" 
+                className="w-full h-full object-contain select-none" 
                 priority
+                unoptimized
               />
             </div>
             <div className="flex flex-col">

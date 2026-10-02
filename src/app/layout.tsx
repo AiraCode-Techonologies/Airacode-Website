@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "AIRACODE | Enterprise AI Engineering, System Modernization & Autonomous Workflows",
@@ -22,6 +23,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://airacode.online",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-64x64.png", sizes: "64x64", type: "image/png" },
+      { url: "/logo-icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/logo-icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "AIRACODE | Transforming Vision Into Autonomous Reality",
     description:
@@ -30,6 +45,27 @@ export const metadata: Metadata = {
     siteName: "AIRACODE",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://airacode.online/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AIRACODE — Enterprise AI Engineering & Autonomous Workflows",
+      },
+      {
+        url: "https://airacode.online/logo-icon.png",
+        width: 512,
+        height: 512,
+        alt: "AIRACODE Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AIRACODE | Transforming Vision Into Autonomous Reality",
+    description:
+      "Digitalizing businesses, modernizing legacy systems, and scaling digital products with state-of-the-art AI solutions.",
+    images: ["https://airacode.online/og-image.png"],
   },
 };
 
@@ -48,6 +84,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="h-full antialiased scroll-smooth">
       <head>
+        {/* Security: Enforce HTTPS & upgrade insecure requests automatically */}
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+        {/* HTML Header Logo & Favicon definitions */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/logo-icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* Structured Data / Organization & WebSite Schema */}
+        <JsonLd />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
