@@ -19,13 +19,18 @@ export async function POST(request: Request) {
       );
     }
 
-    const leadId = "lead_" + Date.now().toString(36);
+    const leadId = body.leadId || ("ARC-" + Math.random().toString(36).substring(2, 8).toUpperCase());
     const timestamp = new Date().toUTCString();
 
     const apiKey = process.env.RESEND_API_KEY;
     if (apiKey) {
       const resend = new Resend(apiKey);
       const recipient = process.env.CONTACT_RECIPIENT_EMAIL || "contact@airacode.online";
+      const teamAlertEmail = process.env.TEAM_ALERT_EMAIL || "nagarajendra432@gmail.com";
+      const teamRecipients = [recipient];
+      if (teamAlertEmail && !teamRecipients.includes(teamAlertEmail)) {
+        teamRecipients.push(teamAlertEmail);
+      }
       const fromEmail = process.env.CONTACT_FROM_EMAIL || "AIRACODE <contact@airacode.online>";
       const fallbackFrom = process.env.CONTACT_FALLBACK_FROM_EMAIL || "AIRACODE <onboarding@resend.dev>";
 
@@ -134,9 +139,9 @@ export async function POST(request: Request) {
       try {
         const teamRes = await resend.emails.send({
           from: fromEmail,
-          to: recipient,
+          to: teamRecipients,
           replyTo: email,
-          subject: `[New Lead] ${name} — ${company || serviceNeeded || "Inquiry"}`,
+          subject: `[AIRACODE INQUIRY] ${leadId} — ${serviceNeeded || "General Scoping"} (${name} / ${company || "Individual"})`,
           html: notificationHtml,
         });
 
@@ -144,9 +149,9 @@ export async function POST(request: Request) {
           console.warn("Primary team sender error, attempting fallback:", teamRes.error);
           await resend.emails.send({
             from: fallbackFrom,
-            to: recipient,
+            to: teamRecipients,
             replyTo: email,
-            subject: `[New Lead] ${name} — ${company || serviceNeeded || "Inquiry"}`,
+            subject: `[AIRACODE INQUIRY] ${leadId} — ${serviceNeeded || "General Scoping"} (${name} / ${company || "Individual"})`,
             html: notificationHtml,
           });
         }
