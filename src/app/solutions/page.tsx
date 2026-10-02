@@ -32,7 +32,7 @@ export default function SolutionsPage() {
       name: "FinTech",
       challenge: "Legacy monoliths failing sub-second fraud detection.",
       solution: "Kafka mesh + private LoRA models scoring transactions in <85ms.",
-      roi: "74% latency drop, $1.8M saved/yr.",
+      roi: "74% latency drop, 4x transaction capacity.",
       tagColor: "bg-[#eb4a2d]/10 text-[#eb4a2d]",
     },
     {
@@ -46,14 +46,14 @@ export default function SolutionsPage() {
       name: "Commerce",
       challenge: "Flash sales causing checkout spikes and multi-cloud desync.",
       solution: "Next.js Edge frontend + self-healing Kubernetes clusters.",
-      roi: "52M daily events with zero downtime.",
+      roi: "52M daily events, zero downtime.",
       tagColor: "bg-[#2563eb]/10 text-[#2563eb]",
     },
     {
       name: "Logistics",
       challenge: "Fragmented freight tracking across 12 legacy ERP systems.",
       solution: "Automated webhook ecosystem + autonomous dispatch agents.",
-      roi: "92% automated dispatch, $4.2M saved.",
+      roi: "92% automated dispatch, 65% manual toil reduction.",
       tagColor: "bg-[#059669]/10 text-[#059669]",
     },
   ];
@@ -68,19 +68,14 @@ export default function SolutionsPage() {
         {/* ================= SECTION 01: HERO ================= */}
         <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>01 // SOLUTIONS</span>
-            </div>
-
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] dark:text-[#f3f4f6] tracking-tight leading-[1.05]">
               Modernize{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
                 Scale
               </span>
             </h1>
 
-            <p className="text-base sm:text-xl text-[#4b5563] max-w-2xl mx-auto font-medium">
+            <p className="text-base sm:text-xl text-[#4b5563] dark:text-[#9ca3af] max-w-2xl mx-auto font-medium">
               Decompose legacy monoliths and deploy sovereign AI systems with zero downtime.
             </p>
 
@@ -94,7 +89,7 @@ export default function SolutionsPage() {
               </Link>
               <Link
                 href="#blueprint"
-                className="clay-btn clay-btn-white px-8 py-3.5 text-base font-bold text-[#1e2530]"
+                className="clay-btn clay-btn-white px-8 py-3.5 text-base font-bold text-[#1e2530] dark:text-[#f3f4f6]"
               >
                 <span>View Roadmap</span>
               </Link>
@@ -103,10 +98,9 @@ export default function SolutionsPage() {
         </section>
 
         {/* ================= SECTION 02: BLUEPRINT ================= */}
-        <section id="blueprint" className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] scroll-mt-20 w-full">
+        <section id="blueprint" className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 scroll-mt-20 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="02 // PROTOCOL"
               title="Migration"
               highlightedWord="Protocol"
               subtitle="4-phase methodology for zero-downtime cutover."
@@ -144,10 +138,10 @@ export default function SolutionsPage() {
                   <div key={step.phase} className="clay-card p-6 space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-mono font-bold text-[#eb4a2d]">{step.phase}</span>
-                      <Icon className="w-5 h-5 text-[#6b7280]" />
+                      <Icon className="w-5 h-5 text-[#6b7280] dark:text-[#9ca3af]" />
                     </div>
-                    <h3 className="text-lg font-black text-[#1e2530]">{step.title}</h3>
-                    <p className="text-xs text-[#4b5563] leading-relaxed font-medium">{step.desc}</p>
+                    <h3 className="text-lg font-black text-[#1e2530] dark:text-[#f3f4f6]">{step.title}</h3>
+                    <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">{step.desc}</p>
                   </div>
                 );
               })}
@@ -156,10 +150,9 @@ export default function SolutionsPage() {
         </section>
 
         {/* ================= SECTION 03: INDUSTRY MATRIX ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="03 // INDUSTRIES"
               title="Industry"
               highlightedWord="Matrix"
               subtitle="Tailored for mission-critical sectors where uptime is non-negotiable."
@@ -169,28 +162,28 @@ export default function SolutionsPage() {
               {industries.map((ind) => (
                 <div key={ind.name} className="clay-card p-6 sm:p-8 space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xl sm:text-2xl font-black text-[#1e2530]">{ind.name}</h3>
+                    <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] dark:text-[#f3f4f6]">{ind.name}</h3>
                     <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold ${ind.tagColor}`}>
                       Enterprise
                     </span>
                   </div>
 
                   <div className="space-y-2.5 text-xs sm:text-sm">
-                    <div className="p-3 rounded-xl bg-[#ede9e0]/80">
-                      <span className="text-[#6b7280] font-mono text-[10px] uppercase font-bold block">
+                    <div className="p-3 rounded-xl bg-[#ede9e0]/80 dark:bg-white/5">
+                      <span className="text-[#6b7280] dark:text-[#9ca3af] font-mono text-[10px] uppercase font-bold block">
                         Legacy Bottleneck
                       </span>
-                      <p className="text-[#1e2530] font-medium mt-0.5">{ind.challenge}</p>
+                      <p className="text-[#1e2530] dark:text-[#f3f4f6] font-medium mt-0.5">{ind.challenge}</p>
                     </div>
 
-                    <div className="p-3 rounded-xl bg-white border border-[#ede9e0]">
+                    <div className="p-3 rounded-xl bg-white dark:bg-[#151a24] border border-[#ede9e0] dark:border-white/10">
                       <span className="text-[#eb4a2d] font-mono text-[10px] uppercase font-bold block">
                         AIRACODE Solution
                       </span>
-                      <p className="text-[#1e2530] font-medium mt-0.5">{ind.solution}</p>
+                      <p className="text-[#1e2530] dark:text-[#f3f4f6] font-medium mt-0.5">{ind.solution}</p>
                     </div>
 
-                    <div className="p-3 rounded-xl bg-[#10b981]/10 border border-[#10b981]/20">
+                    <div className="p-3 rounded-xl bg-[#10b981]/10 dark:bg-[#059669]/20 border border-[#10b981]/20 dark:border-[#059669]/30">
                       <span className="text-[#059669] font-mono text-[10px] uppercase font-bold block">
                         Measured Impact
                       </span>
@@ -204,10 +197,9 @@ export default function SolutionsPage() {
         </section>
 
         {/* ================= SECTION 04: ZERO TRUST ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="04 // GOVERNANCE"
               title="Data"
               highlightedWord="Security"
               subtitle="Private VPC enclaves with zero external leakage."
@@ -218,8 +210,8 @@ export default function SolutionsPage() {
                 <div className="w-11 h-11 rounded-2xl bg-[#eb4a2d]/10 text-[#eb4a2d] flex items-center justify-center">
                   <Lock className="w-5 h-5 stroke-[2.5]" />
                 </div>
-                <h4 className="text-lg font-black text-[#1e2530]">Private VPC Enclaves</h4>
-                <p className="text-xs text-[#4b5563] leading-relaxed font-medium">
+                <h4 className="text-lg font-black text-[#1e2530] dark:text-[#f3f4f6]">Private VPC Enclaves</h4>
+                <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">
                   Model weights and vectors execute strictly inside dedicated AWS, GCP, or Azure enclaves.
                 </p>
                 <span className="text-[11px] font-mono font-bold text-[#059669] block pt-1">✓ Zero public API calls</span>
@@ -229,8 +221,8 @@ export default function SolutionsPage() {
                 <div className="w-11 h-11 rounded-2xl bg-[#7c3aed]/10 text-[#7c3aed] flex items-center justify-center">
                   <ShieldCheck className="w-5 h-5 stroke-[2.5]" />
                 </div>
-                <h4 className="text-lg font-black text-[#1e2530]">Compliance Ready</h4>
-                <p className="text-xs text-[#4b5563] leading-relaxed font-medium">
+                <h4 className="text-lg font-black text-[#1e2530] dark:text-[#f3f4f6]">Compliance Ready</h4>
+                <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">
                   Meets SOC 2 Type II, HIPAA, and GDPR standards with cryptographic audit logs.
                 </p>
                 <span className="text-[11px] font-mono font-bold text-[#7c3aed] block pt-1">✓ Automated audit logs</span>
@@ -240,8 +232,8 @@ export default function SolutionsPage() {
                 <div className="w-11 h-11 rounded-2xl bg-[#059669]/10 text-[#059669] flex items-center justify-center">
                   <Terminal className="w-5 h-5 stroke-[2.5]" />
                 </div>
-                <h4 className="text-lg font-black text-[#1e2530]">Tool Sandboxes</h4>
-                <p className="text-xs text-[#4b5563] leading-relaxed font-medium">
+                <h4 className="text-lg font-black text-[#1e2530] dark:text-[#f3f4f6]">Tool Sandboxes</h4>
+                <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">
                   Agentic tool invocations require strict schema validation gates and human checks.
                 </p>
                 <span className="text-[11px] font-mono font-bold text-[#059669] block pt-1">✓ Zero hallucinations</span>
@@ -251,35 +243,30 @@ export default function SolutionsPage() {
         </section>
 
         {/* ================= SECTION 05: SLA ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto clay-card p-8 sm:p-12 text-center space-y-5 max-w-4xl mx-auto">
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>05 // GUARANTEE</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530]">
+            <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530] dark:text-[#f3f4f6]">
               Uptime{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
                 Guaranteed
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#4b5563] max-w-xl mx-auto font-medium">
+            <p className="text-sm sm:text-base text-[#4b5563] dark:text-[#9ca3af] max-w-xl mx-auto font-medium">
               Backed by our contractual 99.99% availability and zero-data-loss commitment.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto pt-2 font-mono">
-              <div className="p-4 rounded-xl bg-[#f6f3ee]">
-                <span className="text-[10px] text-[#6b7280] font-bold block mb-0.5">Availability</span>
+              <div className="p-4 rounded-xl bg-[#f6f3ee] dark:bg-[#1a2130]">
+                <span className="text-[10px] text-[#6b7280] dark:text-[#9ca3af] font-bold block mb-0.5">Availability</span>
                 <span className="text-xl font-black text-[#eb4a2d]">99.99%</span>
               </div>
-              <div className="p-4 rounded-xl bg-[#f6f3ee]">
-                <span className="text-[10px] text-[#6b7280] font-bold block mb-0.5">Response Time</span>
+              <div className="p-4 rounded-xl bg-[#f6f3ee] dark:bg-[#1a2130]">
+                <span className="text-[10px] text-[#6b7280] dark:text-[#9ca3af] font-bold block mb-0.5">Response Time</span>
                 <span className="text-xl font-black text-[#059669]">&lt;15m</span>
               </div>
-              <div className="p-4 rounded-xl bg-[#f6f3ee]">
-                <span className="text-[10px] text-[#6b7280] font-bold block mb-0.5">Cutover Loss</span>
+              <div className="p-4 rounded-xl bg-[#f6f3ee] dark:bg-[#1a2130]">
+                <span className="text-[10px] text-[#6b7280] dark:text-[#9ca3af] font-bold block mb-0.5">Cutover Loss</span>
                 <span className="text-xl font-black text-[#7c3aed]">0 Sec</span>
               </div>
             </div>

@@ -40,16 +40,11 @@ export default function ProjectEstimator() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left column: Selection Options */}
         <div className="lg:col-span-7 space-y-5">
-          <div className="status-badge text-[#eb4a2d]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-            <span>POD SIZING</span>
-          </div>
-
           <div>
-            <h3 className="text-2xl sm:text-3xl font-black text-[#1e2530]">
+            <h3 className="text-2xl sm:text-3xl font-black text-[#1e2530] dark:text-[#f3f4f6]">
               Scope Sizing
             </h3>
-            <p className="mt-1 text-xs sm:text-sm text-[#4b5563] font-medium">
+            <p className="mt-1 text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] font-medium">
               Select required capabilities to calculate pod composition and timeline.
             </p>
           </div>
@@ -57,7 +52,7 @@ export default function ProjectEstimator() {
           {/* Service Multi-Select */}
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs">
-              <span className="font-mono uppercase text-[#6b7280] font-bold">
+              <span className="font-mono uppercase text-[#6b7280] dark:text-[#9ca3af] font-bold">
                 Services ({selectedServices.length})
               </span>
               <button
@@ -79,20 +74,20 @@ export default function ProjectEstimator() {
                     onClick={() => toggleService(service.id)}
                     className={`flex items-center gap-2.5 p-3 rounded-xl text-left transition-all cursor-pointer ${
                       isSelected
-                        ? "bg-white border-2 border-[#eb4a2d] shadow-sm"
-                        : "bg-[#f6f3ee] text-[#4b5563] hover:bg-white"
+                        ? "bg-white dark:bg-[#1a2130] border-2 border-[#eb4a2d] shadow-sm"
+                        : "bg-[#f6f3ee] dark:bg-[#151a24] text-[#4b5563] dark:text-[#9ca3af] hover:bg-white dark:hover:bg-[#1a2130]"
                     }`}
                   >
                     <div
                       className={`w-4 h-4 rounded-md flex items-center justify-center border transition-all shrink-0 ${
                         isSelected
                           ? "bg-[#eb4a2d] border-[#eb4a2d] text-white"
-                          : "border-[#d1d5db] bg-white"
+                          : "border-[#d1d5db] dark:border-white/20 bg-white dark:bg-[#121721]"
                       }`}
                     >
                       {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
                     </div>
-                    <span className="text-xs font-bold text-[#1e2530] truncate">{service.title}</span>
+                    <span className="text-xs font-bold text-[#1e2530] dark:text-[#f3f4f6] truncate">{service.title}</span>
                   </button>
                 );
               })}
@@ -101,7 +96,7 @@ export default function ProjectEstimator() {
 
           {/* Infrastructure Baseline Selector */}
           <div className="space-y-2 pt-1">
-            <span className="text-xs font-mono uppercase text-[#6b7280] block font-bold">
+            <span className="text-xs font-mono uppercase text-[#6b7280] dark:text-[#9ca3af] block font-bold">
               Current Architecture
             </span>
             <div className="grid grid-cols-3 gap-2">
@@ -118,8 +113,8 @@ export default function ProjectEstimator() {
                     onClick={() => setInfraState(opt.id)}
                     className={`py-2 px-3 rounded-xl text-center text-xs font-bold transition-all cursor-pointer ${
                       isCurrent
-                        ? "bg-white border-2 border-[#7c3aed] text-[#1e2530] shadow-sm"
-                        : "bg-[#f6f3ee] text-[#6b7280] hover:bg-white"
+                        ? "bg-white dark:bg-[#1a2130] border-2 border-[#7c3aed] text-[#1e2530] dark:text-[#f3f4f6] shadow-sm"
+                        : "bg-[#f6f3ee] dark:bg-[#151a24] text-[#6b7280] dark:text-[#9ca3af] hover:bg-white dark:hover:bg-[#1a2130]"
                     }`}
                   >
                     {opt.label}
@@ -132,9 +127,9 @@ export default function ProjectEstimator() {
 
         {/* Right column: Generated Pod Blueprint */}
         <div className="lg:col-span-5">
-          <div className="p-6 rounded-3xl bg-white border border-white space-y-4 shadow-sm">
-            <div className="flex items-center justify-between border-b border-[#ede9e0] pb-3">
-              <span className="text-xs font-mono uppercase text-[#6b7280] font-bold">
+          <div className="p-6 rounded-3xl bg-white dark:bg-[#151a24] border border-white dark:border-white/10 space-y-4 shadow-sm">
+            <div className="flex items-center justify-between border-b border-[#ede9e0] dark:border-white/10 pb-3">
+              <span className="text-xs font-mono uppercase text-[#6b7280] dark:text-[#9ca3af] font-bold">
                 Recommended Pod
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-[#eb4a2d]/10 text-xs font-mono font-bold text-[#eb4a2d]">
@@ -143,32 +138,32 @@ export default function ProjectEstimator() {
             </div>
 
             <div className="space-y-2.5">
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#ede9e0]/60">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#4b5563]">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#ede9e0]/60 dark:bg-white/5">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#4b5563] dark:text-[#9ca3af]">
                   <Users className="w-3.5 h-3.5 text-[#eb4a2d]" />
                   <span>Team Size</span>
                 </div>
-                <span className="text-sm font-mono font-black text-[#1e2530]">{podEngineers} Engineers</span>
+                <span className="text-sm font-mono font-black text-[#1e2530] dark:text-[#f3f4f6]">{podEngineers} Engineers</span>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#ede9e0]/60">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#4b5563]">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#ede9e0]/60 dark:bg-white/5">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#4b5563] dark:text-[#9ca3af]">
                   <Clock className="w-3.5 h-3.5 text-[#7c3aed]" />
                   <span>Timeline</span>
                 </div>
-                <span className="text-sm font-mono font-black text-[#1e2530]">{sprintCount} Sprints</span>
+                <span className="text-sm font-mono font-black text-[#1e2530] dark:text-[#f3f4f6]">{sprintCount} Sprints</span>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#ede9e0]/60">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#4b5563]">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#ede9e0]/60 dark:bg-white/5">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#4b5563] dark:text-[#9ca3af]">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Uptime SLA</span>
                 </div>
                 <span className="text-sm font-mono font-black text-[#059669]">99.99%</span>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#ede9e0]/60">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#4b5563]">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#ede9e0]/60 dark:bg-white/5">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#4b5563] dark:text-[#9ca3af]">
                   <Zap className="w-3.5 h-3.5 text-[#d97706]" />
                   <span>Yield</span>
                 </div>

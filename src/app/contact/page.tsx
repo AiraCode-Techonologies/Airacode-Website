@@ -32,11 +32,30 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to submit inquiry.");
+      }
+      setSubmitted(true);
+    } catch (err: any) {
+      setSubmitError(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -72,23 +91,18 @@ export default function ContactPage() {
         {/* ================= SECTION 01: HERO ================= */}
         <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>01 // CONTACT</span>
-            </div>
-
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] dark:text-[#f3f4f6] tracking-tight leading-[1.05]">
               Contact{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
                 Us
               </span>
             </h1>
 
-            <p className="text-base sm:text-xl text-[#4b5563] max-w-2xl mx-auto font-medium">
+            <p className="text-base sm:text-xl text-[#4b5563] dark:text-[#9ca3af] max-w-2xl mx-auto font-medium">
               Direct connection with our Principal AI Systems Architects.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm text-xs font-mono font-bold text-[#1e2530]">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#151a24] border border-transparent dark:border-white/10 shadow-sm text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]">
               <span className="w-2 h-2 rounded-full bg-[#059669] animate-ping" />
               <span>2 Dedicated Sprints Open for Immediate Onboarding</span>
             </div>
@@ -96,10 +110,9 @@ export default function ContactPage() {
         </section>
 
         {/* ================= SECTION 02: SCOPE ESTIMATOR ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-8">
             <SectionHeader
-              badge="02 // SCOPE"
               title="Scope"
               highlightedWord="Estimator"
               subtitle="Calculate pod requirements before scheduling your technical discovery session."
@@ -109,10 +122,9 @@ export default function ContactPage() {
         </section>
 
         {/* ================= SECTION 03: RFP FORM ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-4xl mx-auto space-y-8">
             <SectionHeader
-              badge="03 // INQUIRY"
               title="Direct"
               highlightedWord="Inquiry"
               subtitle="We respond within 4 business hours under mutual NDA."
@@ -124,8 +136,8 @@ export default function ContactPage() {
                   <div className="w-12 h-12 rounded-2xl bg-[#10b981]/15 text-[#059669] mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-7 h-7 stroke-[2.5]" />
                   </div>
-                  <h3 className="text-xl font-black text-[#1e2530]">Inquiry Received</h3>
-                  <p className="text-xs sm:text-sm text-[#4b5563] max-w-md mx-auto leading-relaxed font-medium">
+                  <h3 className="text-xl font-black text-[#1e2530] dark:text-[#f3f4f6]">Inquiry Received</h3>
+                  <p className="text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] max-w-md mx-auto leading-relaxed font-medium">
                     Our Lead Architect will review your parameters and respond within 4 hours under mutual NDA.
                   </p>
                   <button
@@ -137,51 +149,57 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {submitError && (
+                    <div className="p-3 rounded-xl bg-[#eb4a2d]/10 border border-[#eb4a2d]/20 text-[#eb4a2d] text-xs font-bold">
+                      {submitError}
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-xs font-mono font-bold text-[#1e2530]">Full Name</label>
+                      <label className="text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]">Full Name</label>
                       <input
                         type="text"
                         required
                         placeholder="Alex Morgan"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] border border-transparent focus:border-[#eb4a2d] focus:bg-white text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530]"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 focus:border-[#eb4a2d] focus:bg-white dark:focus:bg-[#1a2130] text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530] dark:text-[#f3f4f6]"
                       />
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-xs font-mono font-bold text-[#1e2530]">Corporate Email</label>
+                      <label className="text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]">Corporate Email</label>
                       <input
                         type="email"
                         required
                         placeholder="alex@enterprise.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] border border-transparent focus:border-[#eb4a2d] focus:bg-white text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530]"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 focus:border-[#eb4a2d] focus:bg-white dark:focus:bg-[#1a2130] text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530] dark:text-[#f3f4f6]"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-xs font-mono font-bold text-[#1e2530]">Company</label>
+                      <label className="text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]">Company</label>
                       <input
                         type="text"
                         required
                         placeholder="Acme Global Inc"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] border border-transparent focus:border-[#eb4a2d] focus:bg-white text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530]"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 focus:border-[#eb4a2d] focus:bg-white dark:focus:bg-[#1a2130] text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530] dark:text-[#f3f4f6]"
                       />
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-xs font-mono font-bold text-[#1e2530]">Primary Service</label>
+                      <label className="text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]">Primary Service</label>
                       <select
                         value={formData.serviceNeeded}
                         onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] border border-transparent focus:border-[#eb4a2d] focus:bg-white text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530]"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 focus:border-[#eb4a2d] focus:bg-white dark:focus:bg-[#1a2130] text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530] dark:text-[#f3f4f6]"
                       >
                         <option value="ai-website-dev">AI Website Development</option>
                         <option value="ai-product-dev">AI Product Development</option>
@@ -196,28 +214,29 @@ export default function ContactPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-mono font-bold text-[#1e2530]">Project Overview</label>
+                    <label className="text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]">Project Overview</label>
                     <textarea
                       rows={3}
                       required
                       placeholder="Describe your architecture bottlenecks or goals..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] border border-transparent focus:border-[#eb4a2d] focus:bg-white text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530]"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24] border border-transparent dark:border-white/10 focus:border-[#eb4a2d] focus:bg-white dark:focus:bg-[#1a2130] text-xs sm:text-sm outline-none transition-all font-medium text-[#1e2530] dark:text-[#f3f4f6]"
                     />
                   </div>
 
-                  <div className="flex items-center gap-2 pt-1 text-xs text-[#6b7280]">
+                  <div className="flex items-center gap-2 pt-1 text-xs text-[#6b7280] dark:text-[#9ca3af]">
                     <Lock className="w-3.5 h-3.5 text-[#059669]" />
                     <span>Protected under strict enterprise mutual NDA.</span>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full clay-btn clay-btn-coral py-3 text-sm font-black tracking-wide"
+                    disabled={isSubmitting}
+                    className="w-full clay-btn clay-btn-coral py-3 text-sm font-black tracking-wide cursor-pointer disabled:opacity-60"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    <span>Send Inquiry</span>
+                    <span>{isSubmitting ? "Submitting Inquiry..." : "Send Inquiry"}</span>
                   </button>
                 </form>
               )}
@@ -225,49 +244,47 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ================= SECTION 04: OFFICES ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        {/* ================= SECTION 04: DIRECT CHANNELS ================= */}
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="04 // OFFICES"
-              title="Global"
-              highlightedWord="Offices"
-              subtitle="Follow-the-sun operations centers across four continents."
+              title="Direct"
+              highlightedWord="Channels"
+              subtitle="Direct lines to our engineering leads and incident desk."
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-mono text-xs">
               <div className="clay-card p-5 space-y-2">
-                <span className="text-[#eb4a2d] font-black text-sm block">San Francisco</span>
-                <p className="text-[#1e2530] font-sans font-medium">555 Mission St, Suite 2400</p>
-                <p className="text-[#eb4a2d] font-bold">sf@airacode.com</p>
+                <span className="text-[#eb4a2d] font-black text-sm block">Architecture</span>
+                <p className="text-[#1e2530] dark:text-[#f3f4f6] font-sans font-medium">New System Scoping &amp; Audits</p>
+                <p className="text-[#eb4a2d] font-bold">arch@airacode.com</p>
               </div>
 
               <div className="clay-card p-5 space-y-2">
-                <span className="text-[#eb4a2d] font-black text-sm block">London</span>
-                <p className="text-[#1e2530] font-sans font-medium">100 Bishopsgate, Level 18</p>
-                <p className="text-[#eb4a2d] font-bold">london@airacode.com</p>
+                <span className="text-[#7c3aed] font-black text-sm block">Engineering</span>
+                <p className="text-[#1e2530] dark:text-[#f3f4f6] font-sans font-medium">Sprint &amp; SOW Inquiries</p>
+                <p className="text-[#7c3aed] font-bold">dev@airacode.com</p>
               </div>
 
               <div className="clay-card p-5 space-y-2">
-                <span className="text-[#eb4a2d] font-black text-sm block">Singapore</span>
-                <p className="text-[#1e2530] font-sans font-medium">1 Marina Boulevard, #28-00</p>
-                <p className="text-[#eb4a2d] font-bold">apac@airacode.com</p>
+                <span className="text-[#059669] font-black text-sm block">Security</span>
+                <p className="text-[#1e2530] dark:text-[#f3f4f6] font-sans font-medium">VPC Isolation &amp; Mutual NDA</p>
+                <p className="text-[#059669] font-bold">security@airacode.com</p>
               </div>
 
               <div className="clay-card p-5 space-y-2">
-                <span className="text-[#eb4a2d] font-black text-sm block">Bengaluru</span>
-                <p className="text-[#1e2530] font-sans font-medium">Outer Ring Road, Tech Park</p>
-                <p className="text-[#eb4a2d] font-bold">ops@airacode.com</p>
+                <span className="text-[#2563eb] font-black text-sm block">Incident Desk</span>
+                <p className="text-[#1e2530] dark:text-[#f3f4f6] font-sans font-medium">24/7 Production SRE Escalation</p>
+                <p className="text-[#2563eb] font-bold">sre@airacode.com</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* ================= SECTION 05: FAQ ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-3xl mx-auto space-y-8">
             <SectionHeader
-              badge="05 // FAQ"
               title="Quick"
               highlightedWord="Answers"
               subtitle="Key operational details regarding contracts, privacy, and SLAs."
@@ -284,9 +301,9 @@ export default function ContactPage() {
                     <button
                       type="button"
                       onClick={() => setActiveFaq(isOpen ? null : idx)}
-                      className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 hover:bg-[#f6f3ee]/50 cursor-pointer"
+                      className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 hover:bg-[#f6f3ee]/50 dark:hover:bg-white/5 cursor-pointer"
                     >
-                      <span className="text-sm sm:text-base font-black text-[#1e2530]">
+                      <span className="text-sm sm:text-base font-black text-[#1e2530] dark:text-[#f3f4f6]">
                         {faq.q}
                       </span>
                       <ChevronDown
@@ -296,7 +313,7 @@ export default function ContactPage() {
                       />
                     </button>
                     {isOpen && (
-                      <div className="p-4 sm:p-5 pt-0 text-xs sm:text-sm text-[#4b5563] leading-relaxed border-t border-[#ede9e0] font-medium">
+                      <div className="p-4 sm:p-5 pt-0 text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed border-t border-[#ede9e0] dark:border-white/10 font-medium">
                         {faq.a}
                       </div>
                     )}

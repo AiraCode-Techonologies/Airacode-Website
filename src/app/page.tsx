@@ -32,14 +32,9 @@ export default function HomePage() {
         <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-6">
             
-            {/* Status Badge */}
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>01 // AIRACODE</span>
-            </div>
 
             {/* 2-Word Headline */}
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-[#1e2530] leading-[1.05]">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-[#1e2530] dark:text-[#f3f4f6] leading-[1.05]">
               Autonomous{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
                 Scale
@@ -47,7 +42,7 @@ export default function HomePage() {
             </h1>
 
             {/* Concise Tagline */}
-            <p className="text-base sm:text-xl md:text-2xl text-[#4b5563] max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-base sm:text-xl md:text-2xl text-[#4b5563] dark:text-[#9ca3af] max-w-3xl mx-auto leading-relaxed font-medium">
               We digitalize your business, modernize legacy systems, and engineer autonomous AI products for scale.
             </p>
 
@@ -62,7 +57,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/services"
-                className="w-full sm:w-auto clay-btn clay-btn-white px-8 py-3.5 text-base font-bold text-[#1e2530]"
+                className="w-full sm:w-auto clay-btn clay-btn-white px-8 py-3.5 text-base font-bold text-[#1e2530] dark:text-[#f3f4f6]"
               >
                 <span>View Services</span>
               </Link>
@@ -71,24 +66,24 @@ export default function HomePage() {
             {/* 3D Kinetic Diorama */}
             <HeroClayDiorama />
 
-            {/* Concise Telemetry Bar */}
+            {/* Authentic Startup Telemetry Bar */}
             <div className="w-full max-w-5xl mx-auto pt-2">
               <div className="clay-card p-4 sm:p-5 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
                 <div>
-                  <span className="text-[11px] font-mono text-[#6b7280] uppercase font-bold block">Uptime SLA</span>
-                  <span className="text-2xl sm:text-3xl font-black font-mono text-[#eb4a2d]">99.99%</span>
+                  <span className="text-[11px] font-mono text-[#6b7280] dark:text-[#9ca3af] uppercase font-bold block">MVP Speed</span>
+                  <span className="text-2xl sm:text-3xl font-black font-mono text-[#eb4a2d]">2-4 Wks</span>
                 </div>
-                <div className="border-t sm:border-t-0 sm:border-l border-[#ede9e0] pt-2 sm:pt-0">
-                  <span className="text-[11px] font-mono text-[#6b7280] uppercase font-bold block">Latency</span>
-                  <span className="text-2xl sm:text-3xl font-black font-mono text-[#059669]">&lt;18ms</span>
+                <div className="border-t sm:border-t-0 sm:border-l border-[#ede9e0] dark:border-white/10 pt-2 sm:pt-0">
+                  <span className="text-[11px] font-mono text-[#6b7280] dark:text-[#9ca3af] uppercase font-bold block">IP Ownership</span>
+                  <span className="text-2xl sm:text-3xl font-black font-mono text-[#059669]">100%</span>
                 </div>
-                <div className="border-t md:border-t-0 md:border-l border-[#ede9e0] pt-2 md:pt-0">
-                  <span className="text-[11px] font-mono text-[#6b7280] uppercase font-bold block">Accuracy</span>
-                  <span className="text-2xl sm:text-3xl font-black font-mono text-[#7c3aed]">98.6%</span>
+                <div className="border-t md:border-t-0 md:border-l border-[#ede9e0] dark:border-white/10 pt-2 md:pt-0">
+                  <span className="text-[11px] font-mono text-[#6b7280] dark:text-[#9ca3af] uppercase font-bold block">Lighthouse CWV</span>
+                  <span className="text-2xl sm:text-3xl font-black font-mono text-[#7c3aed]">98+</span>
                 </div>
-                <div className="border-t sm:border-t-0 sm:border-l border-[#ede9e0] pt-2 sm:pt-0">
-                  <span className="text-[11px] font-mono text-[#6b7280] uppercase font-bold block">Operations</span>
-                  <span className="text-2xl sm:text-3xl font-black font-mono text-[#2563eb]">24/7/365</span>
+                <div className="border-t sm:border-t-0 sm:border-l border-[#ede9e0] dark:border-white/10 pt-2 sm:pt-0">
+                  <span className="text-[11px] font-mono text-[#6b7280] dark:text-[#9ca3af] uppercase font-bold block">Dev Access</span>
+                  <span className="text-2xl sm:text-3xl font-black font-mono text-[#2563eb]">Direct</span>
                 </div>
               </div>
             </div>
@@ -97,10 +92,9 @@ export default function HomePage() {
         </section>
 
         {/* ================= SECTION 02: CAPABILITIES ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="02 // CAPABILITIES"
               title="Core"
               highlightedWord="Capabilities"
               subtitle="8 specialized disciplines engineered for scale and speed."
@@ -110,10 +104,9 @@ export default function HomePage() {
         </section>
 
         {/* ================= SECTION 03: AGENT SWARMS ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="03 // AUTONOMOUS RUNTIME"
               title="Agent"
               highlightedWord="Swarms"
               subtitle="Multi-agent orchestration with deterministic tool execution."
@@ -123,10 +116,9 @@ export default function HomePage() {
         </section>
 
         {/* ================= SECTION 04: VALUE IMPACT ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <SectionHeader
-              badge="04 // ECONOMIC IMPACT"
               title="Value"
               highlightedWord="Impact"
               subtitle="Estimate operational cost savings and velocity gains."
@@ -136,10 +128,9 @@ export default function HomePage() {
         </section>
 
         {/* ================= SECTION 05: CASE STUDIES ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="05 // PROVEN SCALE"
               title="Case"
               highlightedWord="Studies"
               subtitle="Production deployments delivered with zero downtime."
@@ -153,32 +144,32 @@ export default function HomePage() {
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold uppercase text-[#eb4a2d] px-3 py-1 rounded-full bg-[#ede9e0]">
+                      <span className="text-xs font-mono font-bold uppercase text-[#eb4a2d] px-3 py-1 rounded-full bg-[#ede9e0] dark:bg-[#1f2633]">
                         {study.industry}
                       </span>
-                      <span className="text-xs font-mono font-bold text-[#6b7280]">{study.client}</span>
+                      <span className="text-xs font-mono font-bold text-[#6b7280] dark:text-[#9ca3af]">{study.client}</span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] dark:text-[#f3f4f6] leading-snug">
                       {study.headline}
                     </h3>
                     
-                    <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed font-medium">
+                    <p className="text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">
                       {study.summary}
                     </p>
 
                     <div className="grid grid-cols-3 gap-2.5 pt-2">
                       {study.metrics.map((m) => (
-                        <div key={m.label} className="p-2.5 rounded-xl bg-[#f6f3ee] text-center">
-                          <span className="text-[10px] text-[#6b7280] font-bold block truncate">{m.label}</span>
-                          <span className="text-base font-mono font-black text-[#1e2530]">{m.value}</span>
+                        <div key={m.label} className="p-2.5 rounded-xl bg-[#f6f3ee] dark:bg-[#1a2130] text-center">
+                          <span className="text-[10px] text-[#6b7280] dark:text-[#9ca3af] font-bold block truncate">{m.label}</span>
+                          <span className="text-base font-mono font-black text-[#1e2530] dark:text-[#f3f4f6]">{m.value}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[#ede9e0] flex items-center justify-between text-xs">
-                    <span className="italic text-[#6b7280] line-clamp-1">&quot;{study.quote}&quot;</span>
+                  <div className="mt-4 pt-3 border-t border-[#ede9e0] dark:border-white/10 flex items-center justify-between text-xs">
+                    <span className="italic text-[#6b7280] dark:text-[#9ca3af] line-clamp-1">&quot;{study.quote}&quot;</span>
                     <span className="font-mono font-bold text-[#eb4a2d] shrink-0 ml-2">— {study.author}</span>
                   </div>
                 </div>
@@ -198,40 +189,35 @@ export default function HomePage() {
         </section>
 
         {/* ================= SECTION 06: CTA ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto">
             <div className="clay-card p-8 sm:p-14 text-center space-y-4 max-w-4xl mx-auto">
-              <div className="status-badge text-[#eb4a2d] mx-auto">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-                <span>06 // READY</span>
-              </div>
-
-              <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530]">
+              <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530] dark:text-[#f3f4f6]">
                 Scale{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
                   Fast
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-[#4b5563] font-medium max-w-xl mx-auto">
-                Transform your core systems with autonomous intelligence.
-              </p>
+            <p className="text-sm sm:text-base text-[#4b5563] dark:text-[#9ca3af] font-medium max-w-xl mx-auto">
+              Transform your core systems with autonomous intelligence.
+            </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto clay-btn clay-btn-coral px-8 py-3.5 text-base font-black tracking-wide"
-                >
-                  <span>Contact Us</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/solutions"
-                  className="w-full sm:w-auto clay-btn clay-btn-white px-8 py-3.5 text-base font-bold text-[#1e2530]"
-                >
-                  <span>View Solutions</span>
-                </Link>
-              </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto clay-btn clay-btn-coral px-8 py-3.5 text-base font-black tracking-wide"
+              >
+                <span>Contact Us</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/solutions"
+                className="w-full sm:w-auto clay-btn clay-btn-white px-8 py-3.5 text-base font-bold text-[#1e2530] dark:text-[#f3f4f6]"
+              >
+                <span>View Solutions</span>
+              </Link>
+            </div>
             </div>
           </div>
         </section>

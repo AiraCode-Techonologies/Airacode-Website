@@ -64,8 +64,8 @@ export default function ServicesGrid({ limit }: { limit?: number }) {
               onClick={() => setFilter(tab.id)}
               className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
                 isActive
-                  ? "bg-[#ede9e0] text-[#eb4a2d] shadow-[inset_2px_2px_4px_rgba(30,37,48,0.1)] scale-105"
-                  : "bg-white text-[#4b5563] shadow-sm hover:text-[#1e2530]"
+                  ? "bg-[#ede9e0] dark:bg-[#1a2130] text-[#eb4a2d] shadow-[inset_2px_2px_4px_rgba(30,37,48,0.1)] scale-105"
+                  : "bg-white dark:bg-[#151a24] text-[#4b5563] dark:text-[#9ca3af] shadow-sm hover:text-[#1e2530] dark:hover:text-[#f3f4f6]"
               }`}
             >
               {tab.label}
@@ -96,34 +96,34 @@ export default function ServicesGrid({ limit }: { limit?: number }) {
                   >
                     <Icon className="w-6 h-6 stroke-[2.5]" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#ede9e0] text-[#1e2530]">
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#ede9e0] dark:bg-white/10 text-[#1e2530] dark:text-[#f3f4f6]">
                     {service.badge}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-black text-[#1e2530] group-hover:text-[#eb4a2d] transition-colors leading-snug">
+                <h3 className="text-lg sm:text-xl font-black text-[#1e2530] dark:text-[#f3f4f6] group-hover:text-[#eb4a2d] transition-colors leading-snug">
                   {service.title}
                 </h3>
 
                 {/* Crisp description */}
-                <p className="text-xs text-[#4b5563] leading-relaxed line-clamp-3 font-medium mt-2">
+                <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] leading-relaxed line-clamp-3 font-medium mt-2">
                   {service.description}
                 </p>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-1.5 mt-4 p-2 rounded-xl bg-[#f6f3ee]">
+                <div className="grid grid-cols-3 gap-1.5 mt-4 p-2 rounded-xl bg-[#f6f3ee] dark:bg-[#151a24]">
                   {service.metrics.map((metric: { label: string; value: string }) => (
                     <div key={metric.label} className="text-center">
-                      <span className="text-[9px] text-[#6b7280] font-semibold block truncate">{metric.label}</span>
-                      <span className="text-xs font-bold font-mono text-[#1e2530]">{metric.value}</span>
+                      <span className="text-[9px] text-[#6b7280] dark:text-[#9ca3af] font-semibold block truncate">{metric.label}</span>
+                      <span className="text-xs font-bold font-mono text-[#1e2530] dark:text-[#f3f4f6]">{metric.value}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Bottom Action */}
-              <div className="mt-4 pt-3 border-t border-[#ede9e0] flex items-center justify-between">
+              <div className="mt-4 pt-3 border-t border-[#ede9e0] dark:border-white/10 flex items-center justify-between">
                 <Link
                   href={`/services#${service.id}`}
                   className="text-xs font-bold text-[#eb4a2d] hover:text-[#c0392b] flex items-center gap-1 group/link"

@@ -112,7 +112,7 @@ export default function HeroClayDiorama() {
               >
                 <Globe className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <span className="mt-1 text-[10px] font-bold font-mono text-[#1e2530] px-2 py-0.5 rounded-full bg-white shadow-sm border border-white">
+              <span className="mt-1 text-[10px] font-bold font-mono text-[#1e2530] dark:text-[#f3f4f6] px-2 py-0.5 rounded-full bg-white dark:bg-[#151a24] shadow-sm border border-white dark:border-white/10">
                 Web AI
               </span>
             </button>
@@ -133,7 +133,7 @@ export default function HeroClayDiorama() {
               >
                 <Bot className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <span className="mt-1 text-[10px] font-bold font-mono text-[#1e2530] px-2 py-0.5 rounded-full bg-white shadow-sm border border-white">
+              <span className="mt-1 text-[10px] font-bold font-mono text-[#1e2530] dark:text-[#f3f4f6] px-2 py-0.5 rounded-full bg-white dark:bg-[#151a24] shadow-sm border border-white dark:border-white/10">
                 Agents
               </span>
             </button>
@@ -154,7 +154,7 @@ export default function HeroClayDiorama() {
               >
                 <Cloud className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <span className="mt-1 text-[10px] font-bold font-mono text-[#1e2530] px-2 py-0.5 rounded-full bg-white shadow-sm border border-white">
+              <span className="mt-1 text-[10px] font-bold font-mono text-[#1e2530] dark:text-[#f3f4f6] px-2 py-0.5 rounded-full bg-white dark:bg-[#151a24] shadow-sm border border-white dark:border-white/10">
                 Cloud
               </span>
             </button>
@@ -175,45 +175,45 @@ export default function HeroClayDiorama() {
               >
                 <Database className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <span className="mt-1 text-[10px] font-bold font-mono text-[#1e2530] px-2 py-0.5 rounded-full bg-white shadow-sm border border-white">
+              <span className="mt-1 text-[10px] font-bold font-mono text-[#1e2530] dark:text-[#f3f4f6] px-2 py-0.5 rounded-full bg-white dark:bg-[#151a24] shadow-sm border border-white dark:border-white/10">
                 Data
               </span>
             </button>
           </div>
           
-          <span className="text-[11px] font-mono text-[#6b7280] font-semibold mt-1">
+          <span className="text-[11px] font-mono text-[#6b7280] dark:text-[#9ca3af] font-semibold mt-1">
             Tap any node to view architecture
           </span>
         </div>
 
         {/* Right: Clean Node Metrics Panel */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="flex items-center justify-between pb-2 border-b border-[#ede8dc]">
+          <div className="flex items-center justify-between pb-2 border-b border-[#ede8dc] dark:border-white/10">
             <span className="text-xs font-mono font-bold uppercase text-[#eb4a2d]">
               {activeNode.category}
             </span>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white shadow-sm text-xs font-mono font-bold text-[#059669]">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-[#151a24] shadow-sm text-xs font-mono font-bold text-[#059669]">
               <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
               <span>LIVE</span>
             </div>
           </div>
 
           <div>
-            <h3 className="text-2xl sm:text-3xl font-black text-[#1e2530]">
+            <h3 className="text-2xl sm:text-3xl font-black text-[#1e2530] dark:text-[#f3f4f6]">
               {activeNode.name}
             </h3>
-            <p className="mt-1.5 text-xs sm:text-sm text-[#4b5563] leading-relaxed font-medium">
+            <p className="mt-1.5 text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">
               {activeNode.tagline}
             </p>
           </div>
 
           {/* Metric Plaque */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-white border border-white/80 shadow-sm flex items-center justify-between">
+          <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#151a24] border border-white/80 dark:border-white/10 shadow-sm flex items-center justify-between">
             <div>
-              <span className="text-[11px] font-mono text-[#6b7280] uppercase font-bold block">
+              <span className="text-[11px] font-mono text-[#6b7280] dark:text-[#9ca3af] uppercase font-bold block">
                 {activeNode.metricLabel}
               </span>
-              <span className="text-2xl sm:text-3xl font-mono font-black text-[#1e2530]">
+              <span className="text-2xl sm:text-3xl font-mono font-black text-[#1e2530] dark:text-[#f3f4f6]">
                 {activeNode.metric}
               </span>
             </div>
@@ -224,14 +224,14 @@ export default function HeroClayDiorama() {
 
           {/* Tech Stack Pills */}
           <div className="space-y-1.5">
-            <span className="text-[11px] font-mono uppercase text-[#6b7280] font-bold block">
+            <span className="text-[11px] font-mono uppercase text-[#6b7280] dark:text-[#9ca3af] font-bold block">
               Core Stack
             </span>
             <div className="flex flex-wrap gap-1.5">
               {activeNode.techs.map((tech) => (
                 <span 
                   key={tech} 
-                  className="px-2.5 py-1 rounded-lg bg-[#ede9e0]/80 text-xs font-mono font-bold text-[#1e2530]"
+                  className="px-2.5 py-1 rounded-lg bg-[#ede9e0]/80 dark:bg-white/10 text-xs font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]"
                 >
                   {tech}
                 </span>

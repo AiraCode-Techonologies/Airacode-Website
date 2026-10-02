@@ -43,49 +43,43 @@ export default function WorkPage() {
         {/* ================= SECTION 01: HERO ================= */}
         <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>01 // IMPACT</span>
-            </div>
-
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] dark:text-[#f3f4f6] tracking-tight leading-[1.05]">
               Proven{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
                 Impact
               </span>
             </h1>
 
-            <p className="text-base sm:text-xl text-[#4b5563] max-w-2xl mx-auto font-medium">
+            <p className="text-base sm:text-xl text-[#4b5563] dark:text-[#9ca3af] max-w-2xl mx-auto font-medium">
               Measurable performance gains across mission-critical enterprise systems.
             </p>
 
             {/* Metrics */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto pt-2">
               <div className="clay-card p-4 text-center">
-                <span className="text-2xl sm:text-3xl font-black font-mono text-[#eb4a2d] block">$18M+</span>
-                <span className="text-[11px] text-[#6b7280] font-bold block mt-0.5">Value Created</span>
+                <span className="text-2xl sm:text-3xl font-black font-mono text-[#eb4a2d] block">2-4 Wks</span>
+                <span className="text-[11px] text-[#6b7280] dark:text-[#9ca3af] font-bold block mt-0.5">MVP Speed</span>
               </div>
               <div className="clay-card p-4 text-center">
-                <span className="text-2xl sm:text-3xl font-black font-mono text-[#059669] block">74%</span>
-                <span className="text-[11px] text-[#6b7280] font-bold block mt-0.5">Latency Drop</span>
+                <span className="text-2xl sm:text-3xl font-black font-mono text-[#059669] block">100%</span>
+                <span className="text-[11px] text-[#6b7280] dark:text-[#9ca3af] font-bold block mt-0.5">IP Ownership</span>
               </div>
               <div className="clay-card p-4 text-center">
-                <span className="text-2xl sm:text-3xl font-black font-mono text-[#7c3aed] block">0s</span>
-                <span className="text-[11px] text-[#6b7280] font-bold block mt-0.5">Cutover Loss</span>
+                <span className="text-2xl sm:text-3xl font-black font-mono text-[#7c3aed] block">98+</span>
+                <span className="text-[11px] text-[#6b7280] dark:text-[#9ca3af] font-bold block mt-0.5">Lighthouse CWV</span>
               </div>
               <div className="clay-card p-4 text-center">
-                <span className="text-2xl sm:text-3xl font-black font-mono text-[#2563eb] block">99.99%</span>
-                <span className="text-[11px] text-[#6b7280] font-bold block mt-0.5">Uptime SLA</span>
+                <span className="text-2xl sm:text-3xl font-black font-mono text-[#2563eb] block">Direct</span>
+                <span className="text-[11px] text-[#6b7280] dark:text-[#9ca3af] font-bold block mt-0.5">Dev Access</span>
               </div>
             </div>
           </div>
         </section>
 
         {/* ================= SECTION 02: CASE STUDIES ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="02 // CASES"
               title="Case"
               highlightedWord="Studies"
               subtitle="Deep architectural breakdowns and quantifiable client ROI."
@@ -97,27 +91,27 @@ export default function WorkPage() {
                   key={study.id}
                   className="clay-card p-6 sm:p-8 space-y-4"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#ede9e0]">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#ede9e0] dark:border-white/10">
                     <div>
                       <span className="text-xs font-mono font-bold uppercase text-[#eb4a2d]">
                         Case 0{idx + 1} // {study.industry}
                       </span>
-                      <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] mt-0.5">{study.headline}</h3>
+                      <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] dark:text-[#f3f4f6] mt-0.5">{study.headline}</h3>
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#f6f3ee] text-xs font-mono font-bold text-[#4b5563] self-start sm:self-auto">
+                    <span className="px-3 py-1 rounded-full bg-[#f6f3ee] dark:bg-[#1a2130] text-xs font-mono font-bold text-[#4b5563] dark:text-[#cbd5e1] self-start sm:self-auto">
                       {study.client}
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">
                     {study.summary}
                   </p>
 
                   <div className="grid grid-cols-3 gap-2.5 pt-1">
                     {study.metrics.map((m) => (
-                      <div key={m.label} className="p-2.5 rounded-xl bg-[#f6f3ee] text-center">
-                        <span className="text-[10px] text-[#6b7280] font-bold block truncate">{m.label}</span>
-                        <span className="text-base sm:text-lg font-mono font-black text-[#1e2530]">{m.value}</span>
+                      <div key={m.label} className="p-2.5 rounded-xl bg-[#f6f3ee] dark:bg-[#1a2130] text-center">
+                        <span className="text-[10px] text-[#6b7280] dark:text-[#9ca3af] font-bold block truncate">{m.label}</span>
+                        <span className="text-base sm:text-lg font-mono font-black text-[#1e2530] dark:text-[#f3f4f6]">{m.value}</span>
                       </div>
                     ))}
                   </div>
@@ -128,10 +122,9 @@ export default function WorkPage() {
         </section>
 
         {/* ================= SECTION 03: BENCHMARKS ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="03 // BENCHMARKS"
               title="System"
               highlightedWord="Benchmarks"
               subtitle="Performance comparisons from active production deployments."
@@ -140,18 +133,18 @@ export default function WorkPage() {
             <div className="overflow-x-auto rounded-3xl clay-card p-5 sm:p-8">
               <table className="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
-                  <tr className="border-b border-[#ede9e0] font-mono uppercase text-[#6b7280]">
+                  <tr className="border-b border-[#ede9e0] dark:border-white/10 font-mono uppercase text-[#6b7280] dark:text-[#9ca3af]">
                     <th className="py-3 px-4 font-bold">Metric</th>
                     <th className="py-3 px-4 text-[#c0392b] font-bold">Legacy</th>
                     <th className="py-3 px-4 text-[#eb4a2d] font-bold">AIRACODE</th>
                     <th className="py-3 px-4 text-[#059669] font-bold">Gain</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#ede9e0] font-mono">
+                <tbody className="divide-y divide-[#ede9e0] dark:divide-white/10 font-mono">
                   {benchmarkRows.map((row) => (
-                    <tr key={row.metric} className="hover:bg-[#f6f3ee]/50">
-                      <td className="py-3 px-4 text-[#1e2530] font-sans font-bold">{row.metric}</td>
-                      <td className="py-3 px-4 text-[#6b7280]">{row.legacy}</td>
+                    <tr key={row.metric} className="hover:bg-[#f6f3ee]/50 dark:hover:bg-white/5">
+                      <td className="py-3 px-4 text-[#1e2530] dark:text-[#f3f4f6] font-sans font-bold">{row.metric}</td>
+                      <td className="py-3 px-4 text-[#6b7280] dark:text-[#9ca3af]">{row.legacy}</td>
                       <td className="py-3 px-4 text-[#eb4a2d] font-bold">{row.airacode}</td>
                       <td className="py-3 px-4 text-[#059669] font-black">{row.gain}</td>
                     </tr>
@@ -163,10 +156,9 @@ export default function WorkPage() {
         </section>
 
         {/* ================= SECTION 04: TESTIMONIALS ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="04 // REVIEWS"
               title="Client"
               highlightedWord="Reviews"
               subtitle="Verified feedback from engineering executives."
@@ -191,11 +183,11 @@ export default function WorkPage() {
                 },
               ].map((t) => (
                 <div key={t.name} className="clay-card p-6 space-y-3 flex flex-col justify-between">
-                  <p className="text-xs sm:text-sm text-[#4b5563] italic leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] italic leading-relaxed font-medium">
                     &quot;{t.quote}&quot;
                   </p>
-                  <div className="pt-3 border-t border-[#ede9e0]">
-                    <span className="text-sm font-black text-[#1e2530] block">{t.name}</span>
+                  <div className="pt-3 border-t border-[#ede9e0] dark:border-white/10">
+                    <span className="text-sm font-black text-[#1e2530] dark:text-[#f3f4f6] block">{t.name}</span>
                     <span className="text-[11px] text-[#eb4a2d] font-mono block">{t.role}</span>
                   </div>
                 </div>
@@ -205,21 +197,16 @@ export default function WorkPage() {
         </section>
 
         {/* ================= SECTION 05: VELOCITY ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto clay-card p-8 sm:p-12 text-center space-y-4 max-w-3xl mx-auto">
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>05 // VELOCITY</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530]">
+            <h2 className="text-3xl sm:text-5xl font-black text-[#1e2530] dark:text-[#f3f4f6]">
               Fast{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
                 Delivery
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#4b5563] max-w-lg mx-auto font-medium">
+            <p className="text-sm sm:text-base text-[#4b5563] dark:text-[#9ca3af] max-w-lg mx-auto font-medium">
               We deploy a dedicated engineering pod that ships functional code within your first sprint.
             </p>
 

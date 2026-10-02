@@ -58,21 +58,16 @@ export default function ServicesPage() {
 
       <main className="relative z-10 flex-1 w-full">
         {/* ================= SECTION 01: HERO ================= */}
-        <section className="relative pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
+        <section className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden w-full">
           <div className="w-full max-w-[1800px] mx-auto text-center space-y-5">
-            <div className="status-badge text-[#eb4a2d] mx-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] animate-ping" />
-              <span>01 // SERVICES</span>
-            </div>
-
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] tracking-tight leading-[1.05]">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e2530] dark:text-[#f3f4f6] tracking-tight leading-[1.05]">
               Core{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eb4a2d] via-[#8b5cf6] to-[#3b82f6]">
                 Capabilities
               </span>
             </h1>
 
-            <p className="text-base sm:text-xl text-[#4b5563] max-w-2xl mx-auto font-medium">
+            <p className="text-base sm:text-xl text-[#4b5563] dark:text-[#9ca3af] max-w-2xl mx-auto font-medium">
               8 specialized engineering disciplines built for speed, reliability, and enterprise scale.
             </p>
 
@@ -81,7 +76,7 @@ export default function ServicesPage() {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
-                  className="px-3.5 py-1.5 rounded-full bg-white shadow-sm hover:shadow-md text-xs font-bold text-[#4b5563] hover:text-[#eb4a2d] transition-all"
+                  className="px-3.5 py-1.5 rounded-full bg-white dark:bg-[#151a24] border border-transparent dark:border-white/10 shadow-sm hover:shadow-md text-xs font-bold text-[#4b5563] dark:text-[#9ca3af] hover:text-[#eb4a2d] dark:hover:text-[#eb4a2d] transition-all"
                 >
                   #{s.title}
                 </a>
@@ -91,10 +86,9 @@ export default function ServicesPage() {
         </section>
 
         {/* ================= SECTION 02: ALL 8 SERVICES ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10 sm:space-y-12">
             <SectionHeader
-              badge="02 // CAPABILITIES"
               title="Service"
               highlightedWord="Specs"
               subtitle="Technical deliverables and production guarantees."
@@ -124,25 +118,25 @@ export default function ServicesPage() {
                             <Icon className="w-6 h-6 stroke-[2.5]" />
                           </div>
                           <div>
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-[#6b7280] block font-bold">
-                              0{idx + 1} // {service.badge}
+                            <span className="text-[10px] font-mono uppercase tracking-widest text-[#6b7280] dark:text-[#9ca3af] block font-bold">
+                              {service.badge}
                             </span>
-                            <h2 className="text-xl sm:text-2xl font-black text-[#1e2530] leading-snug">
+                            <h2 className="text-xl sm:text-2xl font-black text-[#1e2530] dark:text-[#f3f4f6] leading-snug">
                               {service.title}
                             </h2>
                           </div>
                         </div>
 
-                        <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed font-medium">
+                        <p className="text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">
                           {service.description}
                         </p>
 
                         {/* Metrics Grid */}
                         <div className="grid grid-cols-3 gap-2 pt-1">
                           {service.metrics.map((m) => (
-                            <div key={m.label} className="p-2 rounded-xl bg-[#f6f3ee] text-center">
-                              <span className="text-[10px] text-[#6b7280] font-bold block truncate">{m.label}</span>
-                              <span className="text-sm font-mono font-black text-[#1e2530]">{m.value}</span>
+                            <div key={m.label} className="p-2 rounded-xl bg-[#f6f3ee] dark:bg-[#1a2130] text-center">
+                              <span className="text-[10px] text-[#6b7280] dark:text-[#9ca3af] font-bold block truncate">{m.label}</span>
+                              <span className="text-sm font-mono font-black text-[#1e2530] dark:text-[#f3f4f6]">{m.value}</span>
                             </div>
                           ))}
                         </div>
@@ -152,7 +146,7 @@ export default function ServicesPage() {
                           {service.techStack.slice(0, 5).map((tech) => (
                             <span
                               key={tech}
-                              className="px-2.5 py-1 rounded-lg bg-white shadow-sm text-[11px] font-mono font-bold text-[#1e2530]"
+                              className="px-2.5 py-1 rounded-lg bg-white dark:bg-[#151a24] border border-transparent dark:border-white/10 shadow-sm text-[11px] font-mono font-bold text-[#1e2530] dark:text-[#f3f4f6]"
                             >
                               {tech}
                             </span>
@@ -161,15 +155,15 @@ export default function ServicesPage() {
                       </div>
 
                       {/* Right: Deliverables & CTA */}
-                      <div className="lg:col-span-7 space-y-4 lg:pl-8 lg:border-l lg:border-[#ede9e0]">
-                        <span className="text-xs font-mono uppercase tracking-wider text-[#1e2530] font-black flex items-center gap-1.5">
+                      <div className="lg:col-span-7 space-y-4 lg:pl-8 lg:border-l lg:border-[#ede9e0] dark:lg:border-white/10">
+                        <span className="text-xs font-mono uppercase tracking-wider text-[#1e2530] dark:text-[#f3f4f6] font-black flex items-center gap-1.5">
                           <CheckCircle2 className="w-4 h-4 text-[#059669]" />
                           Core Deliverables
                         </span>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-[#4b5563] font-medium">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-[#4b5563] dark:text-[#cbd5e1] font-medium">
                           {service.deliverables.slice(0, 4).map((item) => (
-                            <div key={item} className="p-2.5 rounded-xl bg-white/70 border border-[#ede9e0] flex items-center gap-2">
+                            <div key={item} className="p-2.5 rounded-xl bg-white/70 dark:bg-[#151a24]/70 border border-[#ede9e0] dark:border-white/10 flex items-center gap-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#eb4a2d] shrink-0" />
                               <span>{item}</span>
                             </div>
@@ -195,10 +189,9 @@ export default function ServicesPage() {
         </section>
 
         {/* ================= SECTION 03: TECH STACK ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="03 // ECOSYSTEM"
               title="Tech"
               highlightedWord="Stack"
               subtitle="Modern AI models, resilient distributed databases, and event streams."
@@ -209,12 +202,12 @@ export default function ServicesPage() {
                 <span className="text-xs font-mono uppercase text-[#eb4a2d] font-black flex items-center gap-1.5">
                   <Cpu className="w-4 h-4" /> AI Models &amp; Swarms
                 </span>
-                <p className="text-xs text-[#4b5563] font-medium">
+                <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] font-medium">
                   Fine-tuning, RAG pipelines, and multi-agent systems.
                 </p>
                 <div className="flex flex-wrap gap-1.5 text-xs font-mono font-bold">
                   {["Claude 3.7", "Gemini 2.5", "GPT-4.5", "Llama 3", "LangGraph", "vLLM", "Pinecone"].map((i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-lg bg-[#ede9e0]/80 text-[#1e2530]">
+                    <span key={i} className="px-2.5 py-1 rounded-lg bg-[#ede9e0]/80 dark:bg-white/10 text-[#1e2530] dark:text-[#f3f4f6]">
                       {i}
                     </span>
                   ))}
@@ -225,12 +218,12 @@ export default function ServicesPage() {
                 <span className="text-xs font-mono uppercase text-[#7c3aed] font-black flex items-center gap-1.5">
                   <Cloud className="w-4 h-4" /> Cloud &amp; Infra
                 </span>
-                <p className="text-xs text-[#4b5563] font-medium">
+                <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] font-medium">
                   Kubernetes clusters, GitOps pipelines, and multi-cloud resilience.
                 </p>
                 <div className="flex flex-wrap gap-1.5 text-xs font-mono font-bold">
                   {["AWS", "GCP", "Azure", "Kubernetes", "Terraform", "Docker", "ArgoCD", "Cloudflare"].map((i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-lg bg-[#ede9e0]/80 text-[#1e2530]">
+                    <span key={i} className="px-2.5 py-1 rounded-lg bg-[#ede9e0]/80 dark:bg-white/10 text-[#1e2530] dark:text-[#f3f4f6]">
                       {i}
                     </span>
                   ))}
@@ -241,12 +234,12 @@ export default function ServicesPage() {
                 <span className="text-xs font-mono uppercase text-[#059669] font-black flex items-center gap-1.5">
                   <Database className="w-4 h-4" /> Data &amp; Automation
                 </span>
-                <p className="text-xs text-[#4b5563] font-medium">
+                <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] font-medium">
                   Streaming pipelines, data lakes, and automated workflows.
                 </p>
                 <div className="flex flex-wrap gap-1.5 text-xs font-mono font-bold">
                   {["Snowflake", "BigQuery", "Kafka", "dbt", "ClickHouse", "n8n", "PostgreSQL"].map((i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-lg bg-[#ede9e0]/80 text-[#1e2530]">
+                    <span key={i} className="px-2.5 py-1 rounded-lg bg-[#ede9e0]/80 dark:bg-white/10 text-[#1e2530] dark:text-[#f3f4f6]">
                       {i}
                     </span>
                   ))}
@@ -257,10 +250,9 @@ export default function ServicesPage() {
         </section>
 
         {/* ================= SECTION 04: DELIVERY PODS ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-10">
             <SectionHeader
-              badge="04 // PODS"
               title="Delivery"
               highlightedWord="Pods"
               subtitle="Elite AI systems engineers integrated into your organization."
@@ -293,8 +285,8 @@ export default function ServicesPage() {
                   <span className="text-2xl font-black font-mono text-[#eb4a2d]">
                     {phase.step}
                   </span>
-                  <h4 className="text-base font-black text-[#1e2530]">{phase.title}</h4>
-                  <p className="text-xs text-[#4b5563] leading-relaxed font-medium">{phase.desc}</p>
+                  <h4 className="text-base font-black text-[#1e2530] dark:text-[#f3f4f6]">{phase.title}</h4>
+                  <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] leading-relaxed font-medium">{phase.desc}</p>
                 </div>
               ))}
             </div>
@@ -302,10 +294,9 @@ export default function ServicesPage() {
         </section>
 
         {/* ================= SECTION 05: ESTIMATOR ================= */}
-        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] w-full">
+        <section className="relative py-14 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 border-t border-[#ede9e0] dark:border-white/10 w-full">
           <div className="w-full max-w-[1800px] mx-auto space-y-8">
             <SectionHeader
-              badge="05 // ESTIMATOR"
               title="Scope"
               highlightedWord="Estimator"
               subtitle="Calculate pod composition and delivery requirements."

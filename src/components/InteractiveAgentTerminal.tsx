@@ -50,27 +50,27 @@ export default function InteractiveAgentTerminal() {
   return (
     <div className="clay-card p-6 sm:p-10 lg:p-12 relative overflow-hidden w-full">
       {/* Console Top Bar */}
-      <div className="flex flex-wrap items-center justify-between pb-6 border-b border-[#ede9e0] gap-4">
+      <div className="flex flex-wrap items-center justify-between pb-6 border-b border-[#ede9e0] dark:border-white/10 gap-4">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <span className="w-3.5 h-3.5 rounded-full bg-[#ff7259] shadow-[inset_1px_1px_2px_rgba(255,255,255,0.7),2px_2px_4px_rgba(0,0,0,0.15)]" />
             <span className="w-3.5 h-3.5 rounded-full bg-[#fbbf24] shadow-[inset_1px_1px_2px_rgba(255,255,255,0.7),2px_2px_4px_rgba(0,0,0,0.15)]" />
             <span className="w-3.5 h-3.5 rounded-full bg-[#10b981] shadow-[inset_1px_1px_2px_rgba(255,255,255,0.7),2px_2px_4px_rgba(0,0,0,0.15)]" />
           </div>
-          <span className="text-xs sm:text-sm font-mono font-bold text-[#4b5563] pl-2 border-l border-[#ede9e0] flex items-center gap-2">
+          <span className="text-xs sm:text-sm font-mono font-bold text-[#4b5563] dark:text-[#9ca3af] pl-2 border-l border-[#ede9e0] dark:border-white/10 flex items-center gap-2">
             <Terminal className="w-4 h-4 text-[#eb4a2d]" />
             airacode-kernel v4.8 [active]
           </span>
         </div>
 
         {/* Tactile Tab Selector */}
-        <div className="flex items-center p-1.5 rounded-2xl bg-[#ede9e0] shadow-[inset_2px_2px_5px_rgba(30,37,48,0.08),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] text-xs font-bold">
+        <div className="flex items-center p-1.5 rounded-2xl bg-[#ede9e0] dark:bg-[#151a24] shadow-[inset_2px_2px_5px_rgba(30,37,48,0.08),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] dark:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.5)] text-xs font-bold">
           <button
             onClick={() => setActiveTab("agentic")}
             className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "agentic"
-                ? "bg-white text-[#eb4a2d] shadow-[3px_4px_10px_rgba(30,37,48,0.08)] scale-105"
-                : "text-[#6b7280] hover:text-[#1e2530]"
+                ? "bg-white dark:bg-[#1a2130] text-[#eb4a2d] shadow-[3px_4px_10px_rgba(30,37,48,0.08)] scale-105"
+                : "text-[#6b7280] dark:text-[#9ca3af] hover:text-[#1e2530] dark:hover:text-white"
             }`}
           >
             Autonomous Swarm
@@ -79,8 +79,8 @@ export default function InteractiveAgentTerminal() {
             onClick={() => setActiveTab("finetuning")}
             className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "finetuning"
-                ? "bg-white text-[#7c3aed] shadow-[3px_4px_10px_rgba(30,37,48,0.08)] scale-105"
-                : "text-[#6b7280] hover:text-[#1e2530]"
+                ? "bg-white dark:bg-[#1a2130] text-[#7c3aed] shadow-[3px_4px_10px_rgba(30,37,48,0.08)] scale-105"
+                : "text-[#6b7280] dark:text-[#9ca3af] hover:text-[#1e2530] dark:hover:text-white"
             }`}
           >
             Model Quantization
@@ -89,8 +89,8 @@ export default function InteractiveAgentTerminal() {
             onClick={() => setActiveTab("modernization")}
             className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "modernization"
-                ? "bg-white text-[#2563eb] shadow-[3px_4px_10px_rgba(30,37,48,0.08)] scale-105"
-                : "text-[#6b7280] hover:text-[#1e2530]"
+                ? "bg-white dark:bg-[#1a2130] text-[#2563eb] shadow-[3px_4px_10px_rgba(30,37,48,0.08)] scale-105"
+                : "text-[#6b7280] dark:text-[#9ca3af] hover:text-[#1e2530] dark:hover:text-white"
             }`}
           >
             Modernization Protocol
@@ -103,11 +103,11 @@ export default function InteractiveAgentTerminal() {
         <div className="pt-6 sm:pt-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] flex items-center gap-2">
+              <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-[#eb4a2d]" />
                 Multi-Agent Workflow Orchestration Simulation
               </h3>
-              <p className="text-xs sm:text-sm text-[#6b7280] mt-1 font-medium">
+              <p className="text-xs sm:text-sm text-[#6b7280] dark:text-[#9ca3af] mt-1 font-medium">
                 Watch autonomous agents collaborate in stop-motion style: decompose logic, query vector memory, call tools, and verify output.
               </p>
             </div>
@@ -133,10 +133,10 @@ export default function InteractiveAgentTerminal() {
                   key={step.title}
                   className={`p-5 rounded-3xl transition-all duration-300 flex flex-col justify-between ${
                     isCurrent
-                      ? "bg-white shadow-[12px_16px_30px_rgba(235,74,45,0.18),inset_2px_2px_5px_rgba(255,255,255,0.9)] scale-105 border-2 border-[#eb4a2d]"
+                      ? "bg-white dark:bg-[#151a24] shadow-[12px_16px_30px_rgba(235,74,45,0.18)] scale-105 border-2 border-[#eb4a2d]"
                       : isDone
-                      ? "bg-white shadow-[6px_8px_18px_rgba(5,150,105,0.12)] border border-[#10b981]/30"
-                      : "bg-[#ede9e0]/60 shadow-[inset_2px_2px_4px_rgba(30,37,48,0.06)] opacity-70"
+                      ? "bg-white dark:bg-[#151a24] shadow-[6px_8px_18px_rgba(5,150,105,0.12)] border border-[#10b981]/30"
+                      : "bg-[#ede9e0]/60 dark:bg-white/5 shadow-[inset_2px_2px_4px_rgba(30,37,48,0.06)] opacity-70"
                   }`}
                 >
                   <div>
@@ -149,13 +149,13 @@ export default function InteractiveAgentTerminal() {
                       >
                         <Icon className="w-5 h-5 stroke-[2.5]" />
                       </div>
-                      <span className="text-xs font-mono font-bold text-[#6b7280]">0{idx + 1}</span>
+                      <span className="text-xs font-mono font-bold text-[#6b7280] dark:text-[#9ca3af]">0{idx + 1}</span>
                     </div>
-                    <h4 className="text-sm sm:text-base font-black text-[#1e2530] mb-1">{step.title}</h4>
-                    <p className="text-xs text-[#4b5563] leading-snug">{step.desc}</p>
+                    <h4 className="text-sm sm:text-base font-black text-[#1e2530] dark:text-[#f3f4f6] mb-1">{step.title}</h4>
+                    <p className="text-xs text-[#4b5563] dark:text-[#9ca3af] leading-snug">{step.desc}</p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[#ede9e0] flex items-center justify-between text-xs font-mono font-bold">
+                  <div className="mt-4 pt-3 border-t border-[#ede9e0] dark:border-white/10 flex items-center justify-between text-xs font-mono font-bold">
                     <span className="text-[#9ca3af]">State</span>
                     {isCurrent ? (
                       <span className="text-[#eb4a2d] animate-pulse">Running...</span>
@@ -171,8 +171,8 @@ export default function InteractiveAgentTerminal() {
           </div>
 
           {/* Clay Inset Console Stream */}
-          <div className="p-5 sm:p-6 rounded-3xl bg-[#ede9e0] shadow-[inset_4px_5px_10px_rgba(30,37,48,0.08),inset_-3px_-3px_8px_rgba(255,255,255,0.9)] font-mono text-xs sm:text-sm space-y-2 text-[#1e2530]">
-            <div className="text-[#6b7280] font-bold flex items-center justify-between text-[11px] sm:text-xs pb-2 border-b border-[#d6cebe]">
+          <div className="p-5 sm:p-6 rounded-3xl bg-[#ede9e0] dark:bg-[#0f131a] shadow-[inset_4px_5px_10px_rgba(30,37,48,0.08),inset_-3px_-3px_8px_rgba(255,255,255,0.9)] dark:shadow-[inset_3px_3px_8px_rgba(0,0,0,0.6)] font-mono text-xs sm:text-sm space-y-2 text-[#1e2530] dark:text-[#f3f4f6]">
+            <div className="text-[#6b7280] dark:text-[#9ca3af] font-bold flex items-center justify-between text-[11px] sm:text-xs pb-2 border-b border-[#d6cebe] dark:border-white/10">
               <span>TERMINAL STREAM // LIVE DISPATCH TRACE</span>
               <span className="text-[#059669]">EXECUTION: 42ms | DETERMINISTIC VERIFICATION: PASS</span>
             </div>
@@ -196,33 +196,33 @@ export default function InteractiveAgentTerminal() {
       {activeTab === "finetuning" && (
         <div className="pt-6 sm:pt-8 space-y-6">
           <div>
-            <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] flex items-center gap-2">
+            <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-2">
               <Cpu className="w-5 h-5 text-[#7c3aed]" />
               AIRACODE Fine-Tuning &amp; Quantization vs Base Cloud Models
             </h3>
-            <p className="text-xs sm:text-sm text-[#6b7280] mt-1 font-medium">
+            <p className="text-xs sm:text-sm text-[#6b7280] dark:text-[#9ca3af] mt-1 font-medium">
               Verifiable empirical benchmark: standard generic cloud APIs vs AIRACODE fine-tuned 4-bit SLMs.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#ede9e0]/80 shadow-[inset_3px_3px_8px_rgba(30,37,48,0.06)] space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#ede9e0]/80 dark:bg-[#151a24] shadow-[inset_3px_3px_8px_rgba(30,37,48,0.06)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.5)] space-y-4">
               <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-white text-xs font-mono font-bold text-[#6b7280] shadow-sm">
+                <span className="px-3 py-1 rounded-full bg-white dark:bg-[#1a2130] text-xs font-mono font-bold text-[#6b7280] dark:text-[#cbd5e1] shadow-sm">
                   Standard Frontier Cloud API
                 </span>
                 <span className="text-xs font-bold text-[#c0392b]">High Latency / High Cost</span>
               </div>
-              <ul className="space-y-3 font-mono text-xs sm:text-sm text-[#4b5563]">
-                <li className="flex justify-between border-b border-[#d6cebe] pb-2">
+              <ul className="space-y-3 font-mono text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af]">
+                <li className="flex justify-between border-b border-[#d6cebe] dark:border-white/10 pb-2">
                   <span>Time-to-First-Token:</span>
                   <span className="font-bold text-[#c0392b]">920ms</span>
                 </li>
-                <li className="flex justify-between border-b border-[#d6cebe] pb-2">
+                <li className="flex justify-between border-b border-[#d6cebe] dark:border-white/10 pb-2">
                   <span>Domain Reasoning Accuracy:</span>
-                  <span className="font-bold text-[#1e2530]">76.4%</span>
+                  <span className="font-bold text-[#1e2530] dark:text-[#f3f4f6]">76.4%</span>
                 </li>
-                <li className="flex justify-between border-b border-[#d6cebe] pb-2">
+                <li className="flex justify-between border-b border-[#d6cebe] dark:border-white/10 pb-2">
                   <span>Hosting Cost (1M Tokens):</span>
                   <span className="font-bold text-[#c0392b]">$15.00 / 1M</span>
                 </li>
@@ -233,28 +233,28 @@ export default function InteractiveAgentTerminal() {
               </ul>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-white shadow-[12px_16px_32px_rgba(124,58,237,0.12),inset_2px_2px_5px_rgba(255,255,255,0.9)] border-2 border-[#7c3aed]/30 space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#151a24] shadow-[12px_16px_32px_rgba(124,58,237,0.12),inset_2px_2px_5px_rgba(255,255,255,0.9)] dark:shadow-[12px_16px_32px_rgba(124,58,237,0.15)] border-2 border-[#7c3aed]/30 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="px-3 py-1 rounded-full bg-[#7c3aed] text-xs font-mono font-bold text-white shadow-sm">
                   AIRACODE Domain SLM (LoRA + 4-bit AWQ)
                 </span>
                 <span className="text-xs font-bold text-[#059669]">Dedicated &amp; Ultra-Fast</span>
               </div>
-              <ul className="space-y-3 font-mono text-xs sm:text-sm text-[#1e2530]">
-                <li className="flex justify-between border-b border-[#ede9e0] pb-2">
-                  <span className="text-[#6b7280]">Time-to-First-Token:</span>
+              <ul className="space-y-3 font-mono text-xs sm:text-sm text-[#1e2530] dark:text-[#f3f4f6]">
+                <li className="flex justify-between border-b border-[#ede9e0] dark:border-white/10 pb-2">
+                  <span className="text-[#6b7280] dark:text-[#9ca3af]">Time-to-First-Token:</span>
                   <span className="font-bold text-[#059669]">110ms (-88% Latency)</span>
                 </li>
-                <li className="flex justify-between border-b border-[#ede9e0] pb-2">
-                  <span className="text-[#6b7280]">Domain Reasoning Accuracy:</span>
+                <li className="flex justify-between border-b border-[#ede9e0] dark:border-white/10 pb-2">
+                  <span className="text-[#6b7280] dark:text-[#9ca3af]">Domain Reasoning Accuracy:</span>
                   <span className="font-bold text-[#059669]">98.6% (+22% Lift)</span>
                 </li>
-                <li className="flex justify-between border-b border-[#ede9e0] pb-2">
-                  <span className="text-[#6b7280]">Hosting Cost (1M Tokens):</span>
+                <li className="flex justify-between border-b border-[#ede9e0] dark:border-white/10 pb-2">
+                  <span className="text-[#6b7280] dark:text-[#9ca3af]">Hosting Cost (1M Tokens):</span>
                   <span className="font-bold text-[#059669]">$1.80 / 1M (-88% Cost)</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-[#6b7280]">Data Isolation &amp; Privacy:</span>
+                  <span className="text-[#6b7280] dark:text-[#9ca3af]">Data Isolation &amp; Privacy:</span>
                   <span className="font-bold text-[#059669]">Dedicated Private VPC</span>
                 </li>
               </ul>
@@ -267,35 +267,35 @@ export default function InteractiveAgentTerminal() {
       {activeTab === "modernization" && (
         <div className="pt-6 sm:pt-8 space-y-6">
           <div>
-            <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] flex items-center gap-2">
+            <h3 className="text-xl sm:text-2xl font-black text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-2">
               <GitMerge className="w-5 h-5 text-[#2563eb]" />
               Legacy-to-Cloud Native Event-Driven Modernization
             </h3>
-            <p className="text-xs sm:text-sm text-[#6b7280] mt-1 font-medium">
+            <p className="text-xs sm:text-sm text-[#6b7280] dark:text-[#9ca3af] mt-1 font-medium">
               How AIRACODE modernizes legacy monoliths without business disruption or downtime.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-6">
-            <div className="p-6 rounded-3xl bg-[#f6f3ee] shadow-sm text-center">
-              <span className="text-[10px] font-mono text-[#6b7280] uppercase font-bold block mb-1">Stage 01</span>
-              <h5 className="text-sm sm:text-base font-black text-[#1e2530] mb-2">Legacy Monolith</h5>
-              <p className="text-xs text-[#4b5563]">Non-invasive CDC taps capture live writes</p>
+            <div className="p-6 rounded-3xl bg-[#f6f3ee] dark:bg-[#151a24] shadow-sm text-center">
+              <span className="text-[10px] font-mono text-[#6b7280] dark:text-[#9ca3af] uppercase font-bold block mb-1">Stage 01</span>
+              <h5 className="text-sm sm:text-base font-black text-[#1e2530] dark:text-[#f3f4f6] mb-2">Legacy Monolith</h5>
+              <p className="text-xs text-[#4b5563] dark:text-[#9ca3af]">Non-invasive CDC taps capture live writes</p>
             </div>
-            <div className="p-6 rounded-3xl bg-white shadow-sm border border-[#2563eb]/20 text-center">
+            <div className="p-6 rounded-3xl bg-white dark:bg-[#151a24] shadow-sm border border-[#2563eb]/20 text-center">
               <span className="text-[10px] font-mono text-[#2563eb] uppercase font-bold block mb-1">Stage 02</span>
               <h5 className="text-sm sm:text-base font-black text-[#2563eb] mb-2">Kafka Event Mesh</h5>
-              <p className="text-xs text-[#4b5563]">Real-time asynchronous event streaming</p>
+              <p className="text-xs text-[#4b5563] dark:text-[#9ca3af]">Real-time asynchronous event streaming</p>
             </div>
-            <div className="p-6 rounded-3xl bg-white shadow-sm border border-[#7c3aed]/20 text-center">
+            <div className="p-6 rounded-3xl bg-white dark:bg-[#151a24] shadow-sm border border-[#7c3aed]/20 text-center">
               <span className="text-[10px] font-mono text-[#7c3aed] uppercase font-bold block mb-1">Stage 03</span>
               <h5 className="text-sm sm:text-base font-black text-[#7c3aed] mb-2">Microservices &amp; AI</h5>
-              <p className="text-xs text-[#4b5563]">Containerized auto-scaling pods + RAG</p>
+              <p className="text-xs text-[#4b5563] dark:text-[#9ca3af]">Containerized auto-scaling pods + RAG</p>
             </div>
-            <div className="p-6 rounded-3xl bg-white shadow-sm border border-[#059669]/20 text-center">
+            <div className="p-6 rounded-3xl bg-white dark:bg-[#151a24] shadow-sm border border-[#059669]/20 text-center">
               <span className="text-[10px] font-mono text-[#059669] uppercase font-bold block mb-1">Stage 04</span>
               <h5 className="text-sm sm:text-base font-black text-[#059669] mb-2">Edge Experience</h5>
-              <p className="text-xs text-[#4b5563]">Sub-50ms globally distributed frontend</p>
+              <p className="text-xs text-[#4b5563] dark:text-[#9ca3af]">Sub-50ms globally distributed frontend</p>
             </div>
           </div>
         </div>
