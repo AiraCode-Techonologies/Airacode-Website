@@ -99,14 +99,22 @@ export default function AboutPage() {
                 
                 {/* Tactile Clay Emblem Pedestal */}
                 <div 
-                  className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-[2.5rem] sm:rounded-[3.25rem] p-7 sm:p-9 flex items-center justify-center bg-white/95 dark:bg-black backdrop-blur-xl border border-black/5 dark:border-white/15 shadow-[18px_24px_54px_rgba(30,37,48,0.1),-12px_-12px_36px_rgba(255,255,255,0.95),inset_4px_4px_8px_rgba(255,255,255,0.9),inset_-4px_-4px_10px_rgba(30,37,48,0.04)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.95),inset_1px_1px_3px_rgba(255,255,255,0.15)] transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 group-hover:rotate-1"
+                  className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-[2.5rem] sm:rounded-[3.25rem] p-7 sm:p-9 flex items-center justify-center bg-white/95 dark:bg-black backdrop-blur-xl border border-black/5 dark:border-white/15 shadow-[18px_24px_54px_rgba(30,37,48,0.1),-12px_-12px_36px_rgba(255,255,255,0.95),inset_4px_4px_8px_rgba(255,255,255,0.9),inset_-4px_-4px_10px_rgba(30,37,48,0.04)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.95),inset_1px_1px_3px_rgba(255,255,255,0.15)] transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 group-hover:rotate-1 overflow-hidden"
                 >
                   <Image
-                    src="/logo.png"
+                    src="/logo-light.png"
                     alt="AIRACODE Master 3D Logo"
                     width={340}
                     height={340}
-                    className="w-full h-full object-contain filter drop-shadow-[0_14px_28px_rgba(30,37,48,0.14)] dark:drop-shadow-[0_14px_28px_rgba(0,0,0,0.95)] transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain filter drop-shadow-[0_14px_28px_rgba(30,37,48,0.14)] dark:hidden transition-transform duration-500 group-hover:scale-110"
+                    priority
+                  />
+                  <Image
+                    src="/logo-dark.png"
+                    alt="AIRACODE Master 3D Logo"
+                    width={340}
+                    height={340}
+                    className="w-full h-full object-contain filter drop-shadow-[0_14px_28px_rgba(0,0,0,0.95)] hidden dark:block transition-transform duration-500 group-hover:scale-110"
                     priority
                   />
                 </div>
