@@ -30,11 +30,7 @@ export default function Navbar() {
           {/* Tactile Clay Logo */}
           <Link href="/" className="flex items-center gap-3.5 group">
             <div 
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center p-1.5 transition-all duration-300 group-hover:rotate-6 group-hover:scale-105 overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, #ff7e67, #eb4a2d)",
-                boxShadow: "6px 8px 18px rgba(235, 74, 45, 0.35), inset 2px 2px 5px rgba(255, 255, 255, 0.6), inset -3px -3px 6px rgba(168, 38, 16, 0.4)",
-              }}
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center p-2 bg-white/95 dark:bg-black border border-black/5 dark:border-white/15 shadow-[4px_6px_16px_rgba(30,37,48,0.06),inset_2px_2px_4px_rgba(255,255,255,0.9)] dark:shadow-[0_8px_20px_rgba(0,0,0,0.8),inset_1px_1px_2px_rgba(255,255,255,0.15)] transition-all duration-300 group-hover:rotate-6 group-hover:scale-105 overflow-hidden"
             >
               <Image 
                 src="/logo-icon.png" 

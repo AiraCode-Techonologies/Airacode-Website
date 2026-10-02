@@ -99,20 +99,20 @@ export default function AboutPage() {
                 
                 {/* Tactile Clay Emblem Pedestal */}
                 <div 
-                  className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-[2.5rem] sm:rounded-[3.25rem] p-7 sm:p-9 flex items-center justify-center bg-white/95 dark:bg-[#151a24]/95 backdrop-blur-xl border border-white dark:border-white/10 shadow-[18px_24px_54px_rgba(30,37,48,0.12),-12px_-12px_36px_rgba(255,255,255,0.95),inset_4px_4px_8px_rgba(255,255,255,0.9),inset_-4px_-4px_10px_rgba(30,37,48,0.04)] dark:shadow-[18px_24px_54px_rgba(0,0,0,0.65),inset_2px_2px_6px_rgba(255,255,255,0.08),inset_-3px_-3px_8px_rgba(0,0,0,0.7)] transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 group-hover:rotate-1"
+                  className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-[2.5rem] sm:rounded-[3.25rem] p-7 sm:p-9 flex items-center justify-center bg-white/95 dark:bg-black backdrop-blur-xl border border-black/5 dark:border-white/15 shadow-[18px_24px_54px_rgba(30,37,48,0.1),-12px_-12px_36px_rgba(255,255,255,0.95),inset_4px_4px_8px_rgba(255,255,255,0.9),inset_-4px_-4px_10px_rgba(30,37,48,0.04)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.95),inset_1px_1px_3px_rgba(255,255,255,0.15)] transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 group-hover:rotate-1"
                 >
                   <Image
                     src="/logo.png"
                     alt="AIRACODE Master 3D Logo"
                     width={340}
                     height={340}
-                    className="w-full h-full object-contain filter drop-shadow-[0_14px_28px_rgba(30,37,48,0.16)] dark:drop-shadow-[0_14px_28px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain filter drop-shadow-[0_14px_28px_rgba(30,37,48,0.14)] dark:drop-shadow-[0_14px_28px_rgba(0,0,0,0.95)] transition-transform duration-500 group-hover:scale-110"
                     priority
                   />
                 </div>
 
                 {/* Floating Brand Badge */}
-                <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-white dark:bg-[#1a212d] border border-white/90 dark:border-white/10 shadow-md text-xs font-mono font-black text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-1.5 whitespace-nowrap">
+                <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-white dark:bg-black border border-black/5 dark:border-white/15 shadow-md text-xs font-mono font-black text-[#1e2530] dark:text-[#f3f4f6] flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-2 h-2 rounded-full bg-[#059669] animate-ping" />
                   <span>AIRACODE // 3D BRAND IDENTITY</span>
                 </div>
