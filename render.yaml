@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: airacode-mail-service
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CONTACT_FROM_EMAIL
+        value: AIRACODE <contact@airacode.online>
+      - key: CONTACT_RECIPIENT_EMAIL
+        value: contact@airacode.online
+      - key: TEAM_ALERT_EMAIL
+        value: nagarajendra432@gmail.com
