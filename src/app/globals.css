@@ -16,7 +16,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
@@ -24,7 +24,7 @@ body {
   background-color: #f5f2eb;
   color: #1e2530;
   font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
   min-height: 100vh;
   width: 100%;
   margin: 0;

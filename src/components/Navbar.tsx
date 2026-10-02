@@ -24,7 +24,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-2 z-40 w-full px-3 sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20 transition-all">
+    <header className="sticky top-0 z-50 w-full px-3 sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-2.5 pb-2 transition-all">
       <div className="w-full rounded-3xl bg-white/95 dark:bg-[#151a24]/95 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[12px_16px_36px_rgba(30,37,48,0.08),-8px_-8px_24px_rgba(255,255,255,0.9),inset_3px_3px_6px_rgba(255,255,255,0.9),inset_-3px_-3px_8px_rgba(30,37,48,0.03)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.5),inset_1px_1px_2px_rgba(255,255,255,0.05)] px-4 sm:px-8 lg:px-10 py-3">
         <div className="flex items-center justify-between h-14">
           {/* Tactile Clay Logo */}
