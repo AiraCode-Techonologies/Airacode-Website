@@ -42,27 +42,44 @@ export default function ContactPage() {
     setSubmitError(null);
     try {
       const endpoint = process.env.NEXT_PUBLIC_CONTACT_API_URL || "/api/contact";
-      const res = await fetch(endpoint, {
+      let res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
+      // Seamless fallback for static hosting (e.g. GitHub Pages where /api/contact is 404/405)
+      // Dispatches via background AJAX without ever launching the device's mail client
+      if (res.status === 404 || res.status === 405) {
+        res = await fetch("https://formsubmit.co/ajax/nagarajendra432@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company || "Not specified",
+            serviceNeeded: formData.serviceNeeded,
+            budget: formData.budget,
+            ndaRequired: formData.ndaRequired ? "Yes" : "No",
+            message: formData.message,
+            _subject: `[AIRACODE Lead] ${formData.name} - ${formData.serviceNeeded}`,
+            _autoresponse: `Hi ${formData.name},\n\nThank you for reaching out to AIRACODE Technologies. We have logged your project inquiry regarding "${formData.serviceNeeded}".\n\nOur Lead Systems Architect will review your specifications and follow up within 4 business hours under mutual NDA.\n\nSummary of your submission:\n- Service: ${formData.serviceNeeded}\n- Company: ${formData.company || "Not specified"}\n- Budget Range: ${formData.budget}\n- Brief: ${formData.message}\n\nBest regards,\nAIRACODE Technologies\nhttps://airacode.online\ncontact@airacode.online`,
+          }),
+        });
+      }
+
       const data = await res.json().catch(() => null);
 
       if (!res.ok) {
-        throw new Error(data?.message || data?.error || `Server responded with ${res.status}`);
+        throw new Error(data?.message || data?.error || `Submission failed with status ${res.status}`);
       }
       setSubmitted(true);
     } catch (err: any) {
-      console.warn("Contact endpoint unavailable or static host detected, using direct client dispatch fallback:", err);
-      // Fallback for static hosts: CC the user so they automatically receive a copy in their inbox/sent
-      const subject = encodeURIComponent(`Project Inquiry: ${formData.serviceNeeded} - ${formData.company || formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || "N/A"}\nService Needed: ${formData.serviceNeeded}\nBudget: ${formData.budget}\nNDA Required: ${formData.ndaRequired ? "Yes" : "No"}\n\nProject Brief:\n${formData.message}`
-      );
-      window.location.href = `mailto:contact@airacode.online?cc=${encodeURIComponent(formData.email)}&subject=${subject}&body=${body}`;
-      setSubmitted(true);
+      console.error("Submission error:", err);
+      setSubmitError(err.message || "Failed to process inquiry. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
