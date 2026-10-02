@@ -19,13 +19,28 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    try {
+      await fetch("https://formsubmit.co/ajax/nagarajendra432@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          subscriberEmail: email,
+          _subject: `[AIRACODE Newsletter] New Subscriber: ${email}`,
+          _replyto: email,
+          _autoresponse: `Thank you for subscribing to AIRACODE Architecture Dispatches!\n\nYou have been added to our private distribution list for engineering deep-dives, enterprise modernization playbooks, and agentic AI benchmarks.\n\nBest regards,\nAIRACODE Technologies\nhttps://airacode.online\ncontact@airacode.online`,
+        }),
+      });
+    } catch (_) {}
     setSubscribed(true);
     setTimeout(() => {
       setEmail("");
-    }, 3000);
+    }, 4000);
   };
 
   return (

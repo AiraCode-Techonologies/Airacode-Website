@@ -65,8 +65,10 @@ export default function ContactPage() {
             budget: formData.budget,
             ndaRequired: formData.ndaRequired ? "Yes" : "No",
             message: formData.message,
-            _subject: `[AIRACODE Lead] ${formData.name} - ${formData.serviceNeeded}`,
-            _autoresponse: `Hi ${formData.name},\n\nThank you for reaching out to AIRACODE Technologies. We have logged your project inquiry regarding "${formData.serviceNeeded}".\n\nOur Lead Systems Architect will review your specifications and follow up within 4 business hours under mutual NDA.\n\nSummary of your submission:\n- Service: ${formData.serviceNeeded}\n- Company: ${formData.company || "Not specified"}\n- Budget Range: ${formData.budget}\n- Brief: ${formData.message}\n\nBest regards,\nAIRACODE Technologies\nhttps://airacode.online\ncontact@airacode.online`,
+            _replyto: formData.email,
+            _template: "table",
+            _subject: `[AIRACODE Lead] ${formData.name} — ${formData.serviceNeeded}`,
+            _autoresponse: `Hi ${formData.name},\n\nThank you for reaching out to AIRACODE Technologies. We have logged your project inquiry regarding "${formData.serviceNeeded}".\n\nOur Lead Systems Architect will review your specifications and follow up within 4 business hours under mutual NDA.\n\nSummary of your submission:\n- Lead Name: ${formData.name}\n- Email: ${formData.email}\n- Organization: ${formData.company || "Not specified"}\n- Service Track: ${formData.serviceNeeded}\n- Budget Allocation: ${formData.budget}\n- Mutual NDA Required: ${formData.ndaRequired ? "Yes" : "No"}\n\nProject Scope:\n${formData.message}\n\nNext Steps:\n1. Architectural Review: We map technical feasibility and sprint milestones.\n2. Mutual NDA: Standard bilateral protection executed.\n3. Sprint Scoping: We schedule a 30-minute session to present architecture.\n\nNeed immediate priority assistance? Reply directly to this email or write to contact@airacode.online.\n\nBest regards,\nAIRACODE Technologies\nhttps://airacode.online\ncontact@airacode.online`,
           }),
         });
       }
